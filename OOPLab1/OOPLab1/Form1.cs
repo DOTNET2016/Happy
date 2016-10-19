@@ -19,8 +19,8 @@ namespace OOPLab1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            label1.Text = SetMinTextBox.Text;
-            
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,9 +52,9 @@ namespace OOPLab1
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int setMinutes;
-            setMinutes = int.Parse(SetMinTextBox.Text);
             setMinutes = Convert.ToInt32(SetMinTextBox.Text);
-            
+            setMinutes = int.Parse(SetMinTextBox.Text);
+
 
             if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
             {
@@ -62,10 +62,26 @@ namespace OOPLab1
             }
             else
             {
-                label1.Text = setMinutes.ToString();//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
+                minuteLabel.Text = setMinutes.ToString();//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
             }
-            
+
         }
 
+        private void SetHourTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int setHours;
+            setHours = int.Parse(SetHourTextBox.Text);
+            setHours = Convert.ToInt32(SetHourTextBox.Text);
+
+
+            if (setHours >= 24)//CONTROL SO THEY ENTER 1 - 23 FOR THE MINUTES
+            {
+                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
+            }
+            else
+            {
+                HourLabel.Text = setHours.ToString();//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
+            }
+        }
     }
 }

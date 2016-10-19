@@ -10,8 +10,6 @@ namespace OOPLab1
     {
         System.Windows.Forms.Timer t1;
 
-        private int _MinutesValue; //IGNORE
-
         public int MinutesValue { get; set; }
         
 
