@@ -9,7 +9,7 @@ namespace OOPLab1
 {
     class Clock : IClock
     {
-        Timer t;
+        System.Windows.Forms.Timer t;
         int userInputHours = 0;
 
         public void GetHours(int userHours)

@@ -37,14 +37,14 @@ namespace OOPLab1
             timer1.Start();
         }
 
-        private void StopButton_MouseClick(object sender, MouseEventArgs e)
+        private void TheClockLabel_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void StopButton_Click(object sender, EventArgs e)
+        private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
-            StopButton.Text = "Start";
+
         }
     }
 }

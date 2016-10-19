@@ -73,6 +73,7 @@
             this.TheClockLabel.Size = new System.Drawing.Size(471, 180);
             this.TheClockLabel.TabIndex = 0;
             this.TheClockLabel.Text = "00:00";
+            this.TheClockLabel.Click += new System.EventHandler(this.TheClockLabel_Click);
             // 
             // SetHourTextBox
             // 
@@ -88,6 +89,7 @@
             this.SetMinTextBox.Name = "SetMinTextBox";
             this.SetMinTextBox.Size = new System.Drawing.Size(100, 30);
             this.SetMinTextBox.TabIndex = 2;
+            this.SetMinTextBox.TextChanged += new System.EventHandler(this.SetMinTextBox_TextChanged);
             // 
             // SetHoursLabel
             // 
@@ -149,8 +151,6 @@
             this.StopButton.TabIndex = 7;
             this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = false;
-            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
-            this.StopButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StopButton_MouseClick);
             // 
             // ButtonGroupBoxSetStop
             // 
