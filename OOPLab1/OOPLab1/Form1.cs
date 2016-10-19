@@ -52,8 +52,18 @@ namespace OOPLab1
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int setMinutes;
-            setMinutes = Convert.ToInt32(SetMinTextBox.Text);
             setMinutes = int.Parse(SetMinTextBox.Text);
+            setMinutes = Convert.ToInt32(SetMinTextBox.Text);
+            
+
+            if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
+            {
+                MessageBox.Show("It's a clock dummy! Enter 1 - 59");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
+            }
+            else
+            {
+                label1.Text = setMinutes.ToString();//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
+            }
             
         }
 

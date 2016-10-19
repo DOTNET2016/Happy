@@ -12,18 +12,8 @@ namespace OOPLab1
 
         private int _MinutesValue; //IGNORE
 
-        public int MinutesValue
-        {
-            get
-            {
-                return _MinutesValue;
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int MinutesValue { get; set; }
+        
 
 
 
@@ -31,13 +21,14 @@ namespace OOPLab1
         {
             t1 = new System.Windows.Forms.Timer();
             t1.Interval = 1000;
+            t1.Enabled = true;
             t1.Tick += T1_Tick;
             t1.Start();
         }
 
         private void T1_Tick(object sender, EventArgs e)
         {
-            
+            t1.Start();
         }
     }
 }
