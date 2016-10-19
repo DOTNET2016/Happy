@@ -8,6 +8,7 @@ namespace OOPLab1
 {
     class Minutes : IMinutes
     {
+        System.Windows.Forms.Timer t1;
         public int MinutesValue
         {
             get
@@ -23,6 +24,16 @@ namespace OOPLab1
 
         public void Tick()
         {
+            t1 = new System.Windows.Forms.Timer();
+            t1.Interval = 1000;
+            t1.Tick += T1_Tick;
+            t1.Start();
+        }
+
+        private void T1_Tick(object sender, EventArgs e)
+        {
+            int i = 0;
+            string = "{0}" i; 
             throw new NotImplementedException();
         }
     }
