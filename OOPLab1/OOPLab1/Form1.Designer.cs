@@ -70,7 +70,7 @@
             // 
             this.TheClockLabel.AutoSize = true;
             this.TheClockLabel.BackColor = System.Drawing.Color.Black;
-            this.TheClockLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TheClockLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TheClockLabel.ForeColor = System.Drawing.Color.White;
             this.TheClockLabel.Location = new System.Drawing.Point(227, 219);
             this.TheClockLabel.Name = "TheClockLabel";
@@ -300,7 +300,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(526, 215);
             this.label1.Name = "label1";
@@ -308,14 +308,15 @@
             this.label1.TabIndex = 15;
             this.label1.Tag = "sec";
             this.label1.Text = "00";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(454, 205);
+            this.label2.Location = new System.Drawing.Point(439, 205);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 180);
             this.label2.TabIndex = 16;
