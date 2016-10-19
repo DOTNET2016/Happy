@@ -8,8 +8,8 @@ namespace OOPLab1
 {
     interface IClock
     {
-        void GetHours(int userHours);
-        void GetMinutes();
+        //void GetHours(int userHours);
+        //void GetMinutes();
         void SetClock();
         void StopClock();
 

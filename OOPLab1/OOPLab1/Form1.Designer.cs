@@ -309,7 +309,6 @@
             this.label1.TabIndex = 15;
             this.label1.Tag = "sec";
             this.label1.Text = "00";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 

@@ -32,7 +32,7 @@ namespace OOPLab1
 
         private void T1_Tick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

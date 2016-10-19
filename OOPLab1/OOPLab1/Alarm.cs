@@ -16,7 +16,7 @@ namespace OOPLab1
 
         public void SetAlarm()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

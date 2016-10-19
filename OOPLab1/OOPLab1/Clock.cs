@@ -12,15 +12,15 @@ namespace OOPLab1
         System.Windows.Forms.Timer t;
         int userInputHours = 0;
 
-        public void GetHours(int userHours)
-        {
+        //public void GetHours(int userHours)
+        //{
             
-        }
+        //}
 
-        public void GetMinutes()
-        {
-            throw new NotImplementedException();
-        }
+        //public void GetMinutes()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void SetClock()
         {
