@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OOPLab1
 {
@@ -10,6 +11,6 @@ namespace OOPLab1
     {
         int MinutesValue { get; set; }
 
-        void Tick();
+        void TickMinutes();
     }
 }

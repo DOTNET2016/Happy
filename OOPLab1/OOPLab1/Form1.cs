@@ -12,6 +12,9 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
+        Minutes m1 = new Minutes();
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -19,34 +22,35 @@ namespace OOPLab1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //m1.TickMinutes();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            m1.TickMinutes();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void StopButton_MouseClick(object sender, MouseEventArgs e)
         {
             timer1.Stop();
+           
         }
 
         private void StopButton_Click(object sender, EventArgs e)
         {
             StopButton.Text = "Stop";
             timer1.Start();
+           
         }
 
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
@@ -54,7 +58,7 @@ namespace OOPLab1
             int setMinutes;
             setMinutes = Convert.ToInt32(SetMinTextBox.Text);
             setMinutes = int.Parse(SetMinTextBox.Text);
-
+            
 
             if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
             {

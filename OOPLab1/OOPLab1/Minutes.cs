@@ -3,30 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OOPLab1
 {
     class Minutes : IMinutes
     {
         System.Windows.Forms.Timer t1;
+        private int _minutesValue;
 
-        public int MinutesValue { get; set; }
-        
-
-
-
-        public void Tick()
+        public int MinutesValue
         {
+            get
+            {
+                return _minutesValue;
+            }
+
+            set
+            {
+                _minutesValue = value;
+            }
+         }
+
+        public void TickMinutes()
+        {
+
             t1 = new System.Windows.Forms.Timer();
             t1.Interval = 1000;
             t1.Enabled = true;
             t1.Tick += T1_Tick;
-            t1.Start();
         }
 
-        private void T1_Tick(object sender, EventArgs e)
+        public void T1_Tick(object sender, EventArgs e)
         {
-            t1.Start();
+            for (int time = 0; time < 59; time++)//JUST TRYING THIS OUT, BASICALLY PRETTY LOST AT THE MOMENT!!
+            {
+                t1.Start();
+            }
         }
     }
 }

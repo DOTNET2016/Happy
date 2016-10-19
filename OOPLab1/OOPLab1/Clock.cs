@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Windows.Forms;
 
 namespace OOPLab1
 {
     class Clock : IClock
     {
-        //System.Windows.Forms.Timer t;
-        //int userInputHours = 0;
 
         public void SetClock()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void StopClock()

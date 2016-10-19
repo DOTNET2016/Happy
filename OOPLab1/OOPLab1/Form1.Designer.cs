@@ -70,11 +70,11 @@
             // 
             this.HourLabel.AutoSize = true;
             this.HourLabel.BackColor = System.Drawing.Color.Black;
-            this.HourLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HourLabel.Font = new System.Drawing.Font("DS-Digital", 94.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HourLabel.ForeColor = System.Drawing.Color.White;
             this.HourLabel.Location = new System.Drawing.Point(227, 219);
             this.HourLabel.Name = "HourLabel";
-            this.HourLabel.Size = new System.Drawing.Size(251, 180);
+            this.HourLabel.Size = new System.Drawing.Size(229, 157);
             this.HourLabel.TabIndex = 0;
             this.HourLabel.Text = "00";
             // 
@@ -300,11 +300,11 @@
             // 
             this.minuteLabel.AutoSize = true;
             this.minuteLabel.BackColor = System.Drawing.Color.Black;
-            this.minuteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minuteLabel.Font = new System.Drawing.Font("DS-Digital", 94.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minuteLabel.ForeColor = System.Drawing.Color.White;
             this.minuteLabel.Location = new System.Drawing.Point(526, 215);
             this.minuteLabel.Name = "minuteLabel";
-            this.minuteLabel.Size = new System.Drawing.Size(251, 180);
+            this.minuteLabel.Size = new System.Drawing.Size(229, 157);
             this.minuteLabel.TabIndex = 15;
             this.minuteLabel.Tag = "sec";
             this.minuteLabel.Text = "00";
@@ -313,11 +313,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("DS-Digital", 94.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(439, 205);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 180);
+            this.label2.Size = new System.Drawing.Size(102, 157);
             this.label2.TabIndex = 16;
             this.label2.Tag = "sec";
             this.label2.Text = ":";
