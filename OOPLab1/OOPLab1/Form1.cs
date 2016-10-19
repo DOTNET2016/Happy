@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Media;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,23 +45,31 @@ namespace OOPLab1
 
         private void StopButton_MouseClick(object sender, MouseEventArgs e)
         {
-            timer1.Stop();
+            
         }
 
         private void StopButton_Click(object sender, EventArgs e)
         {
-            StopButton.Text = "Stop";
-            timer1.Start();
+            SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+            simpleSound.Play();
+
         }
 
-        private void SetMinTextBox_TextChanged(object sender, EventArgs e)
+
+        private int SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int setMinutes;
             setMinutes = Convert.ToInt32(SetMinTextBox.Text);
             setMinutes = int.Parse(SetMinTextBox.Text);
+            return setMinutes;
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TheClockLabel_Click(object sender, EventArgs e)
         {
 
         }

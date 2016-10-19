@@ -32,8 +32,6 @@ namespace OOPLab1
 
         private void T1_Tick(object sender, EventArgs e)
         {
-            int i = 0;
-            string = "{0}" i; 
             throw new NotImplementedException();
         }
     }

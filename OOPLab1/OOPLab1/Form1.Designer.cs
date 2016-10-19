@@ -77,6 +77,7 @@
             this.TheClockLabel.Size = new System.Drawing.Size(251, 180);
             this.TheClockLabel.TabIndex = 0;
             this.TheClockLabel.Text = "00";
+            this.TheClockLabel.Click += new System.EventHandler(this.TheClockLabel_Click);
             // 
             // SetHourTextBox
             // 
