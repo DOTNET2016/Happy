@@ -19,7 +19,7 @@ namespace OOPLab1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //SetHourTextBox.Text = 
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace OOPLab1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label1.Text = DateTime.Now.ToString("HH:mm");
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,6 +53,8 @@ namespace OOPLab1
             int Minutes;
             Minutes = Convert.ToInt32(SetMinTextBox.Text);
             Minutes = int.Parse(SetMinTextBox.Text);
+
+
         }
     }
 }
