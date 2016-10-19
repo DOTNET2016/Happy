@@ -29,22 +29,30 @@ namespace OOPLab1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            TheClockLabel.Text = DateTime.Now.ToString("HH:mm");
+            label1.Text = DateTime.Now.ToString("HH:mm");
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timer1.Start();
+
         }
 
-        private void TheClockLabel_Click(object sender, EventArgs e)
+        private void StopButton_MouseClick(object sender, MouseEventArgs e)
         {
+            timer1.Stop();
+        }
 
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+            StopButton.Text = "Stop";
+            timer1.Start();
         }
 
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            int Minutes;
+            Minutes = Convert.ToInt32(SetMinTextBox.Text);
+            Minutes = int.Parse(SetMinTextBox.Text);
         }
     }
 }
