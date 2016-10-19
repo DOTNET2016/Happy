@@ -19,7 +19,8 @@ namespace OOPLab1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //SetHourTextBox.Text = 
+            label1.Text = SetMinTextBox.Text;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,11 +29,6 @@ namespace OOPLab1
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ChangeLabel()
         {
 
         }
@@ -53,12 +49,12 @@ namespace OOPLab1
             timer1.Start();
         }
 
-        private int SetMinTextBox_TextChanged(object sender, EventArgs e)
+        private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int setMinutes;
             setMinutes = Convert.ToInt32(SetMinTextBox.Text);
             setMinutes = int.Parse(SetMinTextBox.Text);
-            return setMinutes;
+            
         }
 
     }

@@ -9,18 +9,8 @@ namespace OOPLab1
 {
     class Clock : IClock
     {
-        System.Windows.Forms.Timer t;
-        int userInputHours = 0;
-
-        //public void GetHours(int userHours)
-        //{
-            
-        //}
-
-        //public void GetMinutes()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        //System.Windows.Forms.Timer t;
+        //int userInputHours = 0;
 
         public void SetClock()
         {

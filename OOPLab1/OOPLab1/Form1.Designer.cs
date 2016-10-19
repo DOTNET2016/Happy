@@ -92,7 +92,6 @@
             this.SetMinTextBox.Name = "SetMinTextBox";
             this.SetMinTextBox.Size = new System.Drawing.Size(100, 30);
             this.SetMinTextBox.TabIndex = 2;
-            this.SetMinTextBox.TextChanged += new System.EventHandler(this.SetMinTextBox_TextChanged);
             // 
             // SetHoursLabel
             // 

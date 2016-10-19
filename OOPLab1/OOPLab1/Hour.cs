@@ -9,12 +9,13 @@ namespace OOPLab1
     class Hour : IHours
     {
         System.Windows.Forms.Timer t2;
+        private int _HoursValue;
 
         public int HoursValue
         {
             get
             {
-                throw new NotImplementedException();
+                return _HoursValue;
             }
 
             set

@@ -9,11 +9,14 @@ namespace OOPLab1
     class Minutes : IMinutes
     {
         System.Windows.Forms.Timer t1;
+
+        private int _MinutesValue; //IGNORE
+
         public int MinutesValue
         {
             get
             {
-                throw new NotImplementedException();
+                return _MinutesValue;
             }
 
             set
@@ -21,6 +24,8 @@ namespace OOPLab1
                 throw new NotImplementedException();
             }
         }
+
+
 
         public void Tick()
         {
