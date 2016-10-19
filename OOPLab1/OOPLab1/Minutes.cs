@@ -30,16 +30,13 @@ namespace OOPLab1
 
             t1 = new System.Windows.Forms.Timer();
             t1.Interval = 1000;
-            t1.Enabled = true;
+            //t1.Enabled = true;
             t1.Tick += T1_Tick;
         }
 
         public void T1_Tick(object sender, EventArgs e)
         {
-            for (int time = 0; time < 59; time++)//JUST TRYING THIS OUT, BASICALLY PRETTY LOST AT THE MOMENT!!
-            {
-                t1.Start();
-            }
+            
         }
     }
 }

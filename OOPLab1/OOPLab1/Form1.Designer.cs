@@ -141,7 +141,7 @@
             this.SetTimeButton.TabIndex = 6;
             this.SetTimeButton.Text = "Set Time";
             this.SetTimeButton.UseVisualStyleBackColor = false;
-            this.SetTimeButton.Click += new System.EventHandler(this.button1_Click);
+            this.SetTimeButton.Click += new System.EventHandler(this.timer1_Tick);
             // 
             // StopButton
             // 
@@ -152,10 +152,9 @@
             this.StopButton.Name = "StopButton";
             this.StopButton.Size = new System.Drawing.Size(161, 39);
             this.StopButton.TabIndex = 7;
-            this.StopButton.Text = "Start";
+            this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = false;
             this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
-            this.StopButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StopButton_MouseClick);
             // 
             // ButtonGroupBoxSetStop
             // 
