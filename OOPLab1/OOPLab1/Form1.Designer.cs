@@ -66,11 +66,11 @@
             // 
             this.TheClockLabel.AutoSize = true;
             this.TheClockLabel.BackColor = System.Drawing.Color.Black;
-            this.TheClockLabel.Font = new System.Drawing.Font("DS-Digital", 94.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TheClockLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TheClockLabel.ForeColor = System.Drawing.Color.White;
             this.TheClockLabel.Location = new System.Drawing.Point(281, 230);
             this.TheClockLabel.Name = "TheClockLabel";
-            this.TheClockLabel.Size = new System.Drawing.Size(414, 157);
+            this.TheClockLabel.Size = new System.Drawing.Size(471, 180);
             this.TheClockLabel.TabIndex = 0;
             this.TheClockLabel.Text = "00:00";
             // 
@@ -78,7 +78,7 @@
             // 
             this.SetHourTextBox.Location = new System.Drawing.Point(156, 46);
             this.SetHourTextBox.Name = "SetHourTextBox";
-            this.SetHourTextBox.Size = new System.Drawing.Size(100, 27);
+            this.SetHourTextBox.Size = new System.Drawing.Size(100, 30);
             this.SetHourTextBox.TabIndex = 1;
             this.SetHourTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -86,27 +86,27 @@
             // 
             this.SetMinTextBox.Location = new System.Drawing.Point(156, 95);
             this.SetMinTextBox.Name = "SetMinTextBox";
-            this.SetMinTextBox.Size = new System.Drawing.Size(100, 27);
+            this.SetMinTextBox.Size = new System.Drawing.Size(100, 30);
             this.SetMinTextBox.TabIndex = 2;
             // 
             // SetHoursLabel
             // 
             this.SetHoursLabel.AutoSize = true;
-            this.SetHoursLabel.Font = new System.Drawing.Font("DS-Digital", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetHoursLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetHoursLabel.ForeColor = System.Drawing.Color.White;
             this.SetHoursLabel.Location = new System.Drawing.Point(20, 46);
             this.SetHoursLabel.Name = "SetHoursLabel";
-            this.SetHoursLabel.Size = new System.Drawing.Size(101, 19);
+            this.SetHoursLabel.Size = new System.Drawing.Size(114, 24);
             this.SetHoursLabel.TabIndex = 3;
             this.SetHoursLabel.Text = "Set Hours :";
             // 
             // SetMinLabel
             // 
             this.SetMinLabel.AutoSize = true;
-            this.SetMinLabel.Font = new System.Drawing.Font("DS-Digital", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetMinLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetMinLabel.Location = new System.Drawing.Point(20, 95);
             this.SetMinLabel.Name = "SetMinLabel";
-            this.SetMinLabel.Size = new System.Drawing.Size(116, 19);
+            this.SetMinLabel.Size = new System.Drawing.Size(131, 24);
             this.SetMinLabel.TabIndex = 4;
             this.SetMinLabel.Text = "Set Minutes :";
             // 
@@ -116,7 +116,7 @@
             this.ClockGroupBox.Controls.Add(this.SetHoursLabel);
             this.ClockGroupBox.Controls.Add(this.SetMinTextBox);
             this.ClockGroupBox.Controls.Add(this.SetHourTextBox);
-            this.ClockGroupBox.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClockGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClockGroupBox.ForeColor = System.Drawing.Color.White;
             this.ClockGroupBox.Location = new System.Drawing.Point(8, 63);
             this.ClockGroupBox.Name = "ClockGroupBox";
@@ -128,7 +128,7 @@
             // SetTimeButton
             // 
             this.SetTimeButton.BackColor = System.Drawing.Color.White;
-            this.SetTimeButton.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetTimeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetTimeButton.ForeColor = System.Drawing.Color.Black;
             this.SetTimeButton.Location = new System.Drawing.Point(73, 39);
             this.SetTimeButton.Name = "SetTimeButton";
@@ -141,7 +141,7 @@
             // StopButton
             // 
             this.StopButton.BackColor = System.Drawing.Color.White;
-            this.StopButton.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopButton.ForeColor = System.Drawing.Color.Black;
             this.StopButton.Location = new System.Drawing.Point(73, 95);
             this.StopButton.Name = "StopButton";
@@ -149,12 +149,14 @@
             this.StopButton.TabIndex = 7;
             this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = false;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            this.StopButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StopButton_MouseClick);
             // 
             // ButtonGroupBoxSetStop
             // 
             this.ButtonGroupBoxSetStop.Controls.Add(this.StopButton);
             this.ButtonGroupBoxSetStop.Controls.Add(this.SetTimeButton);
-            this.ButtonGroupBoxSetStop.Font = new System.Drawing.Font("DS-Digital", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonGroupBoxSetStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonGroupBoxSetStop.ForeColor = System.Drawing.Color.White;
             this.ButtonGroupBoxSetStop.Location = new System.Drawing.Point(675, 63);
             this.ButtonGroupBoxSetStop.Name = "ButtonGroupBoxSetStop";
@@ -167,35 +169,35 @@
             // 
             this.AlarmHoursTextBox.Location = new System.Drawing.Point(152, 56);
             this.AlarmHoursTextBox.Name = "AlarmHoursTextBox";
-            this.AlarmHoursTextBox.Size = new System.Drawing.Size(100, 25);
+            this.AlarmHoursTextBox.Size = new System.Drawing.Size(100, 28);
             this.AlarmHoursTextBox.TabIndex = 9;
             // 
             // AlarmSetMinTextBox
             // 
             this.AlarmSetMinTextBox.Location = new System.Drawing.Point(152, 108);
             this.AlarmSetMinTextBox.Name = "AlarmSetMinTextBox";
-            this.AlarmSetMinTextBox.Size = new System.Drawing.Size(100, 25);
+            this.AlarmSetMinTextBox.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetMinTextBox.TabIndex = 10;
             // 
             // AlarmSetHoursLabel
             // 
             this.AlarmSetHoursLabel.AutoSize = true;
-            this.AlarmSetHoursLabel.Font = new System.Drawing.Font("DS-Digital", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlarmSetHoursLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlarmSetHoursLabel.ForeColor = System.Drawing.Color.White;
             this.AlarmSetHoursLabel.Location = new System.Drawing.Point(16, 59);
             this.AlarmSetHoursLabel.Name = "AlarmSetHoursLabel";
-            this.AlarmSetHoursLabel.Size = new System.Drawing.Size(105, 19);
+            this.AlarmSetHoursLabel.Size = new System.Drawing.Size(120, 24);
             this.AlarmSetHoursLabel.TabIndex = 11;
             this.AlarmSetHoursLabel.Text = "Set Hours : ";
             // 
             // AlarmSetMinLabel
             // 
             this.AlarmSetMinLabel.AutoSize = true;
-            this.AlarmSetMinLabel.Font = new System.Drawing.Font("DS-Digital", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlarmSetMinLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlarmSetMinLabel.ForeColor = System.Drawing.Color.White;
             this.AlarmSetMinLabel.Location = new System.Drawing.Point(16, 111);
             this.AlarmSetMinLabel.Name = "AlarmSetMinLabel";
-            this.AlarmSetMinLabel.Size = new System.Drawing.Size(116, 19);
+            this.AlarmSetMinLabel.Size = new System.Drawing.Size(131, 24);
             this.AlarmSetMinLabel.TabIndex = 12;
             this.AlarmSetMinLabel.Text = "Set Minutes :";
             // 
@@ -206,7 +208,7 @@
             this.Alarm1GroupBox.Controls.Add(this.AlarmSetHoursLabel);
             this.Alarm1GroupBox.Controls.Add(this.AlarmSetMinTextBox);
             this.Alarm1GroupBox.Controls.Add(this.AlarmHoursTextBox);
-            this.Alarm1GroupBox.Font = new System.Drawing.Font("DS-Digital", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Alarm1GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Alarm1GroupBox.ForeColor = System.Drawing.Color.White;
             this.Alarm1GroupBox.Location = new System.Drawing.Point(12, 390);
             this.Alarm1GroupBox.Name = "Alarm1GroupBox";
@@ -233,7 +235,7 @@
             this.Alarm2GroupBox.Controls.Add(this.AlarmSetHoursLabel2);
             this.Alarm2GroupBox.Controls.Add(this.AlarmSetMinTextBox2);
             this.Alarm2GroupBox.Controls.Add(this.AlarmSetHoursTextBox2);
-            this.Alarm2GroupBox.Font = new System.Drawing.Font("DS-Digital", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Alarm2GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Alarm2GroupBox.ForeColor = System.Drawing.Color.White;
             this.Alarm2GroupBox.Location = new System.Drawing.Point(675, 390);
             this.Alarm2GroupBox.Name = "Alarm2GroupBox";
@@ -256,22 +258,22 @@
             // AlarmSetMinLabel2
             // 
             this.AlarmSetMinLabel2.AutoSize = true;
-            this.AlarmSetMinLabel2.Font = new System.Drawing.Font("DS-Digital", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlarmSetMinLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlarmSetMinLabel2.ForeColor = System.Drawing.Color.White;
             this.AlarmSetMinLabel2.Location = new System.Drawing.Point(27, 111);
             this.AlarmSetMinLabel2.Name = "AlarmSetMinLabel2";
-            this.AlarmSetMinLabel2.Size = new System.Drawing.Size(116, 19);
+            this.AlarmSetMinLabel2.Size = new System.Drawing.Size(131, 24);
             this.AlarmSetMinLabel2.TabIndex = 12;
             this.AlarmSetMinLabel2.Text = "Set Minutes :";
             // 
             // AlarmSetHoursLabel2
             // 
             this.AlarmSetHoursLabel2.AutoSize = true;
-            this.AlarmSetHoursLabel2.Font = new System.Drawing.Font("DS-Digital", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlarmSetHoursLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlarmSetHoursLabel2.ForeColor = System.Drawing.Color.White;
             this.AlarmSetHoursLabel2.Location = new System.Drawing.Point(27, 59);
             this.AlarmSetHoursLabel2.Name = "AlarmSetHoursLabel2";
-            this.AlarmSetHoursLabel2.Size = new System.Drawing.Size(105, 19);
+            this.AlarmSetHoursLabel2.Size = new System.Drawing.Size(120, 24);
             this.AlarmSetHoursLabel2.TabIndex = 11;
             this.AlarmSetHoursLabel2.Text = "Set Hours : ";
             // 
@@ -279,14 +281,14 @@
             // 
             this.AlarmSetMinTextBox2.Location = new System.Drawing.Point(152, 108);
             this.AlarmSetMinTextBox2.Name = "AlarmSetMinTextBox2";
-            this.AlarmSetMinTextBox2.Size = new System.Drawing.Size(100, 25);
+            this.AlarmSetMinTextBox2.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetMinTextBox2.TabIndex = 10;
             // 
             // AlarmSetHoursTextBox2
             // 
             this.AlarmSetHoursTextBox2.Location = new System.Drawing.Point(152, 56);
             this.AlarmSetHoursTextBox2.Name = "AlarmSetHoursTextBox2";
-            this.AlarmSetHoursTextBox2.Size = new System.Drawing.Size(100, 25);
+            this.AlarmSetHoursTextBox2.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetHoursTextBox2.TabIndex = 9;
             // 
             // Form1
