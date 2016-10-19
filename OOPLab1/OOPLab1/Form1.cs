@@ -53,16 +53,13 @@ namespace OOPLab1
             timer1.Start();
         }
 
-        private void SetMinTextBox_TextChanged(object sender, EventArgs e)
+        private int SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int setMinutes;
             setMinutes = Convert.ToInt32(SetMinTextBox.Text);
             setMinutes = int.Parse(SetMinTextBox.Text);
+            return setMinutes;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
