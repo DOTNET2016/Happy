@@ -51,6 +51,8 @@
             this.AlarmSetHoursLabel2 = new System.Windows.Forms.Label();
             this.AlarmSetMinTextBox2 = new System.Windows.Forms.TextBox();
             this.AlarmSetHoursTextBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.ClockGroupBox.SuspendLayout();
             this.ButtonGroupBoxSetStop.SuspendLayout();
             this.Alarm1GroupBox.SuspendLayout();
@@ -59,7 +61,9 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 60000;
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tag = "sec";
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // TheClockLabel
@@ -68,11 +72,11 @@
             this.TheClockLabel.BackColor = System.Drawing.Color.Black;
             this.TheClockLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TheClockLabel.ForeColor = System.Drawing.Color.White;
-            this.TheClockLabel.Location = new System.Drawing.Point(248, 219);
+            this.TheClockLabel.Location = new System.Drawing.Point(227, 219);
             this.TheClockLabel.Name = "TheClockLabel";
-            this.TheClockLabel.Size = new System.Drawing.Size(471, 180);
+            this.TheClockLabel.Size = new System.Drawing.Size(251, 180);
             this.TheClockLabel.TabIndex = 0;
-            this.TheClockLabel.Text = "00:00";
+            this.TheClockLabel.Text = "00";
             // 
             // SetHourTextBox
             // 
@@ -88,6 +92,7 @@
             this.SetMinTextBox.Name = "SetMinTextBox";
             this.SetMinTextBox.Size = new System.Drawing.Size(100, 30);
             this.SetMinTextBox.TabIndex = 2;
+            this.SetMinTextBox.TextChanged += new System.EventHandler(this.SetMinTextBox_TextChanged);
             // 
             // SetHoursLabel
             // 
@@ -147,7 +152,7 @@
             this.StopButton.Name = "StopButton";
             this.StopButton.Size = new System.Drawing.Size(161, 39);
             this.StopButton.TabIndex = 7;
-            this.StopButton.Text = "Stop";
+            this.StopButton.Text = "Start";
             this.StopButton.UseVisualStyleBackColor = false;
             this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             this.StopButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StopButton_MouseClick);
@@ -260,7 +265,7 @@
             this.AlarmSetMinLabel2.AutoSize = true;
             this.AlarmSetMinLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlarmSetMinLabel2.ForeColor = System.Drawing.Color.White;
-            this.AlarmSetMinLabel2.Location = new System.Drawing.Point(16, 111);
+            this.AlarmSetMinLabel2.Location = new System.Drawing.Point(27, 111);
             this.AlarmSetMinLabel2.Name = "AlarmSetMinLabel2";
             this.AlarmSetMinLabel2.Size = new System.Drawing.Size(131, 24);
             this.AlarmSetMinLabel2.TabIndex = 12;
@@ -291,12 +296,40 @@
             this.AlarmSetHoursTextBox2.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetHoursTextBox2.TabIndex = 9;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(526, 215);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(251, 180);
+            this.label1.TabIndex = 15;
+            this.label1.Tag = "sec";
+            this.label1.Text = "00";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Black;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(454, 205);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 180);
+            this.label2.TabIndex = 16;
+            this.label2.Tag = "sec";
+            this.label2.Text = ":";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1026, 667);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Alarm2GroupBox);
             this.Controls.Add(this.Alarm1GroupBox);
             this.Controls.Add(this.ButtonGroupBoxSetStop);
@@ -341,6 +374,8 @@
         private System.Windows.Forms.Label AlarmSetHoursLabel2;
         private System.Windows.Forms.TextBox AlarmSetMinTextBox2;
         private System.Windows.Forms.TextBox AlarmSetHoursTextBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
