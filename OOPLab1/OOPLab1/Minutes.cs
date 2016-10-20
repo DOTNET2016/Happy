@@ -9,7 +9,7 @@ namespace OOPLab1
 {
     class Minutes : IMinutes
     {
-        System.Windows.Forms.Timer t1;
+        Timer t1;
         private int _minutesValue;
 
         public int MinutesValue
@@ -28,7 +28,7 @@ namespace OOPLab1
         public void TickMinutes()
         {
             
-            t1 = new System.Windows.Forms.Timer();
+            t1 = new Timer();
             t1.Interval = 1000;
             //t1.Enabled = true;
             t1.Tick += T1_Tick;
@@ -36,14 +36,14 @@ namespace OOPLab1
 
         public void T1_Tick(object sender, EventArgs e)
         {
-            if (_minutesValue > 0)
-            {
+            if (_minutesValue >= 0)
+                t1.Enabled = false;
+            else
                 _minutesValue++;
-            }
-            else if (_minutesValue == 0)
-            {
-                _minutesValue++;
-            }
+                MinuteCount();    
+        }
+        private void MinuteCount()
+        {
 
         }
     }

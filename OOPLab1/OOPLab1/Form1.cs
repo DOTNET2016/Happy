@@ -39,8 +39,7 @@ namespace OOPLab1
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
+        {       
         }
 
         private void StopButton_Click(object sender, EventArgs e)
@@ -51,17 +50,28 @@ namespace OOPLab1
 
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
-            setMinutes = int.Parse(SetMinTextBox.Text);
-            setMinutes = Convert.ToInt32(SetMinTextBox.Text);
-
+            try
+            {
+                setMinutes = int.Parse(SetMinTextBox.Text);
+                setMinutes = Convert.ToInt32(SetMinTextBox.Text);
+            }
+            catch (Exception)
+            {
+                setMinutes = 00;
+            }
         }
 
         private void SetHourTextBox_TextChanged(object sender, EventArgs e)
         {
-            
-            setHours = Convert.ToInt32(SetHourTextBox.Text);
-            setHours = int.Parse(SetHourTextBox.Text);
-
+            try
+            {
+                setHours = Convert.ToInt32(SetHourTextBox.Text);
+                setHours = int.Parse(SetHourTextBox.Text);
+            }
+            catch (Exception)
+            {
+                setHours = 00;
+            }
         }
 
         private void SetTimeButton_MouseClick(object sender, MouseEventArgs e)
@@ -72,7 +82,7 @@ namespace OOPLab1
             }
             else
             {
-                HourLabel.Text = setHours.ToString();//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
+                HourLabel.Text = setHours.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
             }
 
             if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
@@ -81,10 +91,14 @@ namespace OOPLab1
             }
             else
             {
-                minuteLabel.Text = setMinutes.ToString();//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
+                minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
             }
+        }
 
+        private void StopButton_MouseClick(object sender, MouseEventArgs e)
+        {
 
         }
+
     }
 }
