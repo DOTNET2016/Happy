@@ -27,7 +27,7 @@ namespace OOPLab1
 
         public void TickMinutes()
         {
-
+            
             t1 = new System.Windows.Forms.Timer();
             t1.Interval = 1000;
             //t1.Enabled = true;
@@ -36,7 +36,15 @@ namespace OOPLab1
 
         public void T1_Tick(object sender, EventArgs e)
         {
-            _minutesValue++;
+            if (_minutesValue > 0)
+            {
+                _minutesValue++;
+            }
+            else if (_minutesValue == 0)
+            {
+                _minutesValue++;
+            }
+
         }
     }
 }
