@@ -146,7 +146,6 @@
             this.StopButton.Text = "Start";
             this.StopButton.UseVisualStyleBackColor = false;
             this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
-            this.StopButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StopButton_MouseClick);
             // 
             // ButtonGroupBoxSetStop
             // 

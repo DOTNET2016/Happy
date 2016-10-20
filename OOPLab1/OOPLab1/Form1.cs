@@ -12,10 +12,12 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
+
+        private Clock c1 = new Clock();
         int setMinutes;
         int setHours;
-
-        Minutes m1 = new Minutes();
+        int startMinute;
+        //Minutes m1 = new Minutes();
         
 
         public Form1()
@@ -25,33 +27,52 @@ namespace OOPLab1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void StopButton_Click(object sender, EventArgs e)
         {
-           
-            StartButton.Text = "Stop";
+            setMinutes = startMinute;
+            c1.SetClock(startMinute);
+
+            StopButton.Text = "Stop";
         }
 
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
-           
+            //c1.SetClock(setMinutes, setHours);
+            try
+            {
                 setMinutes = int.Parse(SetMinTextBox.Text);
                 setMinutes = Convert.ToInt32(SetMinTextBox.Text);
-          
+            }
+            catch (Exception)
+            {
+
+                setMinutes = 00;
+            }                
         }
 
         private void SetHourTextBox_TextChanged(object sender, EventArgs e)
         {
-            
-            setHours = Convert.ToInt32(SetHourTextBox.Text);
-            setHours = int.Parse(SetHourTextBox.Text);
-
+            try
+            {
+                setHours = Convert.ToInt32(SetHourTextBox.Text);
+                setHours = int.Parse(SetHourTextBox.Text);
+            }
+            catch (Exception)
+            {
+                setHours = 00;
+                
+            }
         }
 
         private void SetTimeButton_MouseClick(object sender, MouseEventArgs e)
         {
+            //c1.SetClock(int.parse(label2.Text))
+            //c1.SetClock(int.Parse(minuteLabel.Text));
+            
+
             if (setHours >= 24)//CONTROL SO THEY ENTER 1 - 23 FOR THE MINUTES
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
@@ -67,8 +88,7 @@ namespace OOPLab1
             }
             else
             {
-                minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL 
-                                   
+                minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL                                
             }
 
         }

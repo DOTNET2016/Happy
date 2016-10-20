@@ -10,7 +10,7 @@ namespace OOPLab1
     {
         //void GetHours(int userHours);
         //void GetMinutes();
-        void SetClock();
+        void SetClock(int time);
         void StopClock();
 
     }

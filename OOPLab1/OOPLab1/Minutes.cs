@@ -27,10 +27,9 @@ namespace OOPLab1
 
         public void TickMinutes()
         {
-            
             t1 = new Timer();
             t1.Interval = 1000;
-            //t1.Enabled = true;
+            t1.Enabled = true;
             t1.Tick += T1_Tick;
         }
 
@@ -40,11 +39,12 @@ namespace OOPLab1
                 t1.Enabled = false;
             else
                 _minutesValue++;
-                MinuteCount();    
+            //MinuteCount();    
         }
-        private void MinuteCount()
+        public void MinuteCount()
         {
 
+           
         }
     }
 }
