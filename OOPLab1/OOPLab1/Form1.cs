@@ -17,13 +17,14 @@ namespace OOPLab1
         int setMinutes;
         int setHours;
         int startMinute;
-        //Minutes m1 = new Minutes();
-        
+        Minutes m1 = new Minutes();
+
 
         public Form1()
         {
             InitializeComponent();
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -33,9 +34,32 @@ namespace OOPLab1
         private void StopButton_Click(object sender, EventArgs e)
         {
             setMinutes = startMinute;
-            c1.SetClock(startMinute);
+            c1.SetClock();
+            IsOn = !IsOn;
+            if (IsOn)
+                m1.MinuteCount();
+            else
+            {
+            }
+        }
+        private bool _IsOn;
 
-            StopButton.Text = "Stop";
+        private void UpdateLabel()
+        {
+            minuteLabel.Text = Convert.ToString(m1.MinutesValue);
+        }
+
+        public bool IsOn
+        {
+            get
+            {
+                return _IsOn;
+            }
+            set
+            {
+                _IsOn = value;
+                StopButton.Text = _IsOn ? "Stop" : "Start";
+            }
         }
 
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)

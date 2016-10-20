@@ -10,13 +10,13 @@ namespace OOPLab1
     class Clock : IClock
     {
         Timer timer;
-
-        int startMinute;
+        Minutes startMinute = new Minutes();
+        
         int count = 0;
 
-        public void SetClock(int time)
+        public void SetClock()
         {
-            startMinute = time;
+
             timer = new Timer();
             timer.Interval = 1000;
             timer.Enabled = true;

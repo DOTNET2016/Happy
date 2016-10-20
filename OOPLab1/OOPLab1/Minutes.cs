@@ -10,7 +10,8 @@ namespace OOPLab1
     class Minutes : IMinutes
     {
         Timer t1;
-        private int _minutesValue;
+        int _minutesValue;
+        int _addHour;
 
         public int MinutesValue
         {
@@ -35,16 +36,17 @@ namespace OOPLab1
 
         public void T1_Tick(object sender, EventArgs e)
         {
-            if (_minutesValue >= 0)
-                t1.Enabled = false;
-            else
+
+            if (_minutesValue < 59)
                 _minutesValue++;
+            else
+                _addHour++; //send tick to hour
+            t1.Enabled = true;
             //MinuteCount();    
         }
         public void MinuteCount()
         {
-
-           
+            TickMinutes();
         }
     }
 }
