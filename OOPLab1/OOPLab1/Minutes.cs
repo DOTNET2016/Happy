@@ -36,7 +36,7 @@ namespace OOPLab1
 
         public void T1_Tick(object sender, EventArgs e)
         {
-            
+            _minutesValue++;
         }
     }
 }
