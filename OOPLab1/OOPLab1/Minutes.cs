@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace OOPLab1
 {
@@ -26,12 +27,10 @@ namespace OOPLab1
          }
 
         public void TickMinutes()
-        {
-            
-            t1 = new System.Windows.Forms.Timer();
+        {        
             t1.Interval = 1000;
-            //t1.Enabled = true;
-            t1.Tick += T1_Tick;
+            t1.Tick +=  new EventHandler (T1_Tick);
+            t1.Enabled = true;
         }
 
         public void T1_Tick(object sender, EventArgs e)
@@ -42,9 +41,12 @@ namespace OOPLab1
             }
             else if (_minutesValue == 0)
             {
+                t1.Enabled = false;
                 _minutesValue++;
             }
-
         }
+
+
+
     }
 }

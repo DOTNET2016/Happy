@@ -35,7 +35,7 @@
             this.SetMinLabel = new System.Windows.Forms.Label();
             this.ClockGroupBox = new System.Windows.Forms.GroupBox();
             this.SetTimeButton = new System.Windows.Forms.Button();
-            this.StopButton = new System.Windows.Forms.Button();
+            this.StartButton = new System.Windows.Forms.Button();
             this.ButtonGroupBoxSetStop = new System.Windows.Forms.GroupBox();
             this.AlarmHoursTextBox = new System.Windows.Forms.TextBox();
             this.AlarmSetMinTextBox = new System.Windows.Forms.TextBox();
@@ -132,25 +132,24 @@
             this.SetTimeButton.TabIndex = 6;
             this.SetTimeButton.Text = "Set Time";
             this.SetTimeButton.UseVisualStyleBackColor = false;
-            this.SetTimeButton.Click += new System.EventHandler(this.timer1_Tick);
             this.SetTimeButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SetTimeButton_MouseClick);
             // 
-            // StopButton
+            // StartButton
             // 
-            this.StopButton.BackColor = System.Drawing.Color.White;
-            this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StopButton.ForeColor = System.Drawing.Color.Black;
-            this.StopButton.Location = new System.Drawing.Point(73, 95);
-            this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(161, 39);
-            this.StopButton.TabIndex = 7;
-            this.StopButton.Text = "Stop";
-            this.StopButton.UseVisualStyleBackColor = false;
-            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            this.StartButton.BackColor = System.Drawing.Color.White;
+            this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartButton.ForeColor = System.Drawing.Color.Black;
+            this.StartButton.Location = new System.Drawing.Point(73, 95);
+            this.StartButton.Name = "StartButton";
+            this.StartButton.Size = new System.Drawing.Size(161, 39);
+            this.StartButton.TabIndex = 7;
+            this.StartButton.Text = "Start";
+            this.StartButton.UseVisualStyleBackColor = false;
+            this.StartButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
             // ButtonGroupBoxSetStop
             // 
-            this.ButtonGroupBoxSetStop.Controls.Add(this.StopButton);
+            this.ButtonGroupBoxSetStop.Controls.Add(this.StartButton);
             this.ButtonGroupBoxSetStop.Controls.Add(this.SetTimeButton);
             this.ButtonGroupBoxSetStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonGroupBoxSetStop.ForeColor = System.Drawing.Color.White;
@@ -297,7 +296,7 @@
             this.minuteLabel.Name = "minuteLabel";
             this.minuteLabel.Size = new System.Drawing.Size(253, 180);
             this.minuteLabel.TabIndex = 15;
-            this.minuteLabel.Tag = "sec";
+            this.minuteLabel.Tag = "min";
             this.minuteLabel.Text = "00";
             // 
             // label2
@@ -349,7 +348,7 @@
         private System.Windows.Forms.Label SetMinLabel;
         private System.Windows.Forms.GroupBox ClockGroupBox;
         private System.Windows.Forms.Button SetTimeButton;
-        private System.Windows.Forms.Button StopButton;
+        private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.GroupBox ButtonGroupBoxSetStop;
         private System.Windows.Forms.TextBox AlarmHoursTextBox;
         private System.Windows.Forms.TextBox AlarmSetMinTextBox;
