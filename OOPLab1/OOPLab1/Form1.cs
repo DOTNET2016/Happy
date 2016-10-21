@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Media;
 using System.Windows.Forms;
 
 namespace OOPLab1
@@ -18,39 +17,37 @@ namespace OOPLab1
         int setMinutes;
         int setHours;
         int startMinute;
-        Minutes m1 = new Minutes();
-        SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.Dolphin_Island);
 
+        Minutes m1 = new Minutes();
+        
         public Form1()
         {
-            InitializeComponent();
-            minuteLabel.Text = "00";
-            minuteLabel.Text = m1.MinuteTick();
+            InitializeComponent();              
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            //minuteLabel.Text = Convert.ToString(m1.MinutesValue);
         }
 
         private void StopButton_Click(object sender, EventArgs e)
         {
-            setMinutes = startMinute;
-            c1.SetClock();
             IsOn = !IsOn;
             if (IsOn)
-            {
-                m1.MinuteCount();
-                simpleSound.PlayLooping();
-            }
-            else if (!IsOn)
-            {
-                simpleSound.Stop();
-            }
-
+                m1.TickMinutes();
+            else
+                MessageBox.Show("Enter some numbers in the text boxes");
         }
-        private bool _IsOn;
 
+        private void UpdateLabel()
+        {
+            m1.MinuteCount();
+            minuteLabel.Text = Convert.ToString(m1.MinutesValue);
+            minuteLabel.Show();
+        }
+
+
+        private bool _IsOn;
         public bool IsOn
         {
             get
@@ -114,7 +111,11 @@ namespace OOPLab1
             }
             else
             {
-                minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL                                
+                minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
+                m1.MinutesValue = setMinutes;
+                m1.MinuteCount();
+                
+                
             }
 
         }

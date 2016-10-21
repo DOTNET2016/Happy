@@ -10,31 +10,34 @@ namespace OOPLab1
     class Clock : IClock
     {
         Timer timer;
-        Minutes startMinute = new Minutes();
+        Minutes m1 =  new Minutes();
         
-        int count = 0;
+        int count;
+        int tempMin;
 
         public void SetClock()
         {
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Enabled = true;
+            timer.Tick += new EventHandler (Timer_Tick);
+            m1.MinutesValue = tempMin;
 
-            //timer = new Timer();
-            //timer.Interval = 1000;
-            //timer.Enabled = true;
-            //timer.Tick += new EventHandler (Timer_Tick);
-           
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //if (startMinute == null)
-            //{
-            //    timer.Start();
-            //    count = Convert.ToInt32(startMinute);
-            //    count++;
-            //}           
+            TimeValue();
+            timer.Start();
+                count = Convert.ToInt32(m1.MinutesValue);
+                count++;
+                          
         }
 
-
+        public int TimeValue()
+        {
+            return tempMin;
+        }
 
         public void StopClock()
         {
