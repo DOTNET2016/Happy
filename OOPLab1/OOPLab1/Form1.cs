@@ -12,11 +12,10 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
-        int setMinutes;
-        int setHours;
+        public int minutes; // Minutes.
+        public int hours;   // Hours.
+        public bool paused; // State of the clock [PAUSED/WORKING].
 
-        Minutes m1 = new Minutes();
-        
 
         public Form1()
         {
@@ -35,7 +34,24 @@ namespace OOPLab1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            if ((minutes == 0) && (hours == 0))
+            {
+                timer1.Enabled = false;
+                PauseBtn.Enabled = false;
+                StartButton.Enabled = true;
+                SetMinTextBox.Enabled = true;
+                SetMinTextBox.Enabled = true;
+                HourLabel.Text = "00";
+                minuteLabel.Text = "00";
+            }
+            else
+            {
+                hours -= 1;
+                minutes -= 1;
+
+                HourLabel.Text = hours.ToString();
+                minuteLabel.Text = minutes.ToString();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,47 +59,53 @@ namespace OOPLab1
             
         }
 
-        private void StopButton_Click(object sender, EventArgs e)
-        { 
-            timer1.Stop();
-            StopButton.Text = "Stop";
-        }
-
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
-            setMinutes = int.Parse(SetMinTextBox.Text);
-            setMinutes = Convert.ToInt32(SetMinTextBox.Text);
-            
-            
-
-            if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
-            {
-                MessageBox.Show("It's a clock dummy! Enter 1 - 59");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
-            }
-            else
-            {
-                minuteLabel.Text = setMinutes.ToString();//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
-            }
-
         }
 
         private void SetHourTextBox_TextChanged(object sender, EventArgs e)
         {
-            
-            setHours = Convert.ToInt32(SetHourTextBox.Text);
-            setHours = int.Parse(SetHourTextBox.Text);
-            
+           
+        }
 
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            if (paused != true)
+            {
 
-            if (setHours >= 24)//CONTROL SO THEY ENTER 1 - 23 FOR THE MINUTES
-            {
-                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
-            }
-            else
-            {
-                HourLabel.Text = setHours.ToString();//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
+                if (hours >= 1 || (minutes >= 1))
+                {
+                    timer1.Enabled = true;
+                    StartButton.Enabled = true;
+                    PauseBtn.Enabled = true;
+                    SetHoursLabel.Enabled = false;
+                    SetMinLabel.Enabled = false;
+
+                    try
+                    {
+                        int.TryParse(SetHourTextBox.Text, out hours);
+                        int.TryParse(SetMinLabel.Text, out minutes);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    timer1.Enabled = true;
+                    paused = false;
+                }
             }
         }
 
+        private void PauseBtn_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            paused = true;
+            StartButton.Enabled = true;
+            PauseBtn.Enabled = false;
+        }
     }
-}
+    }
+
