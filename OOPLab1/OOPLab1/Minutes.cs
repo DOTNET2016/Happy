@@ -7,11 +7,12 @@ using System.Windows.Forms;
 
 namespace OOPLab1
 {
-    class Minutes : IMinutes
+    public class Minutes : IMinutes
     {
         Timer t1;
-        int _minutesValue;
-        int _addHour;
+        private int _minutesValue;
+        //Clock c1 = new Clock(); 
+        int tempMin;
 
         public int MinutesValue
         {
@@ -19,12 +20,15 @@ namespace OOPLab1
             {
                 return _minutesValue;
             }
-
             set
             {
-                _minutesValue = value;
+                if ((value > 0) && (value < 60))
+                {
+                    _minutesValue = value;
+                }
             }
-         }
+        }
+
 
         public void TickMinutes()
         {
@@ -36,17 +40,17 @@ namespace OOPLab1
 
         public void T1_Tick(object sender, EventArgs e)
         {
-
-            if (_minutesValue < 59)
-                _minutesValue++;
-            else
-                _addHour++; //send tick to hour
-            t1.Enabled = true;
-            //MinuteCount();    
+            MinutesValue = tempMin;       
+            tempMin++;
+            //Call the update method from from1..........
+            MinuteCount();
+           
         }
-        public void MinuteCount()
+        public int MinuteCount()
         {
-            TickMinutes();
+            tempMin = MinutesValue;           
+            return tempMin;
+
         }
     }
 }

@@ -10,8 +10,22 @@ namespace OOPLab1
     class Hour : IHours
     {
         System.Windows.Forms.Timer t2;
-
-        public int HoursValue { get; set; }
+        private int _hourValue;
+        public int HoursValue
+        {
+            get
+            {
+                return _hourValue;
+            }
+            set
+            {
+                if ((value > 0) && (value < 24))
+                {
+                    _hourValue = value;
+                }
+            }
+                
+          }
 
         public void Tick()
         {
