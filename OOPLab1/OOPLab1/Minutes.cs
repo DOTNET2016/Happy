@@ -37,7 +37,7 @@ namespace OOPLab1
         public void T1_Tick(object sender, EventArgs e)
         {
 
-            if (_minutesValue < 59)
+            if (MinutesValue < 59)
                 _minutesValue++;
             else
                 _addHour++; //send tick to hour
@@ -47,6 +47,12 @@ namespace OOPLab1
         public void MinuteCount()
         {
             TickMinutes();
+        }
+
+        public string MinuteTick()
+        {
+            string MinutesUpdate = Convert.ToString(_minutesValue);
+            return MinutesUpdate;
         }
     }
 }

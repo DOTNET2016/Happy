@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace OOPLab1
@@ -18,13 +19,14 @@ namespace OOPLab1
         int setHours;
         int startMinute;
         Minutes m1 = new Minutes();
-
+        SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.Dolphin_Island);
 
         public Form1()
         {
             InitializeComponent();
+            minuteLabel.Text = "00";
+            minuteLabel.Text = m1.MinuteTick();
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -37,17 +39,17 @@ namespace OOPLab1
             c1.SetClock();
             IsOn = !IsOn;
             if (IsOn)
-                m1.MinuteCount();
-            else
             {
+                m1.MinuteCount();
+                simpleSound.PlayLooping();
             }
+            else if (!IsOn)
+            {
+                simpleSound.Stop();
+            }
+
         }
         private bool _IsOn;
-
-        private void UpdateLabel()
-        {
-            minuteLabel.Text = Convert.ToString(m1.MinutesValue);
-        }
 
         public bool IsOn
         {

@@ -17,21 +17,21 @@ namespace OOPLab1
         public void SetClock()
         {
 
-            timer = new Timer();
-            timer.Interval = 1000;
-            timer.Enabled = true;
-            timer.Tick += new EventHandler (Timer_Tick);
+            //timer = new Timer();
+            //timer.Interval = 1000;
+            //timer.Enabled = true;
+            //timer.Tick += new EventHandler (Timer_Tick);
            
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (startMinute == null)
-            {
-                timer.Start();
-                count = Convert.ToInt32(startMinute);
-                count++;
-            }           
+            //if (startMinute == null)
+            //{
+            //    timer.Start();
+            //    count = Convert.ToInt32(startMinute);
+            //    count++;
+            //}           
         }
 
 
