@@ -12,7 +12,7 @@ namespace OOPLab1
         private Form1 _form;
         Timer t1;
         private int _minutesValue;
-        int tempMin;
+        public int _tempMin;
 
         public int MinutesValue
         {
@@ -38,31 +38,24 @@ namespace OOPLab1
         {
         }
 
-        public void TickMinutes()
+        public void TickMinutes(Form1 o)
         {
             t1 = new Timer();
             t1.Interval = 1000;
             t1.Enabled = true;
             t1.Tick += T1_Tick;
+            o.UpdateLabel();
         }
 
         public void T1_Tick(object sender, EventArgs e)
         {
-            tempMin = MinutesValue;
-            tempMin++;         
+            _minutesValue++;
             MinuteCount();          
         }
         public int MinuteCount()
         {
-            MinutesValue = tempMin;
-            //UPDATE LABEL HERE
-            //if (_form == null)
-            //{
-            //    return -1;
-            //}
-            //else
-            //    _form.UpdateLabel();//null reference exception here if Null not checked like above!!!
-            return MinutesValue;
+            _tempMin = _minutesValue;
+            return _tempMin;
         }
     }
 }

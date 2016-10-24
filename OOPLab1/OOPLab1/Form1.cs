@@ -32,18 +32,18 @@ namespace OOPLab1
             IsOn = !IsOn;
             if (IsOn)
             {
-                m1.TickMinutes();
-                UpdateLabel();
+                m1.TickMinutes(this);
+                m1.MinuteCount();
             }
             else
                 MessageBox.Show("Enter some numbers in the text boxes");
         }
 
         public void UpdateLabel()
-        {
-            minuteLabel.Text = Convert.ToString(m1.MinutesValue);
-            minuteLabel.Refresh();
-            m1.MinuteCount();
+        {   
+            minuteLabel.Text = Convert.ToString(m1._tempMin);
+            //minuteLabel.Refresh();
+            //m1.MinuteCount();
         }
 
         private bool _IsOn;
@@ -112,7 +112,7 @@ namespace OOPLab1
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
                 m1.MinutesValue = setMinutes;
-                m1.MinuteCount();               
+                m1.MinuteCount();            
             }
 
         }

@@ -11,6 +11,6 @@ namespace OOPLab1
     {
         int MinutesValue { get; set; }
 
-        void TickMinutes();
+        void TickMinutes(Form1 o);
     }
 }
