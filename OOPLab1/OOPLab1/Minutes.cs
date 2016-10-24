@@ -30,6 +30,11 @@ namespace OOPLab1
 
         public void TickMinutes()
         {
+           
+        }
+
+        public int MinuteCount()
+        {
             MinutesValue = tempMin;
             tempMin = _minutesValue;
             tempMin++;
@@ -38,11 +43,6 @@ namespace OOPLab1
                 _minutesValue = 0;
                 addHour++;
             }
-        }
-
-        public int MinuteCount()
-        {
-            TickMinutes();
             return MinutesValue;
         }
     }

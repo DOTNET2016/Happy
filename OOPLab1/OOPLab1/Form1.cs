@@ -58,11 +58,14 @@ namespace OOPLab1
             }
 
         }
-
-        private void T2_Tick(object sender, EventArgs e)
+        public void UpdateLabel()
         {
             int setMinute = m1.MinuteCount();
             minuteLabel.Text = setMinute.ToString("00");
+        }
+        private void T2_Tick(object sender, EventArgs e)
+        {
+            UpdateLabel();
         }
 
         private bool _IsOn;
