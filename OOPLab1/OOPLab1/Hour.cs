@@ -10,33 +10,40 @@ namespace OOPLab1
     class Hour : IHours
     {
         System.Windows.Forms.Timer t2;
-        private int _hourValue;
+        private int _hoursValue;
+        int tempHour;
+
         public int HoursValue
         {
             get
             {
-                return _hourValue;
+                return _hoursValue;
             }
             set
             {
                 if ((value > 0) && (value < 24))
                 {
-                    _hourValue = value;
+                    _hoursValue = value;
                 }
             }                
           }
 
         public void Tick()
         {
-            t2 = new System.Windows.Forms.Timer();
+            /*t2 = new System.Windows.Forms.Timer();
             t2.Interval = 1000;
             t2.Tick += T2_Tick;
-            t2.Start();
+            t2.Start();*/
         }
 
-        private void T2_Tick(object sender, EventArgs e)
+        public int HourCount()
         {
-            throw new NotImplementedException();
+            tempHour = _hoursValue;
+            tempHour++;
+            if (tempHour > 23)
+                _hoursValue = 0;
+            HoursValue = tempHour;
+            return HoursValue;
         }
     }
 }
