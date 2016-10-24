@@ -29,15 +29,24 @@ namespace OOPLab1
 
         public int HourCount()
         {
-            
-
-            HoursValue = tempHour;
             tempHour = _hoursValue;
-            tempHour++;
+
             if (tempHour > 23)
                 _hoursValue = 0;
-            
+            tempHour++;
+            HoursValue = tempHour;
+            HourReturn();
             return HoursValue;
+        }
+
+        public int HourReturn()
+        {
+            var HourReturn = HoursValue;
+            return HourReturn;
+        }
+        public void HourAdd()
+        {
+            HourCount();
         }
     }
 }

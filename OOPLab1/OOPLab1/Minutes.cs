@@ -9,9 +9,9 @@ namespace OOPLab1
 {
     public class Minutes : IMinutes
     {
+        Hour h1 = new Hour();
         private int _minutesValue;
         int tempMin;
-        int addHour;
 
         public int MinutesValue
         {
@@ -34,8 +34,8 @@ namespace OOPLab1
             tempMin++;
             if (tempMin > 59)
             {
-                tempMin = 0;
-                addHour++;
+                _minutesValue = 0;
+                h1.HourAdd();
             } 
             MinutesValue = tempMin;
             return MinutesValue;

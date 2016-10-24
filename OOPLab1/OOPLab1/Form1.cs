@@ -16,6 +16,8 @@ namespace OOPLab1
         Timer t2 = new Timer();
         Minutes m1 = new Minutes();
         Hour h1 = new Hour();
+        private bool _IsOn;
+        private bool _timerOn;
 
         private Clock c1 = new Clock();
         int setMinutes;
@@ -40,44 +42,27 @@ namespace OOPLab1
             if (IsOn)
             {
                 LabelTimer();
-                simpleSound.PlayLooping();
+                //simpleSound.PlayLooping();
             }
             if (!IsOn)
             {
                 LabelTimer();
-                simpleSound.Stop();
+                //simpleSound.Stop();
                 //MessageBox.Show("Enter some numbers in the text boxes");
             }
         }
         public void LabelTimer()
         {
-            UpdateLabel();
             TimerOn = !TimerOn;
-
-            //if (!TimerOn)
-            //{
-            //    t2.Enabled = true;
-            //}
-            //if (IsOn)
-            //{
-            //    t2.Stop();
-            //    minuteLabel.Text = setMinutes.ToString("00");
-            //}
-
         }
         public void UpdateLabel()
         {
-
-            int setMinute = m1.MinuteCount();
-
             //setMinute = setMinutes;
+            int setMinute = m1.MinuteCount();
             minuteLabel.Text = setMinute.ToString("00");
-            if (setMinute > 59)
-            {
-                int setHour = h1.HourCount();
-                HourLabel.Text = setHour.ToString("00");
-            }
 
+            int setHour = h1.HourReturn();
+            HourLabel.Text = setHour.ToString("00");
         }
         
         private void T2_Tick(object sender, EventArgs e)
@@ -85,8 +70,7 @@ namespace OOPLab1
             UpdateLabel();
         }
 
-        private bool _IsOn;
-        private bool _timerOn;
+
         public bool IsOn
         {
             get
@@ -151,6 +135,7 @@ namespace OOPLab1
             else
             {
                 HourLabel.Text = setHours.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
+                h1.HoursValue = setHours;
             }
 
             if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
