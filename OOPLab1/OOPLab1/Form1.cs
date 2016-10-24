@@ -25,8 +25,7 @@ namespace OOPLab1
         }
         
         private void Form1_Load(object sender, EventArgs e)
-        {
-            
+        {            
         }
 
         private void StopButton_Click(object sender, EventArgs e)
@@ -90,8 +89,7 @@ namespace OOPLab1
             }
             catch (Exception)
             {
-                setHours = 00;
-                
+                setHours = 0;
             }
         }
 
@@ -99,7 +97,6 @@ namespace OOPLab1
         {
             //c1.SetClock(int.parse(label2.Text))
             //c1.SetClock(int.Parse(minuteLabel.Text));
-
 
             if (setHours >= 24)//CONTROL SO THEY ENTER 1 - 23 FOR THE MINUTES
             {
@@ -120,7 +117,6 @@ namespace OOPLab1
                 m1.MinutesValue = setMinutes;
                 m1.MinuteCount();               
             }
-
         }
     }
 }
