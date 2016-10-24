@@ -67,12 +67,12 @@ namespace OOPLab1
             if (IsOn)
             {
                 LabelTimer();
-                simpleSound.PlayLooping();
+                //simpleSound.PlayLooping();
             }
             if (!IsOn)
             {
                 LabelTimer();
-                simpleSound.Stop();
+                //simpleSound.Stop();
             }
         }
         public void LabelTimer()
