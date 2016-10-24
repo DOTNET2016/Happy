@@ -9,9 +9,20 @@ namespace OOPLab1
 {
     public class Minutes : IMinutes
     {
+        private int _addHour;
         private int _minutesValue;
         int tempMin;
-        int addHour;
+        public int addHour
+        {
+            get
+            {
+                return _addHour;
+            }
+            set
+            {
+                _addHour = value;
+            }
+         }
 
         public int MinutesValue
         {
@@ -32,12 +43,12 @@ namespace OOPLab1
         {
             tempMin = _minutesValue;
             tempMin++;
-            if (tempMin > 59)
-            {
-                tempMin = 0;
-                addHour++;
-            } 
+  
             MinutesValue = tempMin;
+            if (tempMin == 60)
+            {
+                _minutesValue = 0;
+            }
             return MinutesValue;
         }
     }

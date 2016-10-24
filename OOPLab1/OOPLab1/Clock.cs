@@ -9,17 +9,36 @@ namespace OOPLab1
 {
     class Clock : IClock
     {
-        Timer timer;
-        Minutes m1 =  new Minutes();
+        Minutes m2 =  new Minutes();
+        Hour h2 = new Hour();
         
         int count;
         int tempMin;
 
-        public void SetClock()
-        {
-            
+        int _setMins;
+        int _setHrs;
 
+        public int SetMins
+        {
+            get
+            {
+                return _setMins;
+            }
+            set
+            {
+                _setMins = value;
+            }
         }
+
+        //public int CheckTime(int _setMins, int _setHrs)
+        //{
+        //    if (_setMins > 59)
+        //    {
+
+        //        h2.HourCount();
+        //    }
+        //    return _setHrs;
+        //}
 
        
         

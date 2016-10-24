@@ -16,76 +16,12 @@ namespace OOPLab1
         Timer t2 = new Timer();
         Minutes m1 = new Minutes();
         Hour h1 = new Hour();
+        Clock c1 = new Clock();
 
-        private Clock c1 = new Clock();
+        SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.RISE_100);
         int setMinutes;
         int setHours;
-        SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.RISE_100);
-
-        public Form1()
-        {
-            InitializeComponent();
-            t2.Interval = 1000;
-            t2.Tick += T2_Tick;
-        }
-        
-        private void Form1_Load(object sender, EventArgs e)
-        {            
-        }
-
-        private void StopButton_Click(object sender, EventArgs e)
-        {
-
-            IsOn = !IsOn;
-            if (IsOn)
-            {
-                LabelTimer();
-                simpleSound.PlayLooping();
-            }
-            if (!IsOn)
-            {
-                LabelTimer();
-                simpleSound.Stop();
-                //MessageBox.Show("Enter some numbers in the text boxes");
-            }
-        }
-        public void LabelTimer()
-        {
-
-            TimerOn = !TimerOn;
-            UpdateLabel();
-            //if (!TimerOn)
-            //{
-            //    t2.Enabled = true;
-            //}
-            //if (IsOn)
-            //{
-            //    t2.Stop();
-            //    minuteLabel.Text = setMinutes.ToString("00");
-            //}
-
-        }
-        public void UpdateLabel()
-        {
-
-
-            int setMinute = m1.MinuteCount();
-
-            //setMinute = setMinutes;
-            minuteLabel.Text = setMinute.ToString("00");
-            //if (setMinute > 59)
-            //{
-            //    int setHour = h1.HourCount();
-            //    HourLabel.Text = setHour.ToString("00");
-            //}
-
-        }
-        
-        private void T2_Tick(object sender, EventArgs e)
-        {
-            UpdateLabel();
-        }
-
+ 
         private bool _IsOn;
         private bool _timerOn;
         public bool IsOn
@@ -113,9 +49,61 @@ namespace OOPLab1
             }
         }
 
+        public Form1()
+        {
+            InitializeComponent();
+            t2.Interval = 1000;
+            t2.Tick += T2_Tick;
+        }
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {            
+        }
+
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+
+            IsOn = !IsOn;
+            if (IsOn)
+            {
+                LabelTimer();
+                simpleSound.PlayLooping();
+            }
+            if (!IsOn)
+            {
+                LabelTimer();
+                simpleSound.Stop();
+            }
+        }
+        public void LabelTimer()
+        {
+            TimerOn = !TimerOn;
+        }
+
+        public void UpdateLabel()
+        {
+            int setMinute = m1.MinuteCount();
+            if (setMinute <= 60)
+                minuteLabel.Text = setMinute.ToString("00");
+            if (setMinute == 0)
+            {
+                    int setHour = setHours;
+                    h1.HoursValue = setHour;
+                    setHour = h1.HourCount();
+                    HourLabel.Text = setHour.ToString("00");
+                /*setHour = c1.CheckTime(setMinute, setHours);*/
+                //setHour = h1.HourCount();
+                //HourLabel.Text = setHour.ToString("00");
+            }           
+        }
+        
+        private void T2_Tick(object sender, EventArgs e)
+        {
+            UpdateLabel();
+        }
+
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
-            //c1.SetClock(setMinutes, setHours);
             try
             {
                 setMinutes = int.Parse(SetMinTextBox.Text);
@@ -152,6 +140,7 @@ namespace OOPLab1
             else
             {
                 HourLabel.Text = setHours.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
+                h1.HoursValue = setHours;
             }
 
             if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
@@ -161,8 +150,7 @@ namespace OOPLab1
             else
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
-                //m1.MinutesValue = setMinutes;
-                //m1.MinuteCount();               
+                m1.MinutesValue = setMinutes;            
             }
         }
 

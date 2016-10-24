@@ -9,6 +9,7 @@ namespace OOPLab1
 {
     class Hour : IHours
     {
+        Minutes m4 = new Minutes();
         private int _hoursValue;
         int tempHour;
 
@@ -29,14 +30,13 @@ namespace OOPLab1
 
         public int HourCount()
         {
-            
-
-            HoursValue = tempHour;
             tempHour = _hoursValue;
             tempHour++;
-            if (tempHour > 23)
+            HoursValue = tempHour;
+
+            if (tempHour == 24)
                 _hoursValue = 0;
-            
+
             return HoursValue;
         }
     }
