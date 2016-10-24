@@ -32,7 +32,10 @@ namespace OOPLab1
             tempHour = _hoursValue;
 
             if (tempHour > 23)
+            {
                 _hoursValue = 0;
+                HourReturn();
+            }
             tempHour++;
             HoursValue = tempHour;
             HourReturn();
@@ -41,7 +44,7 @@ namespace OOPLab1
 
         public int HourReturn()
         {
-            var HourReturn = HoursValue;
+            var HourReturn = tempHour;
             return HourReturn;
         }
         public void HourAdd()
