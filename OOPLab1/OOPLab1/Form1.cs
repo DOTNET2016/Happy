@@ -13,6 +13,7 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
+        Timer t2 = new Timer();
         Minutes m1 = new Minutes();
         private Clock c1 = new Clock();
         int setMinutes;
@@ -39,13 +40,14 @@ namespace OOPLab1
             }
             if (!IsOn)
             {
+                LabelTimer();
                 simpleSound.Stop();
                 //MessageBox.Show("Enter some numbers in the text boxes");
             }
         }
         public void LabelTimer()
         {
-            Timer t2 = new Timer();
+          
             t2.Interval = 1000;
             t2.Tick += T2_Tick;
             if (IsOn)
@@ -55,12 +57,15 @@ namespace OOPLab1
             if (!IsOn)
             {
                 t2.Stop();
+                minuteLabel.Text = setMinutes.ToString("00");
             }
 
         }
         public void UpdateLabel()
         {
+            
             int setMinute = m1.MinuteCount();
+            //setMinute = setMinutes;
             minuteLabel.Text = setMinute.ToString("00");
         }
         private void T2_Tick(object sender, EventArgs e)
@@ -131,6 +136,7 @@ namespace OOPLab1
             else
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
+                m1.MinutesValue = setMinutes;
                 //m1.MinuteCount();               
             }
         }

@@ -28,21 +28,16 @@ namespace OOPLab1
             }                
           }
 
-        public void Tick()
-        {
-            /*t2 = new System.Windows.Forms.Timer();
-            t2.Interval = 1000;
-            t2.Tick += T2_Tick;
-            t2.Start();*/
-        }
-
         public int HourCount()
         {
+            
+
+            HoursValue = tempHour;
             tempHour = _hoursValue;
             tempHour++;
             if (tempHour > 23)
                 _hoursValue = 0;
-            HoursValue = tempHour;
+            
             return HoursValue;
         }
     }
