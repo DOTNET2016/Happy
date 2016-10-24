@@ -76,7 +76,7 @@ namespace OOPLab1
             catch (Exception)
             {
 
-                setMinutes = 00;
+                setMinutes = 0;
             }                
         }
 
@@ -114,8 +114,8 @@ namespace OOPLab1
             else
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
-                m1.MinutesValue = setMinutes;
-                m1.MinuteCount();               
+                setMinutes = m1.MinuteCount();
+                //m1.MinuteCount();               
             }
         }
     }

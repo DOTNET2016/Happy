@@ -325,6 +325,7 @@
             this.Controls.Add(this.ButtonGroupBoxSetStop);
             this.Controls.Add(this.ClockGroupBox);
             this.Controls.Add(this.HourLabel);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
