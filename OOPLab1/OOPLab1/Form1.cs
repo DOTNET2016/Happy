@@ -51,9 +51,9 @@ namespace OOPLab1
         }
         public void LabelTimer()
         {
-
-            TimerOn = !TimerOn;
             UpdateLabel();
+            TimerOn = !TimerOn;
+
             //if (!TimerOn)
             //{
             //    t2.Enabled = true;
@@ -68,16 +68,15 @@ namespace OOPLab1
         public void UpdateLabel()
         {
 
-
             int setMinute = m1.MinuteCount();
 
             //setMinute = setMinutes;
             minuteLabel.Text = setMinute.ToString("00");
-            //if (setMinute > 59)
-            //{
-            //    int setHour = h1.HourCount();
-            //    HourLabel.Text = setHour.ToString("00");
-            //}
+            if (setMinute > 59)
+            {
+                int setHour = h1.HourCount();
+                HourLabel.Text = setHour.ToString("00");
+            }
 
         }
         
@@ -161,7 +160,7 @@ namespace OOPLab1
             else
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
-                //m1.MinutesValue = setMinutes;
+                m1.MinutesValue = setMinutes;
                 //m1.MinuteCount();               
             }
         }
