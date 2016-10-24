@@ -15,6 +15,8 @@ namespace OOPLab1
     {
         Timer t2 = new Timer();
         Minutes m1 = new Minutes();
+        Hour h1 = new Hour();
+
         private Clock c1 = new Clock();
         int setMinutes;
         int setHours;
@@ -22,7 +24,9 @@ namespace OOPLab1
 
         public Form1()
         {
-            InitializeComponent();;
+            InitializeComponent();
+            t2.Interval = 1000;
+            t2.Tick += T2_Tick;
         }
         
         private void Form1_Load(object sender, EventArgs e)
@@ -47,33 +51,43 @@ namespace OOPLab1
         }
         public void LabelTimer()
         {
-          
-            t2.Interval = 1000;
-            t2.Tick += T2_Tick;
-            if (IsOn)
-            {
-                t2.Enabled = true;
-            }
-            if (!IsOn)
-            {
-                t2.Stop();
-                minuteLabel.Text = setMinutes.ToString("00");
-            }
+
+            TimerOn = !TimerOn;
+            UpdateLabel();
+            //if (!TimerOn)
+            //{
+            //    t2.Enabled = true;
+            //}
+            //if (IsOn)
+            //{
+            //    t2.Stop();
+            //    minuteLabel.Text = setMinutes.ToString("00");
+            //}
 
         }
         public void UpdateLabel()
         {
-            
+
+
             int setMinute = m1.MinuteCount();
+
             //setMinute = setMinutes;
             minuteLabel.Text = setMinute.ToString("00");
+            //if (setMinute > 59)
+            //{
+            //    int setHour = h1.HourCount();
+            //    HourLabel.Text = setHour.ToString("00");
+            //}
+
         }
+        
         private void T2_Tick(object sender, EventArgs e)
         {
             UpdateLabel();
         }
 
         private bool _IsOn;
+        private bool _timerOn;
         public bool IsOn
         {
             get
@@ -84,6 +98,18 @@ namespace OOPLab1
             {
                 _IsOn = value;
                 StopButton.Text = _IsOn ? "Stop" : "Start";
+            }
+        }
+        public bool TimerOn
+        {
+            get
+            {
+                return _timerOn;
+            }
+            set
+            {
+                _timerOn = value;
+                t2.Enabled = _timerOn ? true : false;
             }
         }
 
@@ -97,7 +123,6 @@ namespace OOPLab1
             }
             catch (Exception)
             {
-
                 setMinutes = 0;
             }                
         }
@@ -136,7 +161,7 @@ namespace OOPLab1
             else
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
-                m1.MinutesValue = setMinutes;
+                //m1.MinutesValue = setMinutes;
                 //m1.MinuteCount();               
             }
         }

@@ -9,7 +9,6 @@ namespace OOPLab1
 {
     class Hour : IHours
     {
-        System.Windows.Forms.Timer t2;
         private int _hoursValue;
         int tempHour;
 
