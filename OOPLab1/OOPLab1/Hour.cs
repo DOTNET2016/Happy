@@ -23,8 +23,7 @@ namespace OOPLab1
                 {
                     _hourValue = value;
                 }
-            }
-                
+            }                
           }
 
         public void Tick()
@@ -37,7 +36,6 @@ namespace OOPLab1
 
         private void T2_Tick(object sender, EventArgs e)
         {
-
             throw new NotImplementedException();
         }
     }

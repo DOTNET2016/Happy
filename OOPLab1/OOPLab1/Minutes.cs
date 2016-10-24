@@ -29,11 +29,6 @@ namespace OOPLab1
             }
         }
 
-        public Minutes (Form1 form)
-        {
-            _form = form;
-        }
-
         public Minutes()
         {
         }
@@ -41,16 +36,18 @@ namespace OOPLab1
         public void TickMinutes()
         {
             t1 = new Timer();
-            t1.Interval = 1000;
             t1.Enabled = true;
+            t1.Interval = 1000;
             t1.Tick += T1_Tick;
         }
 
         public void T1_Tick(object sender, EventArgs e)
         {
             tempMin = MinutesValue;
-            tempMin++;         
-            MinuteCount();          
+            tempMin++;
+            if (tempMin > 59)
+                _minutesValue = 0;
+            //MinuteCount();          
         }
         public int MinuteCount()
         {
