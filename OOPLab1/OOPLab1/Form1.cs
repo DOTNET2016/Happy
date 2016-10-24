@@ -22,6 +22,7 @@ namespace OOPLab1
         public Form1()
         {
             InitializeComponent();
+            UpdateLabel();
         }
         
         private void Form1_Load(object sender, EventArgs e)
@@ -30,7 +31,6 @@ namespace OOPLab1
 
         private void StopButton_Click(object sender, EventArgs e)
         {
-            UpdateLabel();
             IsOn = !IsOn;
             if (IsOn)
             {
@@ -45,6 +45,14 @@ namespace OOPLab1
         }
 
         public void UpdateLabel()
+        {
+            Timer t2 = new Timer();
+            t2.Enabled = true;
+            t2.Interval = 1001;
+            t2.Tick += T2_Tick;
+        }
+
+        private void T2_Tick(object sender, EventArgs e)
         {
             int setMinute = m1.MinuteCount();
             minuteLabel.Text = Convert.ToString(setMinute);

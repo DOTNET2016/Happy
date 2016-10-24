@@ -43,15 +43,16 @@ namespace OOPLab1
 
         public void T1_Tick(object sender, EventArgs e)
         {
-            tempMin = MinutesValue;
+            tempMin = _minutesValue;
             tempMin++;
             if (tempMin > 59)
                 _minutesValue = 0;
-            //MinuteCount();          
+            MinuteCount();
         }
         public int MinuteCount()
         {
             MinutesValue = tempMin;
+            //ToDo
             //UPDATE LABEL HERE
             //if (_form == null)
             //{
