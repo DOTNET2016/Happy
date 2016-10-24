@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace OOPLab1
@@ -16,6 +17,7 @@ namespace OOPLab1
         private Clock c1 = new Clock();
         int setMinutes;
         int setHours;
+        SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.RISE_100);
 
         public Form1()
         {
@@ -34,9 +36,13 @@ namespace OOPLab1
             {
                 m1.TickMinutes();
                 UpdateLabel();
+                simpleSound.PlayLooping();
             }
-            else
+            else if (!IsOn)
+            {
+                simpleSound.Stop();
                 MessageBox.Show("Enter some numbers in the text boxes");
+            }
         }
 
         public void UpdateLabel()

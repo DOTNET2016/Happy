@@ -63,9 +63,9 @@ namespace OOPLab1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Dolphin_Island {
+        internal static System.IO.UnmanagedMemoryStream RISE_100 {
             get {
-                return ResourceManager.GetStream("Dolphin_Island", resourceCulture);
+                return ResourceManager.GetStream("RISE_100", resourceCulture);
             }
         }
     }
