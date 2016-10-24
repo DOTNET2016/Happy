@@ -12,40 +12,39 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
-
+        Minutes m1 = new Minutes();
         private Clock c1 = new Clock();
         int setMinutes;
         int setHours;
-        int startMinute;
 
-        Minutes m1 = new Minutes();
-        
         public Form1()
         {
-            InitializeComponent();              
+            InitializeComponent();               
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
-            //minuteLabel.Text = Convert.ToString(m1.MinutesValue);
+            
         }
 
         private void StopButton_Click(object sender, EventArgs e)
         {
             IsOn = !IsOn;
             if (IsOn)
+            {
                 m1.TickMinutes();
+                UpdateLabel();
+            }
             else
                 MessageBox.Show("Enter some numbers in the text boxes");
         }
 
-        private void UpdateLabel()
+        public void UpdateLabel()
         {
-            m1.MinuteCount();
             minuteLabel.Text = Convert.ToString(m1.MinutesValue);
-            minuteLabel.Show();
+            minuteLabel.Refresh();
+            m1.MinuteCount();
         }
-
 
         private bool _IsOn;
         public bool IsOn
@@ -94,7 +93,7 @@ namespace OOPLab1
         {
             //c1.SetClock(int.parse(label2.Text))
             //c1.SetClock(int.Parse(minuteLabel.Text));
-            
+
 
             if (setHours >= 24)//CONTROL SO THEY ENTER 1 - 23 FOR THE MINUTES
             {
@@ -113,9 +112,7 @@ namespace OOPLab1
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
                 m1.MinutesValue = setMinutes;
-                m1.MinuteCount();
-                
-                
+                m1.MinuteCount();               
             }
 
         }
