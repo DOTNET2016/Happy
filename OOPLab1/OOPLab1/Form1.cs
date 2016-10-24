@@ -21,8 +21,7 @@ namespace OOPLab1
 
         public Form1()
         {
-            InitializeComponent();
-            UpdateLabel();
+            InitializeComponent();;
         }
         
         private void Form1_Load(object sender, EventArgs e)
@@ -31,31 +30,39 @@ namespace OOPLab1
 
         private void StopButton_Click(object sender, EventArgs e)
         {
+
             IsOn = !IsOn;
             if (IsOn)
             {
-                m1.TickMinutes();
+                LabelTimer();
                 simpleSound.PlayLooping();
             }
-            else if (!IsOn)
+            if (!IsOn)
             {
                 simpleSound.Stop();
                 //MessageBox.Show("Enter some numbers in the text boxes");
             }
         }
-
-        public void UpdateLabel()
+        public void LabelTimer()
         {
             Timer t2 = new Timer();
-            t2.Enabled = true;
-            t2.Interval = 1001;
+            t2.Interval = 1000;
             t2.Tick += T2_Tick;
+            if (IsOn)
+            {
+                t2.Enabled = true;
+            }
+            if (!IsOn)
+            {
+                t2.Stop();
+            }
+
         }
 
         private void T2_Tick(object sender, EventArgs e)
         {
             int setMinute = m1.MinuteCount();
-            minuteLabel.Text = Convert.ToString(setMinute);
+            minuteLabel.Text = setMinute.ToString("00");
         }
 
         private bool _IsOn;

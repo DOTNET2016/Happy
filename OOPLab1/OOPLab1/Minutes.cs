@@ -9,10 +9,9 @@ namespace OOPLab1
 {
     public class Minutes : IMinutes
     {
-        private Form1 _form;
-        Timer t1;
         private int _minutesValue;
-        int tempMin;
+        int tempMin = 1;
+        int addHour;
 
         public int MinutesValue
         {
@@ -29,37 +28,21 @@ namespace OOPLab1
             }
         }
 
-        public Minutes()
-        {
-        }
-
         public void TickMinutes()
         {
-            t1 = new Timer();
-            t1.Enabled = true;
-            t1.Interval = 1000;
-            t1.Tick += T1_Tick;
-        }
-
-        public void T1_Tick(object sender, EventArgs e)
-        {
+            MinutesValue = tempMin;
             tempMin = _minutesValue;
             tempMin++;
             if (tempMin > 59)
+            {
                 _minutesValue = 0;
-            MinuteCount();
+                addHour++;
+            }
         }
+
         public int MinuteCount()
         {
-            MinutesValue = tempMin;
-            //ToDo
-            //UPDATE LABEL HERE
-            //if (_form == null)
-            //{
-            //    return -1;
-            //}
-            //else
-            //    _form.UpdateLabel();//null reference exception here if Null not checked like above!!!
+            TickMinutes();
             return MinutesValue;
         }
     }
