@@ -166,6 +166,7 @@
             this.AlarmHoursTextBox.Name = "AlarmHoursTextBox";
             this.AlarmHoursTextBox.Size = new System.Drawing.Size(100, 28);
             this.AlarmHoursTextBox.TabIndex = 9;
+            this.AlarmHoursTextBox.TextChanged += new System.EventHandler(this.AlarmHoursTextBox_TextChanged);
             // 
             // AlarmSetMinTextBox
             // 
@@ -173,6 +174,7 @@
             this.AlarmSetMinTextBox.Name = "AlarmSetMinTextBox";
             this.AlarmSetMinTextBox.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetMinTextBox.TabIndex = 10;
+            this.AlarmSetMinTextBox.TextChanged += new System.EventHandler(this.AlarmSetMinTextBox_TextChanged);
             // 
             // AlarmSetHoursLabel
             // 
@@ -222,6 +224,7 @@
             this.SetAlarmButton.TabIndex = 13;
             this.SetAlarmButton.Text = "Set Alarm";
             this.SetAlarmButton.UseVisualStyleBackColor = false;
+            this.SetAlarmButton.Click += new System.EventHandler(this.SetAlarmButton_Click);
             // 
             // Alarm2GroupBox
             // 

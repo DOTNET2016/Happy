@@ -12,17 +12,6 @@ namespace OOPLab1
         private int _addHour;
         private int _minutesValue;
         int tempMin;
-        public int addHour
-        {
-            get
-            {
-                return _addHour;
-            }
-            set
-            {
-                _addHour = value;
-            }
-         }
 
         public int MinutesValue
         {
