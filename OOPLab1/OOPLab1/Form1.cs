@@ -14,6 +14,7 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
+        Regex nonNumericRegex = new Regex(@"\D");
         Timer t1 = new Timer();
         Clock c1 = new Clock();
         Alarm a1 = new Alarm();
@@ -22,7 +23,6 @@ namespace OOPLab1
         int setHours;
         int _AlarmSetHours;
         int _AlarmSetMins;
-        Regex nonNumericRegex = new Regex(@"\D");
 
         private bool _IsOn;
 
@@ -59,9 +59,6 @@ namespace OOPLab1
             int setMinute = c1.CheckMin();
             int setHour = c1.CheckHour();
             ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
-            /*minuteLabel.Text = setMinute.ToString("00");
-            
-            HourLabel.Text = setHour.ToString("00");
             a1.CheckTime();
         }
         
@@ -69,6 +66,7 @@ namespace OOPLab1
         {
             UpdateLabel();
         }
+
         public bool IsOn
         {
             get
@@ -89,6 +87,7 @@ namespace OOPLab1
                 SetAlarmButton.Enabled = _IsOn ? false : true;
             }
         }
+
         //get user input from from textbox and save to minutes
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -102,6 +101,7 @@ namespace OOPLab1
                 setMinutes = 0;
             }                
         }
+
         //get user input from from textbox and save to hours
         private void SetHourTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -115,6 +115,7 @@ namespace OOPLab1
                 setHours = 0;
             }
         }
+
         //when stop button is presset the time will reset and clock will start at set time
         private void ResetLabel()
         {
@@ -125,22 +126,20 @@ namespace OOPLab1
 
         private void SetTimeButton_Click(object sender, EventArgs e)
         {
-            if (setHours >= 24)//CONTROL SO THEY ENTER 1 - 23 FOR THE MINUTES
+            if (setHours >= 24)
             {
-                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
+                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
             }
             else if (nonNumericRegex.IsMatch(SetHourTextBox.Text))
             {
-                //Contains non numeric characters.
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-            else if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
+            else if (setMinutes >= 60)
             {
-                MessageBox.Show("It's a clock dummy! Enter 1 - 59");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
+                MessageBox.Show("It's a clock dummy! Enter 1 - 59");
             }
             else if (nonNumericRegex.IsMatch(SetMinTextBox.Text))
             {
-                //Contains non numeric characters.
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
             else
@@ -179,25 +178,21 @@ namespace OOPLab1
 
         private void SetAlarmButton_Click(object sender, EventArgs e)
         {
-            //c1.SetClock(int.Parse(minuteLabel.Text));
-
-            if (_AlarmSetHours >= 24)//CONTROL SO THEY ENTER 1 - 23 FOR THE MINUTES
+            if (_AlarmSetHours >= 24)
             {
-                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
+                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
             }
             else if (nonNumericRegex.IsMatch(AlarmHoursTextBox.Text))
             {
-                //Contains non numeric characters.
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
 
-            if (_AlarmSetMins >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
+            if (_AlarmSetMins >= 60)
             {
-                MessageBox.Show("It's a clock dummy! Enter 1 - 59");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
+                MessageBox.Show("It's a clock dummy! Enter 1 - 59");
             }
             else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox.Text))
             {
-                //Contains non numeric characters.
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
         }
