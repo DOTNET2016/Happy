@@ -68,5 +68,12 @@ namespace OOPLab1
         {
             throw new NotImplementedException();
         }
+
+        public int ClockState()//thinking about using for the alarm....will propably delete but leave it for now
+        {
+            int stateOfClock = _setMins + _setHrs;
+
+            return stateOfClock;
+        }
     }
 }

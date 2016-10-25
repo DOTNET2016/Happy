@@ -45,9 +45,13 @@ namespace OOPLab1
             c2.SetHour = _alarmHours;
         }
 
-        public void CheckAlarm()
+        public static bool operator == (Clock mainClock, Alarm alarmTime)
         {
-            
+            if ((mainClock.SetMins == alarmTime.AlarmMins) && (mainClock.SetHour == alarmTime.AlarmHours))
+            {
+                return true;
+            }
+            return false;
         }
 
         public void CheckTime()
