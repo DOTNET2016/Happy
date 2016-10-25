@@ -72,24 +72,11 @@ namespace OOPLab1
                 //simpleSound.Stop();
             }
         }
-
-        public void UpdateLabel()
-        {
-            int setMinute = c1.CheckTime();
-            if (setMinute <= 60)
-            minuteLabel.Text = setMinute.ToString("00");
-            //if (setMinute == 0)
-            //{
-            //        int setHour = setHours;
-            //        setHour = h1.HoursValue;
-            //        setHour = h1.HourCount();
-            //        HourLabel.Text = setHour.ToString("00");
-            //}           
-        }
         
         private void T2_Tick(object sender, EventArgs e)
         {
-            UpdateLabel();
+            int setMinute = c1.CheckTime();
+            minuteLabel.Text = setMinute.ToString("00");
         }
 
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
