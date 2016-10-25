@@ -43,7 +43,6 @@ namespace OOPLab1
 
         public int CheckTime(/*int _setMins, int _setHrs*/)
         {
-            
             int setMinute = m1.MinuteCount();
             if (setMinute <= 60)
                 return setMinute;
@@ -53,6 +52,7 @@ namespace OOPLab1
         public void TimeValue()
         {
             m1.MinutesValue = _setMins;
+            h1.HoursValue = _setHrs;
         }
 
         public void StopClock()
