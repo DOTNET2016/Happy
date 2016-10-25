@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Media;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace OOPLab1
 {
@@ -21,8 +22,10 @@ namespace OOPLab1
         SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.RISE_100);
         int setMinutes;
         int setHours;
- 
+        Regex nonNumericRegex = new Regex(@"\D");
+
         private bool _IsOn;
+
         public bool IsOn
         {
             get
@@ -110,6 +113,11 @@ namespace OOPLab1
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
             }
+            else if (nonNumericRegex.IsMatch(SetHourTextBox.Text))
+            {
+                //Contains non numeric characters.
+                MessageBox.Show("Entered non-numeric, please enter numbers only");
+            }
             else
             {
                 HourLabel.Text = setHours.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
@@ -120,12 +128,18 @@ namespace OOPLab1
             {
                 MessageBox.Show("It's a clock dummy! Enter 1 - 59");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
             }
+            else if (nonNumericRegex.IsMatch(SetMinTextBox.Text))
+            {
+                //Contains non numeric characters.
+                MessageBox.Show("Entered non-numeric, please enter numbers only");
+            }
             else
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
-                m1.MinutesValue = setMinutes;            
+                m1.MinutesValue = setMinutes;
             }
         }
+
 
         private void SetTimeButton_Click(object sender, EventArgs e)
         {
