@@ -54,13 +54,16 @@ namespace OOPLab1
         //    return false;
         //}
 
-        public void CheckTime()
+        public bool CheckTime()
         {
-            
+
             if ((c2.SetMins == _alarmMins) && (c2.SetHour == _alarmHours))
-            {
+                return true;
+            else
+                return false;
                 //If the Alarm time matches the clock time do something......
-            }
+
+            
             
         }
 

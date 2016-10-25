@@ -35,6 +35,7 @@ namespace OOPLab1
         
         private void Form1_Load(object sender, EventArgs e)
         {
+
         }
 
         private void StopButton_Click(object sender, EventArgs e)
@@ -59,6 +60,7 @@ namespace OOPLab1
             minuteLabel.Text = setMinute.ToString("00");
             int setHour = c1.CheckHour();
             HourLabel.Text = setHour.ToString("00");
+            a1.CheckTime();
         }
         
         private void T1_Tick(object sender, EventArgs e)
@@ -199,6 +201,22 @@ namespace OOPLab1
                 //Contains non numeric characters.
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
+        }
+
+        private void Alarm1GroupBox_Enter(object sender, EventArgs e)
+        {
+            //for (int c = 0; c < 253 && Visible; c++)
+            //{
+            //    this.BackColor = Color.FromArgb(c, 255 - c, c);
+            //    Application.DoEvents();
+            //    System.Threading.Thread.Sleep(3);
+            //}
+            //for (int c = 254; c >= 0 && Visible; c--)
+            //{
+            //    this.BackColor = Color.FromArgb(c, 255 - c, c);
+            //    Application.DoEvents();
+            //    System.Threading.Thread.Sleep(3);
+            //}
         }
     }
 }
