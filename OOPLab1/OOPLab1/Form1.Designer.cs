@@ -319,6 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1026, 667);
             this.Controls.Add(this.label2);
@@ -329,8 +330,11 @@
             this.Controls.Add(this.ClockGroupBox);
             this.Controls.Add(this.HourLabel);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Clock";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ClockGroupBox.ResumeLayout(false);
             this.ClockGroupBox.PerformLayout();
