@@ -15,8 +15,6 @@ namespace OOPLab1
     public partial class Form1 : Form
     {
         Timer t2 = new Timer();
-        Minutes m1 = new Minutes();
-        Hour h1 = new Hour();
         Clock c1 = new Clock();
         Alarm a1 = new Alarm();
 
@@ -67,8 +65,8 @@ namespace OOPLab1
             }
             if (!IsOn)
             {
-                m1.MinutesValue = setMinutes;
-                h1.HoursValue = setHours;
+                c1.SetMins = setMinutes;
+                c1.SetHour = setHours;
                 minuteLabel.Text = setMinutes.ToString("00");
                 HourLabel.Text = setHours.ToString("00");
                 //simpleSound.Stop();
@@ -77,16 +75,16 @@ namespace OOPLab1
 
         public void UpdateLabel()
         {
-            int setMinute = m1.MinuteCount();
+            int setMinute = c1.CheckTime();
             if (setMinute <= 60)
-                minuteLabel.Text = setMinute.ToString("00");
-            if (setMinute == 0)
-            {
-                    int setHour = setHours;
-                    setHour = h1.HoursValue;
-                    setHour = h1.HourCount();
-                    HourLabel.Text = setHour.ToString("00");
-            }           
+            minuteLabel.Text = setMinute.ToString("00");
+            //if (setMinute == 0)
+            //{
+            //        int setHour = setHours;
+            //        setHour = h1.HoursValue;
+            //        setHour = h1.HourCount();
+            //        HourLabel.Text = setHour.ToString("00");
+            //}           
         }
         
         private void T2_Tick(object sender, EventArgs e)
@@ -137,7 +135,7 @@ namespace OOPLab1
             else
             {
                 HourLabel.Text = setHours.ToString("00");//SETS THE USERINPUT FROM HOUR TEXTBOX TO THE MINUTE LABEL
-                h1.HoursValue = setHours;
+                c1.SetHour = setHours;
             }
 
             if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
@@ -152,7 +150,7 @@ namespace OOPLab1
             else
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM ALARM MINUTE TEXTBOX TO THE MINUTE LABEL  
-                m1.MinutesValue = setMinutes;
+                c1.SetMins = setMinutes;
             }
         }
 
