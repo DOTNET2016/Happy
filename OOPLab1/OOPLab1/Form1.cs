@@ -34,6 +34,9 @@ namespace OOPLab1
                 _IsOn = value;
                 StopButton.Text = _IsOn ? "Stop" : "Start";
                 t2.Enabled = _IsOn ? true : false;
+                SetHourTextBox.Enabled = _IsOn ? false : true;
+                SetMinTextBox.Enabled = _IsOn ? false : true;
+                SetTimeButton.Enabled = _IsOn ? false : true;
             }
         }
 
