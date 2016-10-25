@@ -52,11 +52,16 @@ namespace OOPLab1
                 //simpleSound.Stop();
             }
         }
-        
-        private void T1_Tick(object sender, EventArgs e)
+
+        public void UpdateLabel()
         {
             int setMinute = c1.CheckTime();
             minuteLabel.Text = setMinute.ToString("00");
+        }
+        
+        private void T1_Tick(object sender, EventArgs e)
+        {
+            UpdateLabel();
         }
         public bool IsOn
         {
