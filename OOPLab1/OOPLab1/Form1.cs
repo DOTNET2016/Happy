@@ -43,22 +43,28 @@ namespace OOPLab1
             if (IsOn)
             {
                 c1.TimeValue();
+                //simpleSound.PlayLooping();
             }
             if (!IsOn)
             {
                 c1.TimeValue();
                 ResetLabel();
+                //simpleSound.Stop();
             }
         }
-        
-        private void T1_Tick(object sender, EventArgs e)
+
+        public void UpdateLabel()
         {
             int setMinute = c1.CheckMin();
             minuteLabel.Text = setMinute.ToString("00");
             int setHour = c1.CheckHour();
             HourLabel.Text = setHour.ToString("00");
         }
-        //checks the state of the start/stop button
+        
+        private void T1_Tick(object sender, EventArgs e)
+        {
+            UpdateLabel();
+        }
         public bool IsOn
         {
             get
