@@ -12,9 +12,6 @@ namespace OOPLab1
         Minutes m1 = new Minutes();
         Hour h1 = new Hour();
 
-        int count;
-        int tempMin;
-
         int _setMins;
         int _setHrs;
 
@@ -41,7 +38,7 @@ namespace OOPLab1
             }
         }
 
-        public int CheckMin(/*int _setMins, int _setHrs*/)
+        public int CheckMin()
         {
             int setMinute = m1.MinuteCount();
             if (setMinute == 0)
@@ -52,7 +49,7 @@ namespace OOPLab1
             return setMinute;
         }
 
-        public int CheckHour(/*int _setMins, int _setHrs*/)
+        public int CheckHour()
         {
             int hour = h1.HourValue();
             return hour;
@@ -62,11 +59,6 @@ namespace OOPLab1
         {
             m1.MinutesValue = _setMins;
             h1.HoursValue = _setHrs;
-        }
-
-        public void StopClock()
-        {
-            throw new NotImplementedException();
         }
     }
 }

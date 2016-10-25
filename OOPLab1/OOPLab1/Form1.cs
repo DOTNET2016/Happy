@@ -35,6 +35,7 @@ namespace OOPLab1
         
         private void Form1_Load(object sender, EventArgs e)
         {
+
         }
 
         private void StopButton_Click(object sender, EventArgs e)
@@ -52,8 +53,8 @@ namespace OOPLab1
                 //simpleSound.Stop();
             }
         }
-        
-        private void T1_Tick(object sender, EventArgs e)
+
+        public void UpdateLabel()
         {
             int setMinute = c1.CheckMin();
             int setHour = c1.CheckHour();
@@ -61,7 +62,12 @@ namespace OOPLab1
             /*minuteLabel.Text = setMinute.ToString("00");
             
             HourLabel.Text = setHour.ToString("00");
-            */
+            a1.CheckTime();
+        }
+        
+        private void T1_Tick(object sender, EventArgs e)
+        {
+            UpdateLabel();
         }
         public bool IsOn
         {
@@ -75,8 +81,11 @@ namespace OOPLab1
                 StopButton.Text = _IsOn ? "Stop" : "Start";
                 t1.Enabled = _IsOn ? true : false;
                 SetHourTextBox.Enabled = _IsOn ? false : true;
+                SetHourTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
                 SetMinTextBox.Enabled = _IsOn ? false : true;
+                SetMinTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
                 SetTimeButton.Enabled = _IsOn ? false : true;
+                SetTimeButton.BackColor = _IsOn ? Color.SkyBlue : Color.White;
                 SetAlarmButton.Enabled = _IsOn ? false : true;
             }
         }
@@ -191,6 +200,22 @@ namespace OOPLab1
                 //Contains non numeric characters.
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
+        }
+
+        private void Alarm1GroupBox_Enter(object sender, EventArgs e)
+        {
+            //for (int c = 0; c < 253 && Visible; c++)
+            //{
+            //    this.BackColor = Color.FromArgb(c, 255 - c, c);
+            //    Application.DoEvents();
+            //    System.Threading.Thread.Sleep(3);
+            //}
+            //for (int c = 254; c >= 0 && Visible; c--)
+            //{
+            //    this.BackColor = Color.FromArgb(c, 255 - c, c);
+            //    Application.DoEvents();
+            //    System.Threading.Thread.Sleep(3);
+            //}
         }
     }
 }

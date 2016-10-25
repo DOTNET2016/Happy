@@ -8,7 +8,7 @@ namespace OOPLab1
 {
     interface IAlarm
     {
-        void SetAlarm();
-        void CheckAlarm();
+    //    void SetAlarm();
+    //    void CheckAlarm();
     }
 }

@@ -199,6 +199,7 @@
             this.Alarm1GroupBox.TabIndex = 13;
             this.Alarm1GroupBox.TabStop = false;
             this.Alarm1GroupBox.Text = "Alarm 1";
+            this.Alarm1GroupBox.Enter += new System.EventHandler(this.Alarm1GroupBox_Enter);
             // 
             // SetAlarmButton
             // 

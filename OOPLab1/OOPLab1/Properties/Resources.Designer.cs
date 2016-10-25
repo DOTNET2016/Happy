@@ -59,14 +59,5 @@ namespace OOPLab1.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream RISE_100 {
-            get {
-                return ResourceManager.GetStream("RISE_100", resourceCulture);
-            }
-        }
     }
 }
