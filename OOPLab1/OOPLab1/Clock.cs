@@ -52,7 +52,7 @@ namespace OOPLab1
 
         public void TimeValue()
         {
-            CheckTime();
+            m1.MinutesValue = SetMins;
         }
 
         public void StopClock()

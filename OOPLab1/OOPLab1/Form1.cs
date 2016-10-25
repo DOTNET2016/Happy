@@ -14,11 +14,10 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
-        Timer t2 = new Timer();
+        Timer t1 = new Timer();
         Clock c1 = new Clock();
         Alarm a1 = new Alarm();
 
-        SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.RISE_100);
         int setMinutes;
         int setHours;
         int _AlarmSetHours;
@@ -27,33 +26,15 @@ namespace OOPLab1
 
         private bool _IsOn;
 
-        public bool IsOn
-        {
-            get
-            {
-                return _IsOn;
-            }
-            set
-            {
-                _IsOn = value;
-                StopButton.Text = _IsOn ? "Stop" : "Start";
-                t2.Enabled = _IsOn ? true : false;
-                SetHourTextBox.Enabled = _IsOn ? false : true;
-                SetMinTextBox.Enabled = _IsOn ? false : true;
-                SetTimeButton.Enabled = _IsOn ? false : true;
-                SetAlarmButton.Enabled = _IsOn ? false : true;
-            }
-        }
-
         public Form1()
         {
             InitializeComponent();
-            t2.Interval = 1000;
-            t2.Tick += T2_Tick;
+            t1.Interval = 1000;
+            t1.Tick += T1_Tick;
         }
         
         private void Form1_Load(object sender, EventArgs e)
-        {            
+        {
         }
 
         private void StopButton_Click(object sender, EventArgs e)
@@ -65,18 +46,33 @@ namespace OOPLab1
             }
             if (!IsOn)
             {
-                c1.SetMins = setMinutes;
-                c1.SetHour = setHours;
-                minuteLabel.Text = setMinutes.ToString("00");
-                HourLabel.Text = setHours.ToString("00");
+                c1.TimeValue();
+                ResetLabel();
                 //simpleSound.Stop();
             }
         }
         
-        private void T2_Tick(object sender, EventArgs e)
+        private void T1_Tick(object sender, EventArgs e)
         {
             int setMinute = c1.CheckTime();
             minuteLabel.Text = setMinute.ToString("00");
+        }
+        public bool IsOn
+        {
+            get
+            {
+                return _IsOn;
+            }
+            set
+            {
+                _IsOn = value;
+                StopButton.Text = _IsOn ? "Stop" : "Start";
+                t1.Enabled = _IsOn ? true : false;
+                SetHourTextBox.Enabled = _IsOn ? false : true;
+                SetMinTextBox.Enabled = _IsOn ? false : true;
+                SetTimeButton.Enabled = _IsOn ? false : true;
+                SetAlarmButton.Enabled = _IsOn ? false : true;
+            }
         }
 
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
@@ -103,6 +99,14 @@ namespace OOPLab1
             {
                 setHours = 0;
             }
+        }
+
+        private void ResetLabel()
+        {
+            c1.SetMins = setMinutes;
+            c1.SetHour = setHours;
+            minuteLabel.Text = setMinutes.ToString("00");
+            HourLabel.Text = setHours.ToString("00");
         }
 
         private void SetTimeButton_MouseClick(object sender, MouseEventArgs e)
