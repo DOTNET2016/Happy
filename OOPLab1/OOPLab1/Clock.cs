@@ -41,12 +41,21 @@ namespace OOPLab1
             }
         }
 
-        public int CheckTime(/*int _setMins, int _setHrs*/)
+        public int CheckMin(/*int _setMins, int _setHrs*/)
         {
             int setMinute = m1.MinuteCount();
-            if (setMinute <= 60)
+            if (setMinute == 0)
+            {
+                h1.HourCount();
                 return setMinute;
+            }
             return setMinute;
+        }
+
+        public int CheckHour(/*int _setMins, int _setHrs*/)
+        {
+            int hour = h1.HourValue();
+            return hour;
         }
 
         public void TimeValue()

@@ -55,8 +55,10 @@ namespace OOPLab1
 
         public void UpdateLabel()
         {
-            int setMinute = c1.CheckTime();
+            int setMinute = c1.CheckMin();
             minuteLabel.Text = setMinute.ToString("00");
+            int setHour = c1.CheckHour();
+            HourLabel.Text = setHour.ToString("00");
         }
         
         private void T1_Tick(object sender, EventArgs e)
@@ -80,7 +82,7 @@ namespace OOPLab1
                 SetAlarmButton.Enabled = _IsOn ? false : true;
             }
         }
-
+        //get user input from from textbox and save to minutes
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -93,7 +95,7 @@ namespace OOPLab1
                 setMinutes = 0;
             }                
         }
-
+        //get user input from from textbox and save to hours
         private void SetHourTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -106,7 +108,7 @@ namespace OOPLab1
                 setHours = 0;
             }
         }
-
+        //when stop button is presset the time will reset and clock will start at set time
         private void ResetLabel()
         {
             c1.SetMins = setMinutes;
