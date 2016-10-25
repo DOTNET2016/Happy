@@ -56,9 +56,12 @@ namespace OOPLab1
         private void T1_Tick(object sender, EventArgs e)
         {
             int setMinute = c1.CheckMin();
-            minuteLabel.Text = setMinute.ToString("00");
             int setHour = c1.CheckHour();
+            ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
+            /*minuteLabel.Text = setMinute.ToString("00");
+            
             HourLabel.Text = setHour.ToString("00");
+            */
         }
         public bool IsOn
         {
@@ -108,8 +111,7 @@ namespace OOPLab1
         {
             c1.SetMins = setMinutes;
             c1.SetHour = setHours;
-            minuteLabel.Text = setMinutes.ToString("00");
-            HourLabel.Text = setHours.ToString("00");
+            ClockLabel.Text = setHours.ToString("00") +":" + setMinutes.ToString("00");
         }
 
         private void SetTimeButton_Click(object sender, EventArgs e)
@@ -123,13 +125,7 @@ namespace OOPLab1
                 //Contains non numeric characters.
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-            else
-            {
-                HourLabel.Text = setHours.ToString("00");//SETS THE USERINPUT FROM HOUR TEXTBOX TO THE MINUTE LABEL
-                c1.SetHour = setHours;
-            }
-
-            if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
+            else if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
             {
                 MessageBox.Show("It's a clock dummy! Enter 1 - 59");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
             }
@@ -140,8 +136,9 @@ namespace OOPLab1
             }
             else
             {
-                minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM ALARM MINUTE TEXTBOX TO THE MINUTE LABEL  
+                ClockLabel.Text = setHours.ToString("00") + ":" + setMinutes.ToString("00");
                 c1.SetMins = setMinutes;
+                c1.SetHour = setHours;
             }
         }
 

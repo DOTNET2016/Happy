@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.HourLabel = new System.Windows.Forms.Label();
             this.SetHourTextBox = new System.Windows.Forms.TextBox();
             this.SetMinTextBox = new System.Windows.Forms.TextBox();
             this.SetHoursLabel = new System.Windows.Forms.Label();
@@ -49,25 +48,12 @@
             this.AlarmSetHoursLabel2 = new System.Windows.Forms.Label();
             this.AlarmSetMinTextBox2 = new System.Windows.Forms.TextBox();
             this.AlarmSetHoursTextBox2 = new System.Windows.Forms.TextBox();
-            this.minuteLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ClockLabel = new System.Windows.Forms.Label();
             this.ClockGroupBox.SuspendLayout();
             this.ButtonGroupBoxSetStop.SuspendLayout();
             this.Alarm1GroupBox.SuspendLayout();
             this.Alarm2GroupBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // HourLabel
-            // 
-            this.HourLabel.AutoSize = true;
-            this.HourLabel.BackColor = System.Drawing.Color.Black;
-            this.HourLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HourLabel.ForeColor = System.Drawing.Color.White;
-            this.HourLabel.Location = new System.Drawing.Point(227, 219);
-            this.HourLabel.Name = "HourLabel";
-            this.HourLabel.Size = new System.Drawing.Size(253, 180);
-            this.HourLabel.TabIndex = 0;
-            this.HourLabel.Text = "00";
             // 
             // SetHourTextBox
             // 
@@ -289,31 +275,17 @@
             this.AlarmSetHoursTextBox2.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetHoursTextBox2.TabIndex = 9;
             // 
-            // minuteLabel
+            // ClockLabel
             // 
-            this.minuteLabel.AutoSize = true;
-            this.minuteLabel.BackColor = System.Drawing.Color.Black;
-            this.minuteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minuteLabel.ForeColor = System.Drawing.Color.White;
-            this.minuteLabel.Location = new System.Drawing.Point(526, 215);
-            this.minuteLabel.Name = "minuteLabel";
-            this.minuteLabel.Size = new System.Drawing.Size(253, 180);
-            this.minuteLabel.TabIndex = 15;
-            this.minuteLabel.Tag = "sec";
-            this.minuteLabel.Text = "00";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(439, 205);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 180);
-            this.label2.TabIndex = 16;
-            this.label2.Tag = "sec";
-            this.label2.Text = ":";
+            this.ClockLabel.AutoSize = true;
+            this.ClockLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 95F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClockLabel.ForeColor = System.Drawing.Color.White;
+            this.ClockLabel.Location = new System.Drawing.Point(239, 219);
+            this.ClockLabel.Name = "ClockLabel";
+            this.ClockLabel.Size = new System.Drawing.Size(476, 180);
+            this.ClockLabel.TabIndex = 15;
+            this.ClockLabel.Text = "00:00";
+            this.ClockLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 
@@ -322,13 +294,11 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1026, 667);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.minuteLabel);
+            this.Controls.Add(this.ClockLabel);
             this.Controls.Add(this.Alarm2GroupBox);
             this.Controls.Add(this.Alarm1GroupBox);
             this.Controls.Add(this.ButtonGroupBoxSetStop);
             this.Controls.Add(this.ClockGroupBox);
-            this.Controls.Add(this.HourLabel);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -349,7 +319,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label HourLabel;
         private System.Windows.Forms.TextBox SetHourTextBox;
         private System.Windows.Forms.TextBox SetMinTextBox;
         private System.Windows.Forms.Label SetHoursLabel;
@@ -370,8 +339,7 @@
         private System.Windows.Forms.Label AlarmSetHoursLabel2;
         private System.Windows.Forms.TextBox AlarmSetMinTextBox2;
         private System.Windows.Forms.TextBox AlarmSetHoursTextBox2;
-        private System.Windows.Forms.Label minuteLabel;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label ClockLabel;
     }
 }
 
