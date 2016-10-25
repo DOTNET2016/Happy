@@ -77,8 +77,11 @@ namespace OOPLab1
                 StopButton.Text = _IsOn ? "Stop" : "Start";
                 t1.Enabled = _IsOn ? true : false;
                 SetHourTextBox.Enabled = _IsOn ? false : true;
+                SetHourTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
                 SetMinTextBox.Enabled = _IsOn ? false : true;
+                SetMinTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
                 SetTimeButton.Enabled = _IsOn ? false : true;
+                SetTimeButton.BackColor = _IsOn ? Color.SkyBlue : Color.White;
                 SetAlarmButton.Enabled = _IsOn ? false : true;
             }
         }
