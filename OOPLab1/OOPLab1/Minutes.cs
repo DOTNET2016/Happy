@@ -10,7 +10,7 @@ namespace OOPLab1
     public class Minutes : IMinutes
     {
         Hour h2 = new Hour();
-        private int _addHour;
+
         private int _minutesValue;
         int tempMin;
 

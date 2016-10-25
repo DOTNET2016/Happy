@@ -43,13 +43,11 @@ namespace OOPLab1
             if (IsOn)
             {
                 c1.TimeValue();
-                //simpleSound.PlayLooping();
             }
             if (!IsOn)
             {
                 c1.TimeValue();
                 ResetLabel();
-                //simpleSound.Stop();
             }
         }
         
@@ -60,6 +58,7 @@ namespace OOPLab1
             int setHour = c1.CheckHour();
             HourLabel.Text = setHour.ToString("00");
         }
+        //checks the state of the start/stop button
         public bool IsOn
         {
             get
