@@ -30,18 +30,28 @@ namespace OOPLab1
             }
         }
 
-        //public int CheckTime(int _setMins, int _setHrs)
+        //public void CheckTime(int _setMins, int _setHrs)
         //{
-        //    if (_setMins > 59)
+        //    int setMinute = m1.MinuteCount();
+        //    if (setMinute <= 60)
+        //        minuteLabel.Text = setMinute.ToString("00");
+        //    if (setMinute == 0)
         //    {
+        //        int setHour = setHours;
+        //        h1.HoursValue = setHour;
+        //        setHour = h1.HourCount();
+        //        HourLabel.Text = setHour.ToString("00");
 
-        //        h2.HourCount();
+        //        //if (_setMins > 59)
+        //        //{
+
+        //        //    h2.HourCount();
+        //        //}
+        //        //return _setHrs;
         //    }
-        //    return _setHrs;
-        //}
 
-       
-        
+
+
         public int TimeValue()
         {
             return tempMin;

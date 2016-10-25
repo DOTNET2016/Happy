@@ -61,12 +61,9 @@ namespace OOPLab1
             if (setMinute == 0)
             {
                     int setHour = setHours;
-                    h1.HoursValue = setHour;
+                    setHour = h1.HoursValue;
                     setHour = h1.HourCount();
                     HourLabel.Text = setHour.ToString("00");
-                /*setHour = c1.CheckTime(setMinute, setHours);*/
-                //setHour = h1.HourCount();
-                //HourLabel.Text = setHour.ToString("00");
             }           
         }
         
