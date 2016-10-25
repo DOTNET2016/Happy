@@ -18,6 +18,7 @@ namespace OOPLab1
         Minutes m1 = new Minutes();
         Hour h1 = new Hour();
         Clock c1 = new Clock();
+        Alarm a1 = new Alarm();
 
         SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.RISE_100);
         int setMinutes;
@@ -42,7 +43,7 @@ namespace OOPLab1
                 SetHourTextBox.Enabled = _IsOn ? false : true;
                 SetMinTextBox.Enabled = _IsOn ? false : true;
                 SetTimeButton.Enabled = _IsOn ? false : true;
-                //Alarm set button?
+                SetAlarmButton.Enabled = _IsOn ? false : true;
             }
         }
 
