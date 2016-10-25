@@ -57,6 +57,18 @@ namespace OOPLab1
         private void StopButton_Click(object sender, EventArgs e)
         {
             IsOn = !IsOn;
+            if (IsOn)
+            {
+                //simpleSound.PlayLooping();
+            }
+            if (!IsOn)
+            {
+                m1.MinutesValue = setMinutes;
+                h1.HoursValue = setHours;
+                minuteLabel.Text = setMinutes.ToString("00");
+                HourLabel.Text = setHours.ToString("00");
+                //simpleSound.Stop();
+            }
         }
 
         public void UpdateLabel()
