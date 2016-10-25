@@ -110,11 +110,8 @@ namespace OOPLab1
             HourLabel.Text = setHours.ToString("00");
         }
 
-        private void SetTimeButton_MouseClick(object sender, MouseEventArgs e)
+        private void SetTimeButton_Click(object sender, EventArgs e)
         {
-            //c1.SetClock(int.parse(label2.Text))
-            //c1.SetClock(int.Parse(minuteLabel.Text));
-
             if (setHours >= 24)//CONTROL SO THEY ENTER 1 - 23 FOR THE MINUTES
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG

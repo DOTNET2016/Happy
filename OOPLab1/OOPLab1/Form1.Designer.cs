@@ -132,7 +132,7 @@
             this.SetTimeButton.TabIndex = 6;
             this.SetTimeButton.Text = "Set Time";
             this.SetTimeButton.UseVisualStyleBackColor = false;
-            this.SetTimeButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SetTimeButton_MouseClick);
+            this.SetTimeButton.Click += new System.EventHandler(this.SetTimeButton_Click);
             // 
             // StopButton
             // 
