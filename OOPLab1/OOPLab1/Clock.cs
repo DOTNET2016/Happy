@@ -9,9 +9,9 @@ namespace OOPLab1
 {
     class Clock : IClock
     {
-        Minutes m2 =  new Minutes();
-        Hour h2 = new Hour();
-        
+        Minutes m1 = new Minutes();
+        Hour h1 = new Hour();
+
         int count;
         int tempMin;
 
@@ -29,28 +29,25 @@ namespace OOPLab1
                 _setMins = value;
             }
         }
+        public int SetHour
+        {
+            get
+            {
+                return _setHrs;
+            }
+            set
+            {
+                _setHrs = value;
+            }
+        }
 
-        //public void CheckTime(int _setMins, int _setHrs)
-        //{
-        //    int setMinute = m1.MinuteCount();
-        //    if (setMinute <= 60)
-        //        minuteLabel.Text = setMinute.ToString("00");
-        //    if (setMinute == 0)
-        //    {
-        //        int setHour = setHours;
-        //        h1.HoursValue = setHour;
-        //        setHour = h1.HourCount();
-        //        HourLabel.Text = setHour.ToString("00");
-
-        //        //if (_setMins > 59)
-        //        //{
-
-        //        //    h2.HourCount();
-        //        //}
-        //        //return _setHrs;
-        //    }
-
-
+        public int CheckTime(/*int _setMins, int _setHrs*/)
+        {
+            int setMinute = m1.MinuteCount();
+            if (setMinute <= 60)
+                return setMinute;
+            return setMinute;
+        }
 
         public int TimeValue()
         {
