@@ -43,7 +43,6 @@ namespace OOPLab1
             if (IsOn)
             {
                 c1.TimeValue();
-                ResetLabel();
                 //simpleSound.PlayLooping();
             }
             if (!IsOn)
@@ -128,6 +127,7 @@ namespace OOPLab1
             else
             {
                 HourLabel.Text = setHours.ToString("00");//SETS THE USERINPUT FROM HOUR TEXTBOX TO THE MINUTE LABEL
+                c1.SetHour = setHours;
             }
 
             if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
@@ -142,6 +142,7 @@ namespace OOPLab1
             else
             {
                 minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM ALARM MINUTE TEXTBOX TO THE MINUTE LABEL  
+                c1.SetMins = setMinutes;
             }
         }
 
