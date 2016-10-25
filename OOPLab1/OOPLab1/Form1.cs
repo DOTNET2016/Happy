@@ -22,6 +22,8 @@ namespace OOPLab1
         SoundPlayer simpleSound = new SoundPlayer(Properties.Resources.RISE_100);
         int setMinutes;
         int setHours;
+        int _AlarmSetHours;
+        int _AlarmSetMins;
         Regex nonNumericRegex = new Regex(@"\D");
 
         private bool _IsOn;
@@ -152,10 +154,63 @@ namespace OOPLab1
             }
         }
 
-
-        private void SetTimeButton_Click(object sender, EventArgs e)
+        private void AlarmHoursTextBox_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                _AlarmSetHours = Convert.ToInt32(AlarmHoursTextBox.Text);
+                _AlarmSetHours = int.Parse(AlarmHoursTextBox.Text);
+            }
+            catch (Exception)
+            {
+                setHours = 0;
+            }
+        }
 
+        private void AlarmSetMinTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                _AlarmSetMins = int.Parse(AlarmSetMinTextBox.Text);
+                _AlarmSetMins = Convert.ToInt32(AlarmSetMinTextBox.Text);
+            }
+            catch (Exception)
+            {
+                setMinutes = 0;
+            }
+        }
+
+        private void SetAlarmButton_Click(object sender, EventArgs e)
+        {
+            if (setHours >= 24)//CONTROL SO THEY ENTER 1 - 23 FOR THE MINUTES
+            {
+                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
+            }
+            else if (nonNumericRegex.IsMatch(AlarmHoursTextBox.Text))
+            {
+                //Contains non numeric characters.
+                MessageBox.Show("Entered non-numeric, please enter numbers only");
+            }
+            else
+            {
+                HourLabel.Text = setHours.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL
+                h1.HoursValue = setHours;
+            }
+
+            if (setMinutes >= 60)//CONTROL SO THEY ENTER 1 - 59 FOR THE MINUTES
+            {
+                MessageBox.Show("It's a clock dummy! Enter 1 - 59");//PRINT IN MESSAGE BOX IF THEY ENTER WRONG
+            }
+            else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox.Text))
+            {
+                //Contains non numeric characters.
+                MessageBox.Show("Entered non-numeric, please enter numbers only");
+            }
+            else
+            {
+                minuteLabel.Text = setMinutes.ToString("00");//SETS THE USERINPUT FROM MINUTE TEXTBOX TO THE MINUTE LABEL  
+                m1.MinutesValue = setMinutes;
+            }
         }
     }
 }
