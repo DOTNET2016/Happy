@@ -23,7 +23,6 @@ namespace OOPLab1
         int setHours;
  
         private bool _IsOn;
-        private bool _timerOn;
         public bool IsOn
         {
             get
@@ -34,18 +33,7 @@ namespace OOPLab1
             {
                 _IsOn = value;
                 StopButton.Text = _IsOn ? "Stop" : "Start";
-            }
-        }
-        public bool TimerOn
-        {
-            get
-            {
-                return _timerOn;
-            }
-            set
-            {
-                _timerOn = value;
-                t2.Enabled = _timerOn ? true : false;
+                t2.Enabled = _IsOn ? true : false;
             }
         }
 
@@ -62,22 +50,7 @@ namespace OOPLab1
 
         private void StopButton_Click(object sender, EventArgs e)
         {
-
             IsOn = !IsOn;
-            if (IsOn)
-            {
-                LabelTimer();
-                //simpleSound.PlayLooping();
-            }
-            if (!IsOn)
-            {
-                LabelTimer();
-                //simpleSound.Stop();
-            }
-        }
-        public void LabelTimer()
-        {
-            TimerOn = !TimerOn;
         }
 
         public void UpdateLabel()
