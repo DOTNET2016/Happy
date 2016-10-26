@@ -12,7 +12,10 @@ namespace OOPLab1
         Clock c2 = new Clock();
         private int _alarmMins;
         private int _alarmHours;
+        private int _alarmTime;
 
+        private Timer alrmTimer;
+  
         public int AlarmMins
         {
             get
@@ -39,13 +42,25 @@ namespace OOPLab1
             }
         }
 
-        //public Alarm()
-        //{
-        //    c2.SetMins = _alarmMins;
-        //    c2.SetHour = _alarmHours;
-        //}
+        public void AlarmTick()
+        {
+            alrmTimer = new Timer();
+            alrmTimer.Elapsed += AlrmT_Elapsed;
+            alrmTimer.Interval = 1000;
+            alrmTimer.Start();
+        }
 
-        //public static bool operator ==(Clock mainClock, Alarm alarmTime)
+        private void AlrmT_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            
+        }
+
+        public void AlarmCount()
+        {
+            
+        }
+
+        //public static bool operator == (Clock mainClock, Alarm alarmTime)
         //{
         //    if ((mainClock.SetMins == alarmTime.AlarmMins) && (mainClock.SetHour == alarmTime.AlarmHours))
         //    {
@@ -54,20 +69,26 @@ namespace OOPLab1
         //    return false;
         //}
 
-        public bool CheckTime()
-        {
-            c2.CheckMin();
-            c2.CheckHour();
+        //public static bool operator !=(Clock mainClock, Alarm alarmTime)
+        //{
+        //    if ((mainClock.SetMins == alarmTime.AlarmMins) && (mainClock.SetHour == alarmTime.AlarmHours))
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
+        //public bool CheckTime()
+        //{
 
-            if ((c2.SetMins == _alarmMins) && (c2.SetHour == _alarmHours))
-                return true;
-            else
-                return false;
-                //If the Alarm time matches the clock time do something......
+        //    if ((c2.SetMins == _alarmMins) && (c2.SetHour == _alarmHours))
+        //        return true;
+        //    else
+        //        return false;
+        //        //If the Alarm time matches the clock time do something......
 
-            
-            
-        }
+
+
+        //}
 
         public void SetAlarm()
         {

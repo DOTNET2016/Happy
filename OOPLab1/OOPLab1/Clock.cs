@@ -75,10 +75,10 @@ namespace OOPLab1
             h1.HoursValue = _setHrs;
         }
 
-        public int ClockTime()
-        {
-            CurrentClockTime = _setHrs + _setMins;
-            return CurrentClockTime;
-        }
+        //public int ClockTime()
+        //{
+        //    CurrentClockTime = _setHrs + _setMins;
+        //    return CurrentClockTime;
+        //}
     }
 }
