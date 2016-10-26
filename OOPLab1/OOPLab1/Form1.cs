@@ -59,7 +59,7 @@ namespace OOPLab1
             int setMinute = c1.CheckMin();
             int setHour = c1.CheckHour();
             ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
-            a1.CheckTime();
+
         }
         
         private void T1_Tick(object sender, EventArgs e)
@@ -84,18 +84,6 @@ namespace OOPLab1
                 SetMinTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
                 SetTimeButton.Enabled = _IsOn ? false : true;
                 SetTimeButton.BackColor = _IsOn ? Color.SkyBlue : Color.White;
-                AlarmSetButton.Enabled = _IsOn ? false : true;
-                AlarmSetButton.BackColor = _IsOn ? Color.SkyBlue : Color.White;
-                AlarmSetHoursTextBox.Enabled = _IsOn ? false : true;
-                AlarmSetHoursTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
-                AlarmSetMinTextBox.Enabled = _IsOn ? false : true;
-                AlarmSetMinTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
-                AlarmSetButton2.Enabled = _IsOn ? false : true;
-                AlarmSetButton2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
-                AlarmSetHoursTextBox2.Enabled = _IsOn ? false : true;
-                AlarmSetHoursTextBox2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
-                AlarmSetMinTextBox2.Enabled = _IsOn ? false : true;
-                AlarmSetMinTextBox2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
             }
         }
 
@@ -161,12 +149,12 @@ namespace OOPLab1
             }
         }
 
-        private void AlarmSetHoursTextBox_TextChanged(object sender, EventArgs e)
+        private void AlarmHoursTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                _AlarmSetHours = Convert.ToInt32(AlarmSetHoursTextBox.Text);
-                _AlarmSetHours = int.Parse(AlarmSetHoursTextBox.Text);
+                _AlarmSetHours = Convert.ToInt32(AlarmHoursTextBox.Text);
+                _AlarmSetHours = int.Parse(AlarmHoursTextBox.Text);
             }
             catch (Exception)
             {
@@ -193,7 +181,7 @@ namespace OOPLab1
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
             }
-            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
+            else if (nonNumericRegex.IsMatch(AlarmHoursTextBox.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
@@ -206,6 +194,17 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
+            else
+            {
+                ClockLabel.Text = setHours.ToString("00") + ":" + setMinutes.ToString("00");
+                c1.SetMins = setMinutes;
+                c1.SetHour = setHours;
+            }
+        }
+
+        private void AlarmChecker()
+        {
+
         }
 
         private void Alarm1GroupBox_Enter(object sender, EventArgs e)
