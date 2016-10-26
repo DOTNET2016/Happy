@@ -85,12 +85,18 @@ namespace OOPLab1
             if (IsOn)
             {
                 c1.TimeValue();
+                this.Alarm1GroupBox.BackColor = Color.Black;
                 //simpleSound.PlayLooping();
             }
             if (!IsOn)
             {
                 c1.TimeValue();
                 ResetLabel();
+                this.Alarm1GroupBox.BackColor = Color.Black;
+                AlarmSetButton.Text = "Set Alarm";
+                AlarmSetButton2.Text = "Set Alarm";
+                AlarmSetButton.Enabled = _alarmButton2IsOn = true;
+                AlarmSetButton2.Enabled = _alarmButton2IsOn = true;
                 //simpleSound.Stop();
             }
         }
@@ -119,10 +125,8 @@ namespace OOPLab1
             {
                 _IsOn = value;
                 StopButton.Text = _IsOn ? "Stop" : "Start";
-                AlarmSetButton.Text = _IsOn ? "Set Alarm" : "Set Alarm";
                 AlarmSetHoursTextBox.Enabled = _alarmButtonIsOn = true;
                 AlarmSetMinTextBox.Enabled = _alarmButtonIsOn = true;
-                AlarmSetButton2.Text = _IsOn ? "Set Alarm" : "Set Alarm";
                 AlarmSetHoursTextBox.Enabled = _alarmButtonIsOn = true;
                 AlarmSetMinTextBox.Enabled = _alarmButtonIsOn = true;
                 t1.Enabled = _IsOn ? true : false;
@@ -158,7 +162,7 @@ namespace OOPLab1
                 AlarmSetButton.Text = _alarmButtonIsOn ? "Alarm set" : "Set Alarm";
                 AlarmSetHoursTextBox.Enabled = _alarmButtonIsOn = false;
                 AlarmSetMinTextBox.Enabled = _alarmButtonIsOn = false;
-                //AlarmSetButton.Enabled = _alarmButtonIsOn ? true : false;
+                AlarmSetButton.Enabled = _alarmButtonIsOn = false;
             }
         }
 
@@ -174,7 +178,7 @@ namespace OOPLab1
                 AlarmSetButton2.Text = _alarmButton2IsOn ? "Alarm set" : "Set Alarm";
                 AlarmSetHoursTextBox2.Enabled = _alarmButton2IsOn = false;
                 AlarmSetMinTextBox2.Enabled = _alarmButton2IsOn = false;
-                //AlarmSetButton2.Enabled = _alarmButton2IsOn ? true : false;
+                AlarmSetButton2.Enabled = _alarmButton2IsOn = false;
             }
         }
 
