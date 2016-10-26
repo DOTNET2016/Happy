@@ -150,12 +150,12 @@ namespace OOPLab1
             }
         }
 
-        private void AlarmHoursTextBox_TextChanged(object sender, EventArgs e)
+        private void AlarmSetHoursTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                _AlarmSetHours = Convert.ToInt32(AlarmHoursTextBox.Text);
-                _AlarmSetHours = int.Parse(AlarmHoursTextBox.Text);
+                _AlarmSetHours = Convert.ToInt32(AlarmSetHoursTextBox.Text);
+                _AlarmSetHours = int.Parse(AlarmSetHoursTextBox.Text);
             }
             catch (Exception)
             {
@@ -182,7 +182,7 @@ namespace OOPLab1
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
             }
-            else if (nonNumericRegex.IsMatch(AlarmHoursTextBox.Text))
+            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
@@ -197,9 +197,8 @@ namespace OOPLab1
             }
             else
             {
-                ClockLabel.Text = setHours.ToString("00") + ":" + setMinutes.ToString("00");
-                c1.SetMins = setMinutes;
-                c1.SetHour = setHours;
+                a1.AlarmMins = _AlarmSetMins;
+                a1.AlarmHours = _AlarmSetHours;
             }
         }
 

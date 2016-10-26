@@ -15,9 +15,7 @@ namespace OOPLab1
         private int _alarmTime;
 
         private Timer alrmTimer;
-        private bool enabled;
-        private EventHandler alarmEvent;
-
+  
         public int AlarmMins
         {
             get
@@ -57,19 +55,6 @@ namespace OOPLab1
             
         }
 
-        public int AlarmCount()
-        {
-            int tempMin = _alarmMins;
-            tempMin++;
-
-            AlarmMins = tempMin;
-            if (tempMin == )
-            {
-
-            }
-
-            return _alarmTime;
-        }
 
         //public static bool operator == (Clock mainClock, Alarm alarmTime)
         //{
