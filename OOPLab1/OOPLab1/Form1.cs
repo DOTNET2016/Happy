@@ -14,6 +14,7 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
+        //new
         Regex nonNumericRegex = new Regex(@"\D");
         Timer t1 = new Timer();
         Clock c1 = new Clock();
