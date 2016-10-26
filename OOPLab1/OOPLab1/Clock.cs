@@ -54,25 +54,25 @@ namespace OOPLab1
 
         public int CheckMin()
         {
-            int setMinute = m1.MinuteCount();
-            if (setMinute == 0)
+            int checkedMinute = m1.MinuteCount();
+            if (checkedMinute == 0)
             {
                 h1.HourCount();
-                return setMinute;
+                return checkedMinute;
             }
-            return setMinute;
+            return checkedMinute;
         }
 
         public int CheckHour()
         {
-            int hour = h1.HourValue();
-            return hour;
+            int checkedHour = h1.HourValue();
+            return checkedHour;
         }
 
-        public void TimeValue()
+        public void TimeReset()
         {
-            m1.MinutesValue = _setMins;
-            h1.HoursValue = _setHrs;
+            m1.MinutesValue = SetMins;
+            h1.HoursValue = SetHour;
         }
 
         //public int ClockTime()

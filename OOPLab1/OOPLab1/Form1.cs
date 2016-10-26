@@ -16,6 +16,8 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
+        //Import of a dll and adding the font to the memory for the program to use
+        #region
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
             IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
@@ -24,7 +26,7 @@ namespace OOPLab1
 
         Font myFont;
         Font myFontClock;
-
+        #endregion
         public Form1()
         {
             //Splash Screen timer starts
@@ -33,7 +35,8 @@ namespace OOPLab1
             Thread.Sleep(5000);
             InitializeComponent();
             splash.Abort();
-
+            //"small" implementation of our custom font
+            #region
             byte[] fontData = Properties.Resources.MyFont1;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
@@ -44,7 +47,7 @@ namespace OOPLab1
 
             myFont = new Font(fonts.Families[0], 12.0F);
             myFontClock = new Font(fonts.Families[0], 95.0F);
-
+            #endregion
             t1.Interval = 1000;
             t1.Tick += T1_Tick;
         }
@@ -87,22 +90,20 @@ namespace OOPLab1
             AlarmSetButton2.Font = myFont;
             AlarmSetHoursLabel2.Font = myFont;
             AlarmSetMinLabel2.Font = myFont;
-
         }
 
         private void StopButton_Click(object sender, EventArgs e)
         {
+            ResetLabel();
             IsOn = !IsOn;
             if (IsOn)
             {
-                c1.TimeValue();
+                //c1.TimeValue();
                 this.Alarm1GroupBox.BackColor = Color.Black;
                 //simpleSound.PlayLooping();
             }
             if (!IsOn)
             {
-                c1.TimeValue();
-                ResetLabel();
                 this.Alarm1GroupBox.BackColor = Color.Black;
                 AlarmSetButton.Text = "Set Alarm";
                 AlarmSetButton2.Text = "Set Alarm";
@@ -118,7 +119,6 @@ namespace OOPLab1
             setHour = c1.CheckHour();
             ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
             AlarmChecker();
-
         }
         
         private void T1_Tick(object sender, EventArgs e)
@@ -126,6 +126,17 @@ namespace OOPLab1
             UpdateLabel();
         }
 
+        //when stop button is presset the time will reset and clock will start at set time
+        private void ResetLabel()
+        {
+            c1.SetMins = setMinutes;
+            c1.SetHour = setHours;
+            ClockLabel.Text = setHours.ToString("00") + ":" + setMinutes.ToString("00");
+            c1.TimeReset();
+            //Alarm1GroupBox.Enabled = false;
+        }
+
+        //here is where the magic from the stop button is performed (it works so we dont question it)
         public bool IsOn
         {
             get
@@ -161,6 +172,7 @@ namespace OOPLab1
                 AlarmSetMinTextBox2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
             }
         }
+
         public bool AlarmButtonIsOn
         {
             get
@@ -221,15 +233,7 @@ namespace OOPLab1
             }
         }
 
-        //when stop button is presset the time will reset and clock will start at set time
-        private void ResetLabel()
-        {
-            c1.SetMins = setMinutes;
-            c1.SetHour = setHours;
-            ClockLabel.Text = setHours.ToString("00") +":" + setMinutes.ToString("00");
-            //Alarm1GroupBox.Enabled = false;
-        }
-
+        //A button to set the time that was input to the min/hour textboxes
         private void SetTimeButton_Click(object sender, EventArgs e)
         {
             if (setHours >= 24)
@@ -333,11 +337,6 @@ namespace OOPLab1
                     this.Alarm1GroupBox.BackColor = Color.Black;
                 }
             }
-        }
-
-        private void Alarm1GroupBox_Enter(object sender, EventArgs e)
-        {
-            
         }
 
         private void AlarmSetButton2_Click(object sender, EventArgs e)
