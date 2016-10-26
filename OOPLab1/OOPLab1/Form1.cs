@@ -10,6 +10,7 @@ using System.Media;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Drawing.Text;
+using System.Threading;
 
 namespace OOPLab1
 {
@@ -26,7 +27,12 @@ namespace OOPLab1
 
         public Form1()
         {
+            //Splash Screen timer starts
+            Thread splash = new Thread(new ThreadStart(SplashScreen));
+            splash.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
+            splash.Abort();
 
             byte[] fontData = Properties.Resources.MyFont1;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
@@ -43,8 +49,13 @@ namespace OOPLab1
             t1.Tick += T1_Tick;
         }
 
+        public void SplashScreen()
+        {
+            Application.Run(new ProgressBarIntroScreen());
+        }
+
         Regex nonNumericRegex = new Regex(@"\D");
-        Timer t1 = new Timer();
+        System.Windows.Forms.Timer t1 = new System.Windows.Forms.Timer();
         Clock c1 = new Clock();
         Alarm a1 = new Alarm();
 
