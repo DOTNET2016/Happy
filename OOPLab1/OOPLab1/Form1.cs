@@ -24,6 +24,8 @@ namespace OOPLab1
         int setHours;
         int _AlarmSetHours;
         int _AlarmSetMins;
+        int setHour;
+        int setMinute;
 
         private bool _IsOn;
 
@@ -57,9 +59,10 @@ namespace OOPLab1
 
         public void UpdateLabel()
         {
-            int setMinute = c1.CheckMin();
-            int setHour = c1.CheckHour();
+            setMinute = c1.CheckMin();
+            setHour = c1.CheckHour();
             ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
+            AlarmChecker();
 
         }
         
@@ -134,6 +137,7 @@ namespace OOPLab1
             c1.SetMins = setMinutes;
             c1.SetHour = setHours;
             ClockLabel.Text = setHours.ToString("00") +":" + setMinutes.ToString("00");
+            Alarm1GroupBox.Enabled = false;
         }
 
         private void SetTimeButton_Click(object sender, EventArgs e)
@@ -162,12 +166,12 @@ namespace OOPLab1
             }
         }
 
-        private void AlarmHoursTextBox_TextChanged(object sender, EventArgs e)
+        private void AlarmSetHoursTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                _AlarmSetHours = Convert.ToInt32(AlarmHoursTextBox.Text);
-                _AlarmSetHours = int.Parse(AlarmHoursTextBox.Text);
+                _AlarmSetHours = Convert.ToInt32(AlarmSetHoursTextBox.Text);
+                _AlarmSetHours = int.Parse(AlarmSetHoursTextBox.Text);
             }
             catch (Exception)
             {
@@ -194,7 +198,7 @@ namespace OOPLab1
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
             }
-            else if (nonNumericRegex.IsMatch(AlarmHoursTextBox.Text))
+            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
@@ -207,32 +211,36 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-            else
-            {
-                a1.AlarmMins = _AlarmSetMins;
-                a1.AlarmHours = _AlarmSetHours;
-            }
+            //else
+            //{
+            //    a1.AlarmMins = _AlarmSetMins;
+            //    a1.AlarmHours = _AlarmSetHours;
+            //}
         }
 
         private void AlarmChecker()
-        {
-
+        {        
+            if (_AlarmSetHours == setHour && _AlarmSetMins == setMinute)
+            {
+                    Alarm1GroupBox.Enabled = true;
+                    for (int c = 0; c < 253 && Visible; c++)
+                    {
+                        this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                        Application.DoEvents();
+                        System.Threading.Thread.Sleep(1);
+                    }
+                    for (int c = 254; c >= 0 && Visible; c--)
+                    {
+                        this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                        Application.DoEvents();
+                        System.Threading.Thread.Sleep(2);
+                    }
+            }
         }
 
         private void Alarm1GroupBox_Enter(object sender, EventArgs e)
         {
-            //for (int c = 0; c < 253 && Visible; c++)
-            //{
-            //    this.BackColor = Color.FromArgb(c, 255 - c, c);
-            //    Application.DoEvents();
-            //    System.Threading.Thread.Sleep(3);
-            //}
-            //for (int c = 254; c >= 0 && Visible; c--)
-            //{
-            //    this.BackColor = Color.FromArgb(c, 255 - c, c);
-            //    Application.DoEvents();
-            //    System.Threading.Thread.Sleep(3);
-            //}
+            
         }
     }
 }

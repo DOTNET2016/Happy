@@ -55,6 +55,10 @@ namespace OOPLab1
             
         }
 
+        public void AlarmCount()
+        {
+            
+        }
 
         //public static bool operator == (Clock mainClock, Alarm alarmTime)
         //{
