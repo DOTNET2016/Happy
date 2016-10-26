@@ -59,5 +59,15 @@ namespace OOPLab1.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MyFont1 {
+            get {
+                object obj = ResourceManager.GetObject("MyFont1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

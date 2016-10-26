@@ -9,12 +9,40 @@ using System.Threading.Tasks;
 using System.Media;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Drawing.Text;
 
 namespace OOPLab1
 {
     public partial class Form1 : Form
     {
-        //new
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
+            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+
+        Font myFont;
+        Font myFontClock;
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            byte[] fontData = Properties.Resources.MyFont1;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, Properties.Resources.MyFont1.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.MyFont1.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            myFont = new Font(fonts.Families[0], 12.0F);
+            myFontClock = new Font(fonts.Families[0], 95.0F);
+
+            t1.Interval = 1000;
+            t1.Tick += T1_Tick;
+        }
+
         Regex nonNumericRegex = new Regex(@"\D");
         Timer t1 = new Timer();
         Clock c1 = new Clock();
@@ -29,15 +57,23 @@ namespace OOPLab1
 
         private bool _IsOn;
 
-        public Form1()
-        {
-            InitializeComponent();
-            t1.Interval = 1000;
-            t1.Tick += T1_Tick;
-        }
-        
         private void Form1_Load(object sender, EventArgs e)
         {
+            ClockLabel.Font = myFontClock;
+            ClockGroupBox.Font = myFont;
+            SetHoursLabel.Font = myFont;
+            SetMinLabel.Font = myFont;
+            ButtonGroupBoxSetStop.Font = myFont;
+            SetTimeButton.Font = myFont;
+            StopButton.Font = myFont;
+            Alarm1GroupBox.Font = myFont;
+            Alarm2GroupBox.Font = myFont;
+            AlarmSetButton.Font = myFont;
+            AlarmSetHoursLabel.Font = myFont;
+            AlarmSetMinLabel.Font = myFont;
+            AlarmSetButton2.Font = myFont;
+            AlarmSetHoursLabel2.Font = myFont;
+            AlarmSetMinLabel2.Font = myFont;
 
         }
 
