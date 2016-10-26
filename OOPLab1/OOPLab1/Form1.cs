@@ -56,6 +56,8 @@ namespace OOPLab1
         int setMinute;
 
         private bool _IsOn;
+        private bool _alarmButtonIsOn;
+        private bool _alarmButton2IsOn;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -117,6 +119,12 @@ namespace OOPLab1
             {
                 _IsOn = value;
                 StopButton.Text = _IsOn ? "Stop" : "Start";
+                AlarmSetButton.Text = _IsOn ? "Set Alarm" : "Set Alarm";
+                AlarmSetHoursTextBox.Enabled = _alarmButtonIsOn = true;
+                AlarmSetMinTextBox.Enabled = _alarmButtonIsOn = true;
+                AlarmSetButton2.Text = _IsOn ? "Set Alarm" : "Set Alarm";
+                AlarmSetHoursTextBox.Enabled = _alarmButtonIsOn = true;
+                AlarmSetMinTextBox.Enabled = _alarmButtonIsOn = true;
                 t1.Enabled = _IsOn ? true : false;
                 SetHourTextBox.Enabled = _IsOn ? false : true;
                 SetHourTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
@@ -136,6 +144,37 @@ namespace OOPLab1
                 AlarmSetHoursTextBox2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
                 AlarmSetMinTextBox2.Enabled = _IsOn ? false : true;
                 AlarmSetMinTextBox2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
+            }
+        }
+        public bool AlarmButtonIsOn
+        {
+            get
+            {
+                return _alarmButtonIsOn;
+            }
+            set
+            {
+                _alarmButtonIsOn = value;
+                AlarmSetButton.Text = _alarmButtonIsOn ? "Alarm set" : "Set Alarm";
+                AlarmSetHoursTextBox.Enabled = _alarmButtonIsOn = false;
+                AlarmSetMinTextBox.Enabled = _alarmButtonIsOn = false;
+                //AlarmSetButton.Enabled = _alarmButtonIsOn ? true : false;
+            }
+        }
+
+        public bool AlarmButton2IsOn
+        {
+            get
+            {
+                return _alarmButton2IsOn;
+            }
+            set
+            {
+                _alarmButton2IsOn = value;
+                AlarmSetButton2.Text = _alarmButton2IsOn ? "Alarm set" : "Set Alarm";
+                AlarmSetHoursTextBox2.Enabled = _alarmButton2IsOn = false;
+                AlarmSetMinTextBox2.Enabled = _alarmButton2IsOn = false;
+                //AlarmSetButton2.Enabled = _alarmButton2IsOn ? true : false;
             }
         }
 
@@ -173,7 +212,7 @@ namespace OOPLab1
             c1.SetMins = setMinutes;
             c1.SetHour = setHours;
             ClockLabel.Text = setHours.ToString("00") +":" + setMinutes.ToString("00");
-            Alarm1GroupBox.Enabled = false;
+            //Alarm1GroupBox.Enabled = false;
         }
 
         private void SetTimeButton_Click(object sender, EventArgs e)
@@ -238,14 +277,23 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-
-            if (_AlarmSetMins >= 60)
+            else if (_AlarmSetMins >= 60)
             {
                 MessageBox.Show("It's a clock dummy! Enter 1 - 59");
             }
             else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
+            }
+
+            AlarmButtonIsOn = !AlarmButtonIsOn;
+            if (AlarmButtonIsOn)
+            {
+                //simpleSound.PlayLooping();
+            }
+            if (!AlarmButtonIsOn)
+            {
+                //simpleSound.Stop();
             }
             //else
             //{
@@ -278,6 +326,42 @@ namespace OOPLab1
         private void Alarm1GroupBox_Enter(object sender, EventArgs e)
         {
             
+        }
+
+        private void AlarmSetButton2_Click(object sender, EventArgs e)
+        {
+
+            if (_AlarmSetHours >= 24)
+            {
+                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
+            }
+            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
+            {
+                MessageBox.Show("Entered non-numeric, please enter numbers only");
+            }
+            else if (_AlarmSetMins >= 60)
+            {
+                MessageBox.Show("It's a clock dummy! Enter 1 - 59");
+            }
+            else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox.Text))
+            {
+                MessageBox.Show("Entered non-numeric, please enter numbers only");
+            }
+
+            AlarmButton2IsOn = !AlarmButton2IsOn;
+            if (AlarmButton2IsOn)
+            {
+                //simpleSound.PlayLooping();
+            }
+            if (!AlarmButton2IsOn)
+            {
+                //simpleSound.Stop();
+            }
+            //else
+            //{
+            //    a1.AlarmMins = _AlarmSetMins;
+            //    a1.AlarmHours = _AlarmSetHours;
+            //}
         }
     }
 }
