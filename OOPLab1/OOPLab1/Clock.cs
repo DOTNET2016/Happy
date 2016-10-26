@@ -14,7 +14,6 @@ namespace OOPLab1
 
         int _setMins;
         int _setHrs;
-        int _currentClockTime;
 
         public int SetMins
         {
@@ -36,19 +35,6 @@ namespace OOPLab1
             set
             {
                 _setHrs = value;
-            }
-        }
-
-        public int CurrentClockTime
-        {
-            get
-            {
-                return _currentClockTime;
-            }
-
-            set
-            {
-                _currentClockTime = value;
             }
         }
 
@@ -74,11 +60,5 @@ namespace OOPLab1
             m1.MinutesValue = SetMins;
             h1.HoursValue = SetHour;
         }
-
-        //public int ClockTime()
-        //{
-        //    CurrentClockTime = _setHrs + _setMins;
-        //    return CurrentClockTime;
-        //}
     }
 }
