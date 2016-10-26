@@ -36,12 +36,12 @@
             this.SetTimeButton = new System.Windows.Forms.Button();
             this.StopButton = new System.Windows.Forms.Button();
             this.ButtonGroupBoxSetStop = new System.Windows.Forms.GroupBox();
-            this.AlarmHoursTextBox = new System.Windows.Forms.TextBox();
+            this.AlarmSetHoursTextBox = new System.Windows.Forms.TextBox();
             this.AlarmSetMinTextBox = new System.Windows.Forms.TextBox();
             this.AlarmSetHoursLabel = new System.Windows.Forms.Label();
             this.AlarmSetMinLabel = new System.Windows.Forms.Label();
             this.Alarm1GroupBox = new System.Windows.Forms.GroupBox();
-            this.SetAlarmButton = new System.Windows.Forms.Button();
+            this.AlarmSetButton = new System.Windows.Forms.Button();
             this.Alarm2GroupBox = new System.Windows.Forms.GroupBox();
             this.AlarmSetButton2 = new System.Windows.Forms.Button();
             this.AlarmSetMinLabel2 = new System.Windows.Forms.Label();
@@ -146,13 +146,13 @@
             this.ButtonGroupBoxSetStop.TabStop = false;
             this.ButtonGroupBoxSetStop.Text = "Set/Stop";
             // 
-            // AlarmHoursTextBox
+            // AlarmSetHoursTextBox
             // 
-            this.AlarmHoursTextBox.Location = new System.Drawing.Point(152, 56);
-            this.AlarmHoursTextBox.Name = "AlarmHoursTextBox";
-            this.AlarmHoursTextBox.Size = new System.Drawing.Size(100, 28);
-            this.AlarmHoursTextBox.TabIndex = 9;
-            this.AlarmHoursTextBox.TextChanged += new System.EventHandler(this.AlarmHoursTextBox_TextChanged);
+            this.AlarmSetHoursTextBox.Location = new System.Drawing.Point(152, 56);
+            this.AlarmSetHoursTextBox.Name = "AlarmSetHoursTextBox";
+            this.AlarmSetHoursTextBox.Size = new System.Drawing.Size(100, 28);
+            this.AlarmSetHoursTextBox.TabIndex = 9;
+            this.AlarmSetHoursTextBox.TextChanged += new System.EventHandler(this.AlarmSetHoursTextBox_TextChanged);
             // 
             // AlarmSetMinTextBox
             // 
@@ -186,11 +186,11 @@
             // 
             // Alarm1GroupBox
             // 
-            this.Alarm1GroupBox.Controls.Add(this.SetAlarmButton);
+            this.Alarm1GroupBox.Controls.Add(this.AlarmSetButton);
             this.Alarm1GroupBox.Controls.Add(this.AlarmSetMinLabel);
             this.Alarm1GroupBox.Controls.Add(this.AlarmSetHoursLabel);
             this.Alarm1GroupBox.Controls.Add(this.AlarmSetMinTextBox);
-            this.Alarm1GroupBox.Controls.Add(this.AlarmHoursTextBox);
+            this.Alarm1GroupBox.Controls.Add(this.AlarmSetHoursTextBox);
             this.Alarm1GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Alarm1GroupBox.ForeColor = System.Drawing.Color.White;
             this.Alarm1GroupBox.Location = new System.Drawing.Point(12, 390);
@@ -201,17 +201,17 @@
             this.Alarm1GroupBox.Text = "Alarm 1";
             this.Alarm1GroupBox.Enter += new System.EventHandler(this.Alarm1GroupBox_Enter);
             // 
-            // SetAlarmButton
+            // AlarmSetButton
             // 
-            this.SetAlarmButton.BackColor = System.Drawing.Color.White;
-            this.SetAlarmButton.ForeColor = System.Drawing.Color.Black;
-            this.SetAlarmButton.Location = new System.Drawing.Point(73, 161);
-            this.SetAlarmButton.Name = "SetAlarmButton";
-            this.SetAlarmButton.Size = new System.Drawing.Size(158, 44);
-            this.SetAlarmButton.TabIndex = 13;
-            this.SetAlarmButton.Text = "Set Alarm";
-            this.SetAlarmButton.UseVisualStyleBackColor = false;
-            this.SetAlarmButton.Click += new System.EventHandler(this.SetAlarmButton_Click);
+            this.AlarmSetButton.BackColor = System.Drawing.Color.White;
+            this.AlarmSetButton.ForeColor = System.Drawing.Color.Black;
+            this.AlarmSetButton.Location = new System.Drawing.Point(73, 161);
+            this.AlarmSetButton.Name = "AlarmSetButton";
+            this.AlarmSetButton.Size = new System.Drawing.Size(158, 44);
+            this.AlarmSetButton.TabIndex = 13;
+            this.AlarmSetButton.Text = "Set Alarm";
+            this.AlarmSetButton.UseVisualStyleBackColor = false;
+            this.AlarmSetButton.Click += new System.EventHandler(this.SetAlarmButton_Click);
             // 
             // Alarm2GroupBox
             // 
@@ -328,12 +328,12 @@
         private System.Windows.Forms.Button SetTimeButton;
         private System.Windows.Forms.Button StopButton;
         private System.Windows.Forms.GroupBox ButtonGroupBoxSetStop;
-        private System.Windows.Forms.TextBox AlarmHoursTextBox;
+        private System.Windows.Forms.TextBox AlarmSetHoursTextBox;
         private System.Windows.Forms.TextBox AlarmSetMinTextBox;
         private System.Windows.Forms.Label AlarmSetHoursLabel;
         private System.Windows.Forms.Label AlarmSetMinLabel;
         private System.Windows.Forms.GroupBox Alarm1GroupBox;
-        private System.Windows.Forms.Button SetAlarmButton;
+        private System.Windows.Forms.Button AlarmSetButton;
         private System.Windows.Forms.GroupBox Alarm2GroupBox;
         private System.Windows.Forms.Button AlarmSetButton2;
         private System.Windows.Forms.Label AlarmSetMinLabel2;

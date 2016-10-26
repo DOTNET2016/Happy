@@ -84,7 +84,18 @@ namespace OOPLab1
                 SetMinTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
                 SetTimeButton.Enabled = _IsOn ? false : true;
                 SetTimeButton.BackColor = _IsOn ? Color.SkyBlue : Color.White;
-                SetAlarmButton.Enabled = _IsOn ? false : true;
+                AlarmSetButton.Enabled = _IsOn ? false : true;
+                AlarmSetButton.BackColor = _IsOn ? Color.SkyBlue : Color.White;
+                AlarmSetHoursTextBox.Enabled = _IsOn ? false : true;
+                AlarmSetHoursTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
+                AlarmSetMinTextBox.Enabled = _IsOn ? false : true;
+                AlarmSetMinTextBox.BackColor = _IsOn ? Color.SkyBlue : Color.White;
+                AlarmSetButton2.Enabled = _IsOn ? false : true;
+                AlarmSetButton2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
+                AlarmSetHoursTextBox2.Enabled = _IsOn ? false : true;
+                AlarmSetHoursTextBox2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
+                AlarmSetMinTextBox2.Enabled = _IsOn ? false : true;
+                AlarmSetMinTextBox2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
             }
         }
 
@@ -150,12 +161,12 @@ namespace OOPLab1
             }
         }
 
-        private void AlarmHoursTextBox_TextChanged(object sender, EventArgs e)
+        private void AlarmSetHoursTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                _AlarmSetHours = Convert.ToInt32(AlarmHoursTextBox.Text);
-                _AlarmSetHours = int.Parse(AlarmHoursTextBox.Text);
+                _AlarmSetHours = Convert.ToInt32(AlarmSetHoursTextBox.Text);
+                _AlarmSetHours = int.Parse(AlarmSetHoursTextBox.Text);
             }
             catch (Exception)
             {
@@ -182,7 +193,7 @@ namespace OOPLab1
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
             }
-            else if (nonNumericRegex.IsMatch(AlarmHoursTextBox.Text))
+            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
