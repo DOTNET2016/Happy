@@ -238,6 +238,7 @@
             this.AlarmSetButton2.TabIndex = 13;
             this.AlarmSetButton2.Text = "Set Alarm";
             this.AlarmSetButton2.UseVisualStyleBackColor = false;
+            this.AlarmSetButton2.Click += new System.EventHandler(this.AlarmSetButton2_Click);
             // 
             // AlarmSetMinLabel2
             // 
