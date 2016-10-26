@@ -39,11 +39,11 @@ namespace OOPLab1
             }
         }
 
-        public Alarm()
-        {
-            c2.SetMins = _alarmMins;
-            c2.SetHour = _alarmHours;
-        }
+        //public Alarm()
+        //{
+        //    c2.SetMins = _alarmMins;
+        //    c2.SetHour = _alarmHours;
+        //}
 
         //public static bool operator ==(Clock mainClock, Alarm alarmTime)
         //{
@@ -56,6 +56,8 @@ namespace OOPLab1
 
         public bool CheckTime()
         {
+            c2.CheckMin();
+            c2.CheckHour();
 
             if ((c2.SetMins == _alarmMins) && (c2.SetHour == _alarmHours))
                 return true;
