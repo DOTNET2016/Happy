@@ -55,9 +55,17 @@ namespace OOPLab1
             
         }
 
-        public void AlarmCount()
+        public bool AlarmCount()
         {
-            
+            _alarmHours = c2.SetHour;
+            _alarmMins = c2.SetMins;
+            if (_alarmMins < 10)
+            {
+                return true;
+            }
+            else
+                return false;
+
         }
 
         //public static bool operator == (Clock mainClock, Alarm alarmTime)

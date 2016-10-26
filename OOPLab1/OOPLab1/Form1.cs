@@ -222,6 +222,7 @@ namespace OOPLab1
         {        
             if (_AlarmSetHours == setHour && _AlarmSetMins == setMinute)
             {
+                //if(a1.AlarmCount)
                     Alarm1GroupBox.Enabled = true;
                     for (int c = 0; c < 253 && Visible; c++)
                     {
