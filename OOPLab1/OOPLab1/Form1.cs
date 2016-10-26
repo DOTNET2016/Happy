@@ -173,7 +173,6 @@ namespace OOPLab1
             c1.SetMins = setMinutes;
             c1.SetHour = setHours;
             ClockLabel.Text = setHours.ToString("00") +":" + setMinutes.ToString("00");
-            Alarm1GroupBox.Enabled = false;
         }
 
         private void SetTimeButton_Click(object sender, EventArgs e)
@@ -258,7 +257,8 @@ namespace OOPLab1
         {        
             if (_AlarmSetHours == setHour && _AlarmSetMins == setMinute)
             {
-                //if(a1.AlarmCount)
+                for (setMinute = c1.SetMins; setMinute < 11; setMinute++)
+                {
                     Alarm1GroupBox.Enabled = true;
                     for (int c = 0; c < 253 && Visible; c++)
                     {
@@ -266,12 +266,14 @@ namespace OOPLab1
                         Application.DoEvents();
                         System.Threading.Thread.Sleep(1);
                     }
-                    for (int c = 254; c >= 0 && Visible; c--)
-                    {
-                        this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                        Application.DoEvents();
-                        System.Threading.Thread.Sleep(2);
-                    }
+                    //for (int c = 254; c >= 0 && Visible; c--)
+                    //{
+                    //    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    //    Application.DoEvents();
+                    //    System.Threading.Thread.Sleep(2);
+                    //}
+                }
+                this.Alarm1GroupBox.BackColor = Color.Black;
             }
         }
 

@@ -57,8 +57,7 @@ namespace OOPLab1
 
         public bool AlarmCount()
         {
-            _alarmHours = c2.SetHour;
-            _alarmMins = c2.SetMins;
+            
             if (_alarmMins < 10)
             {
                 return true;
