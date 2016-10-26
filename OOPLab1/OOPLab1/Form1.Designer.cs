@@ -178,7 +178,7 @@
             this.AlarmSetMinLabel.AutoSize = true;
             this.AlarmSetMinLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlarmSetMinLabel.ForeColor = System.Drawing.Color.White;
-            this.AlarmSetMinLabel.Location = new System.Drawing.Point(16, 111);
+            this.AlarmSetMinLabel.Location = new System.Drawing.Point(15, 111);
             this.AlarmSetMinLabel.Name = "AlarmSetMinLabel";
             this.AlarmSetMinLabel.Size = new System.Drawing.Size(131, 24);
             this.AlarmSetMinLabel.TabIndex = 12;
@@ -245,7 +245,7 @@
             this.AlarmSetMinLabel2.AutoSize = true;
             this.AlarmSetMinLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlarmSetMinLabel2.ForeColor = System.Drawing.Color.White;
-            this.AlarmSetMinLabel2.Location = new System.Drawing.Point(27, 111);
+            this.AlarmSetMinLabel2.Location = new System.Drawing.Point(17, 111);
             this.AlarmSetMinLabel2.Name = "AlarmSetMinLabel2";
             this.AlarmSetMinLabel2.Size = new System.Drawing.Size(131, 24);
             this.AlarmSetMinLabel2.TabIndex = 12;
@@ -256,7 +256,7 @@
             this.AlarmSetHoursLabel2.AutoSize = true;
             this.AlarmSetHoursLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlarmSetHoursLabel2.ForeColor = System.Drawing.Color.White;
-            this.AlarmSetHoursLabel2.Location = new System.Drawing.Point(27, 59);
+            this.AlarmSetHoursLabel2.Location = new System.Drawing.Point(17, 59);
             this.AlarmSetHoursLabel2.Name = "AlarmSetHoursLabel2";
             this.AlarmSetHoursLabel2.Size = new System.Drawing.Size(120, 24);
             this.AlarmSetHoursLabel2.TabIndex = 11;
@@ -279,9 +279,9 @@
             // ClockLabel
             // 
             this.ClockLabel.AutoSize = true;
-            this.ClockLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 95F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClockLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClockLabel.ForeColor = System.Drawing.Color.White;
-            this.ClockLabel.Location = new System.Drawing.Point(239, 219);
+            this.ClockLabel.Location = new System.Drawing.Point(268, 219);
             this.ClockLabel.Name = "ClockLabel";
             this.ClockLabel.Size = new System.Drawing.Size(476, 180);
             this.ClockLabel.TabIndex = 15;
