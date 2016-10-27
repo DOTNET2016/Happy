@@ -12,6 +12,8 @@ namespace OOPLab1
         Clock c2 = new Clock();
         private int _alarmMins;
         private int _alarmHours;
+        private int _alarm2Mins;
+        private int _alarm2Hours;
 
         public int tempMin;
         public int tempHrs;
@@ -41,6 +43,31 @@ namespace OOPLab1
                 _alarmHours = value;
             }
         }
+        public int Alarm2Mins
+        {
+            get
+            {
+                return _alarm2Mins;
+            }
+
+            set
+            {
+                _alarm2Mins = value;
+            }
+        }
+
+        public int Alarm2Hours
+        {
+            get
+            {
+                return _alarm2Hours;
+            }
+
+            set
+            {
+                _alarm2Hours = value;
+            }
+        }
 
 
         public bool AlarmCount(/*int setArlMin, int setArlHrs*/)
@@ -52,7 +79,7 @@ namespace OOPLab1
             {
                 return true;
             }
-            else
+            
                 return false;          
         }
 
