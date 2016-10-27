@@ -328,16 +328,12 @@ namespace OOPLab1
         {        
             if (_AlarmSetHours == setHour && _AlarmSetMins == setMinute)
             {
-                for (setMinute = c1.SetMins;  setMinute < 11; setMinute++)
+                Alarm1GroupBox.Enabled = true;
+                for (int c = 0; c < 253 && Visible; c++)
                 {
-                    Alarm1GroupBox.Enabled = true;
-                    for (int c = 0; c < 253 && Visible; c++)
-                    {
-                        this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                        Application.DoEvents();
-                        Thread.Sleep(10);
-                    }
-                    this.Alarm1GroupBox.BackColor = Color.Black;
+                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    timer1.Start();
                 }
             }
         }
@@ -376,6 +372,11 @@ namespace OOPLab1
             //    a1.AlarmMins = _AlarmSetMins;
             //    a1.AlarmHours = _AlarmSetHours;
             //}
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.Alarm1GroupBox.BackColor = Color.Black;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SetHourTextBox = new System.Windows.Forms.TextBox();
             this.SetMinTextBox = new System.Windows.Forms.TextBox();
             this.SetHoursLabel = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@
             this.AlarmSetMinTextBox2 = new System.Windows.Forms.TextBox();
             this.AlarmSetHoursTextBox2 = new System.Windows.Forms.TextBox();
             this.ClockLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ClockGroupBox.SuspendLayout();
             this.ButtonGroupBoxSetStop.SuspendLayout();
             this.Alarm1GroupBox.SuspendLayout();
@@ -210,6 +212,7 @@
             this.Alarm1GroupBox.Size = new System.Drawing.Size(291, 226);
             this.Alarm1GroupBox.TabIndex = 13;
             this.Alarm1GroupBox.TabStop = false;
+            this.Alarm1GroupBox.Tag = "timerthing";
             this.Alarm1GroupBox.Text = "Alarm 1";
             // 
             // AlarmSetButton
@@ -306,6 +309,13 @@
             this.ClockLabel.Text = "00:00";
             this.ClockLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 9500;
+            this.timer1.Tag = "timerthing";
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -361,6 +371,7 @@
         private System.Windows.Forms.TextBox AlarmSetMinTextBox2;
         private System.Windows.Forms.TextBox AlarmSetHoursTextBox2;
         private System.Windows.Forms.Label ClockLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
