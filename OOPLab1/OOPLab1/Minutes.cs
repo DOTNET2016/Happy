@@ -22,7 +22,7 @@ namespace OOPLab1
             }
             set
             {
-                if ((value > 0) && (value < 60))
+                if ((value >= 0) && (value <= 60))
                 {
                     _minutesValue = value;
                 }

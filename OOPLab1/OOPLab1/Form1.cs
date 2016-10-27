@@ -31,11 +31,11 @@ namespace OOPLab1
         public Form1()
         {
             //Splash Screen timer starts
-            Thread splash = new Thread(new ThreadStart(SplashScreen));
-            splash.Start();
-            Thread.Sleep(5000);
+            //Thread splash = new Thread(new ThreadStart(SplashScreen));
+            //splash.Start();
+            //Thread.Sleep(5000);
             InitializeComponent();
-            splash.Abort();
+            //splash.Abort();
             //"small" implementation of our custom font
             #region
             byte[] fontData = Properties.Resources.MyFont1;
@@ -119,7 +119,7 @@ namespace OOPLab1
             setMinute = c1.CheckMin();
             setHour = c1.CheckHour();
             ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
-            AlarmChecker();
+            Alarm1Checker();
         }
         
         private void T1_Tick(object sender, EventArgs e)
@@ -283,7 +283,7 @@ namespace OOPLab1
             }
             catch (Exception)
             {
-                setMinutes = 0;
+                _AlarmSetMins = 0;
             }
         }
 
@@ -305,7 +305,11 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-
+            else
+            {
+                a1.AlarmMins = _AlarmSetMins;
+                a1.AlarmHours = _AlarmSetHours;
+            }
             AlarmButtonIsOn = !AlarmButtonIsOn;
             if (AlarmButtonIsOn)
             {
@@ -324,19 +328,7 @@ namespace OOPLab1
             //}
         }
 
-        private void AlarmChecker()
-        {        
-            if (_AlarmSetHours == setHour && _AlarmSetMins == setMinute)
-            {
-                Alarm1GroupBox.Enabled = true;
-                for (int c = 0; c < 253 && Visible; c++)
-                {
-                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    timer1.Start();
-                }
-            }
-        }
+
 
         private void AlarmSetButton2_Click(object sender, EventArgs e)
         {
@@ -357,8 +349,12 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-
-            AlarmButton2IsOn = !AlarmButton2IsOn;
+            else
+            {
+                a1.AlarmMins2 = _AlarmSetMins;
+                a1.AlarmHours2 = _AlarmSetHours;
+            }
+                AlarmButton2IsOn = !AlarmButton2IsOn;
             if (AlarmButton2IsOn)
             {
                 //simpleSound.PlayLooping();
@@ -373,10 +369,43 @@ namespace OOPLab1
             //    a1.AlarmHours = _AlarmSetHours;
             //}
         }
-
+        private void Alarm1Checker()
+        {
+            if (a1.Alarm1() == true)
+            {
+                Alarm1GroupBox.Enabled = true;
+                for (int c = 0; c < 253 && Visible; c++)
+                {
+                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    timer1.Start();
+                }
+            }
+            if (a1.Alarm2() == true)
+            {
+                Alarm1GroupBox.Enabled = true;
+                for (int c = 0; c < 253 && Visible; c++)
+                {
+                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    timer1.Start();
+                }
+            }
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.Alarm1GroupBox.BackColor = Color.Black;
+            alarmSound.Stop();
+        }
+
+        private void SetMinTextBox_Click(object sender, EventArgs e)
+        {
+            SetMinTextBox.Text = "";
+        }
+
+        private void SetHourTextBox_Click(object sender, EventArgs e)
+        {
+            SetHourTextBox.Text = "";
         }
     }
 }

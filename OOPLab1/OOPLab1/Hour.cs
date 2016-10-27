@@ -20,7 +20,7 @@ namespace OOPLab1
             }
             set
             {
-                if ((value > 0) && (value < 24))
+                if ((value >= 0) && (value <= 24))
                 {
                     _hoursValue = value;
                 }

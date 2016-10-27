@@ -12,6 +12,8 @@ namespace OOPLab1
         Clock c2 = new Clock();
         private int _alarmMins;
         private int _alarmHours;
+        private int _alarmMins2;
+        private int _alarmHours2;
         private int _alarmTime;
 
         private Timer alrmTimer;
@@ -41,13 +43,43 @@ namespace OOPLab1
                 _alarmHours = value;
             }
         }
-
-        public void AlarmTick()
+        public int AlarmMins2
         {
-            alrmTimer = new Timer();
-            alrmTimer.Elapsed += AlrmT_Elapsed;
-            alrmTimer.Interval = 1000;
-            alrmTimer.Start();
+            get
+            {
+                return _alarmMins2;
+            }
+
+            set
+            {
+                _alarmMins2 = value;
+            }
+        }
+
+        public int AlarmHours2
+        {
+            get
+            {
+                return _alarmHours2;
+            }
+
+            set
+            {
+                _alarmHours2 = value;
+            }
+        }
+
+        public bool Alarm1()
+        {
+            if (_alarmHours == c2.CheckHour() && _alarmMins == c2.CheckMin())
+                return true;
+            return false;
+        }
+        public bool Alarm2()
+        {
+            if (_alarmHours2 == c2.CheckHour() && _alarmMins2 == c2.CheckMin())
+                return true;
+            return false;
         }
 
         private void AlrmT_Elapsed(object sender, ElapsedEventArgs e)
@@ -55,17 +87,6 @@ namespace OOPLab1
             
         }
 
-        public bool AlarmCount()
-        {
-            
-            if (_alarmMins < 10)
-            {
-                return true;
-            }
-            else
-                return false;
-
-        }
 
         //public static bool operator == (Clock mainClock, Alarm alarmTime)
         //{

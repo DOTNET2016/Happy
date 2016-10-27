@@ -64,6 +64,8 @@
             this.SetHourTextBox.Name = "SetHourTextBox";
             this.SetHourTextBox.Size = new System.Drawing.Size(100, 30);
             this.SetHourTextBox.TabIndex = 1;
+            this.SetHourTextBox.Text = "00";
+            this.SetHourTextBox.Click += new System.EventHandler(this.SetHourTextBox_Click);
             this.SetHourTextBox.TextChanged += new System.EventHandler(this.SetHourTextBox_TextChanged);
             // 
             // SetMinTextBox
@@ -73,6 +75,8 @@
             this.SetMinTextBox.Name = "SetMinTextBox";
             this.SetMinTextBox.Size = new System.Drawing.Size(100, 30);
             this.SetMinTextBox.TabIndex = 2;
+            this.SetMinTextBox.Text = "00";
+            this.SetMinTextBox.Click += new System.EventHandler(this.SetMinTextBox_Click);
             this.SetMinTextBox.TextChanged += new System.EventHandler(this.SetMinTextBox_TextChanged);
             // 
             // SetHoursLabel
