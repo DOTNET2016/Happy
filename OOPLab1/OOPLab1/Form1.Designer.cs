@@ -298,6 +298,7 @@
             this.AlarmSetMinTextBox2.TabIndex = 10;
             this.AlarmSetMinTextBox2.Text = "00";
             this.AlarmSetMinTextBox2.Click += new System.EventHandler(this.AlarmSetMinTextBox2_Click);
+            this.AlarmSetMinTextBox2.TextChanged += new System.EventHandler(this.AlarmSetMinTextBox2_TextChanged);
             // 
             // AlarmSetHoursTextBox2
             // 
@@ -308,6 +309,7 @@
             this.AlarmSetHoursTextBox2.TabIndex = 9;
             this.AlarmSetHoursTextBox2.Text = "00";
             this.AlarmSetHoursTextBox2.Click += new System.EventHandler(this.AlarmSetHoursTextBox2_Click);
+            this.AlarmSetHoursTextBox2.TextChanged += new System.EventHandler(this.AlarmSetHoursTextBox2_TextChanged);
             // 
             // ClockLabel
             // 
