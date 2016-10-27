@@ -16,6 +16,7 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
+        SoundPlayer alarmSound = new SoundPlayer(Properties.Resources.sound);
         //Import of a dll and adding the font to the memory for the program to use
         #region
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
@@ -308,10 +309,12 @@ namespace OOPLab1
             AlarmButtonIsOn = !AlarmButtonIsOn;
             if (AlarmButtonIsOn)
             {
+                alarmSound.Play();
                 //simpleSound.PlayLooping();
             }
             if (!AlarmButtonIsOn)
             {
+                alarmSound.Stop();
                 //simpleSound.Stop();
             }
             //else
@@ -332,7 +335,7 @@ namespace OOPLab1
                     {
                         this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
                         Application.DoEvents();
-                        System.Threading.Thread.Sleep(1);
+                        Thread.Sleep(10);
                     }
                     this.Alarm1GroupBox.BackColor = Color.Black;
                 }
