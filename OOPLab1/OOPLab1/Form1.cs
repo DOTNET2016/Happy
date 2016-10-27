@@ -63,8 +63,8 @@ namespace OOPLab1
         Clock c1 = new Clock();
         Alarm a1 = new Alarm();
 
-        int setMinutes;
-        int setHours;
+        int getMinutes;
+        int getHours;
         int _AlarmSetHours;
         int _AlarmSetMins;
         int setHour;
@@ -130,9 +130,9 @@ namespace OOPLab1
         //when stop button is presset the time will reset and clock will start at set time
         private void ResetLabel()
         {
-            c1.SetMins = setMinutes;
-            c1.SetHour = setHours;
-            ClockLabel.Text = setHours.ToString("00") + ":" + setMinutes.ToString("00");
+            c1.SetMins = getMinutes;
+            c1.SetHour = getHours;
+            ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
             c1.TimeReset();
             //Alarm1GroupBox.Enabled = false;
         }
@@ -211,12 +211,12 @@ namespace OOPLab1
         {
             try
             {
-                setMinutes = int.Parse(SetMinTextBox.Text);
-                setMinutes = Convert.ToInt32(SetMinTextBox.Text);
+                getMinutes = int.Parse(SetMinTextBox.Text);
+                getMinutes = Convert.ToInt32(SetMinTextBox.Text);
             }
             catch (Exception)
             {
-                setMinutes = 0;
+                getMinutes = 0;
             }                
         }
 
@@ -225,19 +225,19 @@ namespace OOPLab1
         {
             try
             {
-                setHours = Convert.ToInt32(SetHourTextBox.Text);
-                setHours = int.Parse(SetHourTextBox.Text);
+                getHours = Convert.ToInt32(SetHourTextBox.Text);
+                getHours = int.Parse(SetHourTextBox.Text);
             }
             catch (Exception)
             {
-                setHours = 0;
+                getHours = 0;
             }
         }
 
         //A button to set the time that was input to the min/hour textboxes
         private void SetTimeButton_Click(object sender, EventArgs e)
         {
-            if (setHours >= 24)
+            if (getHours >= 24)
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
             }
@@ -245,7 +245,7 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-            else if (setMinutes >= 60)
+            else if (getMinutes >= 60)
             {
                 MessageBox.Show("It's a clock dummy! Enter 1 - 59");
             }
@@ -255,9 +255,9 @@ namespace OOPLab1
             }
             else
             {
-                ClockLabel.Text = setHours.ToString("00") + ":" + setMinutes.ToString("00");
-                c1.SetMins = setMinutes;
-                c1.SetHour = setHours;
+                ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
+                c1.SetMins = getMinutes;
+                c1.SetHour = getHours;
             }
         }
 
@@ -270,7 +270,7 @@ namespace OOPLab1
             }
             catch (Exception)
             {
-                setHours = 0;
+                getHours = 0;
             }
         }
 
@@ -283,7 +283,7 @@ namespace OOPLab1
             }
             catch (Exception)
             {
-                _AlarmSetMins = 0;
+                getMinutes = 0;
             }
         }
 
@@ -328,7 +328,19 @@ namespace OOPLab1
             //}
         }
 
-
+        private void AlarmChecker()
+        {
+            if (_AlarmSetHours == setHour && _AlarmSetMins == setMinute)
+            {
+                Alarm1GroupBox.Enabled = true;
+                for (int c = 0; c < 253 && Visible; c++)
+                {
+                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    timer1.Start();
+                }
+            }
+        }
 
         private void AlarmSetButton2_Click(object sender, EventArgs e)
         {
@@ -349,12 +361,8 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-            else
-            {
-                a1.AlarmMins2 = _AlarmSetMins;
-                a1.AlarmHours2 = _AlarmSetHours;
-            }
-                AlarmButton2IsOn = !AlarmButton2IsOn;
+
+            AlarmButton2IsOn = !AlarmButton2IsOn;
             if (AlarmButton2IsOn)
             {
                 //simpleSound.PlayLooping();
@@ -369,29 +377,7 @@ namespace OOPLab1
             //    a1.AlarmHours = _AlarmSetHours;
             //}
         }
-        private void Alarm1Checker()
-        {
-            if (a1.Alarm1() == true)
-            {
-                Alarm1GroupBox.Enabled = true;
-                for (int c = 0; c < 253 && Visible; c++)
-                {
-                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    timer1.Start();
-                }
-            }
-            if (a1.Alarm2() == true)
-            {
-                Alarm1GroupBox.Enabled = true;
-                for (int c = 0; c < 253 && Visible; c++)
-                {
-                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    timer1.Start();
-                }
-            }
-        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.Alarm1GroupBox.BackColor = Color.Black;
