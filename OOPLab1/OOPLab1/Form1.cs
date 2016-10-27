@@ -16,10 +16,10 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
-        SoundPlayer alarmSound = new SoundPlayer(Properties.Resources.sound);
-        SoundPlayer alarmSound2 = new SoundPlayer(Properties.Resources.sound);
+        SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.sound);
+        SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.sound);
         //Import of a dll and adding the font to the memory for the program to use
-        #region
+        #region FontLoadingStuff
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
             IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
@@ -37,8 +37,9 @@ namespace OOPLab1
             //Thread.Sleep(5000);
             InitializeComponent();
             //splash.Abort();
+
             //"small" implementation of our custom font
-            #region
+            #region FontLoadingStuff
             byte[] fontData = Properties.Resources.MyFont1;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
@@ -50,6 +51,7 @@ namespace OOPLab1
             myFont = new Font(fonts.Families[0], 12.0F);
             myFontClock = new Font(fonts.Families[0], 95.0F);
             #endregion
+
             t1.Interval = 1000;
             t1.Tick += T1_Tick;
         }
@@ -155,6 +157,7 @@ namespace OOPLab1
             a1.tempMin2 = getMinutes;
         }
 
+        #region ButtonBoolChecks
         //here is where the magic from the stop button is performed (it works so we dont question it)
         public bool IsOn
         {
@@ -202,11 +205,6 @@ namespace OOPLab1
             {
                 _alarmButtonIsOn = value;
                 AlarmSetButton.Text = _alarmButtonIsOn ? "Alarm set" : "Set Alarm";
-                AlarmSetHoursTextBox.Enabled = _alarmButtonIsOn = false;
-                AlarmSetHoursTextBox.BackColor = _IsOn ? Color.White : Color.Yellow;
-                AlarmSetMinTextBox.Enabled = _alarmButtonIsOn = false;
-                AlarmSetMinTextBox.BackColor = _IsOn ? Color.White : Color.Yellow;
-                AlarmSetButton.Enabled = _alarmButtonIsOn = false;
             }
         }
 
@@ -220,14 +218,11 @@ namespace OOPLab1
             {
                 _alarmButton2IsOn = value;
                 AlarmSetButton2.Text = _alarmButton2IsOn ? "Alarm set" : "Set Alarm";
-                AlarmSetHoursTextBox2.Enabled = _alarmButton2IsOn = false;
-                AlarmSetHoursTextBox2.BackColor = _IsOn ? Color.White : Color.Yellow;
-                AlarmSetMinTextBox2.Enabled = _alarmButton2IsOn = false;
-                AlarmSetMinTextBox2.BackColor = _IsOn ? Color.White : Color.Yellow;
-                AlarmSetButton2.Enabled = _alarmButton2IsOn = false;
             }
         }
+        #endregion
 
+        #region SetTimeButtonStuff
         //get user input from from textbox and save to minutes
         private void SetMinTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -239,7 +234,7 @@ namespace OOPLab1
             catch (Exception)
             {
                 getMinutes = 0;
-            }                
+            }
         }
 
         //get user input from from textbox and save to hours
@@ -277,6 +272,8 @@ namespace OOPLab1
             }
             else
             {
+                SetHourTextBox.BackColor = Color.Yellow;
+                SetMinTextBox.BackColor = Color.Yellow;
                 ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
                 c1.SetMins = getMinutes;
                 c1.SetHour = getHours;
@@ -287,6 +284,19 @@ namespace OOPLab1
                 a1.tempMin2 = getMinutes;
             }
         }
+
+        private void SetMinTextBox_Click(object sender, EventArgs e)
+        {
+            SetMinTextBox.Text = "";
+        }
+
+        private void SetHourTextBox_Click(object sender, EventArgs e)
+        {
+            SetHourTextBox.Text = "";
+        }
+        #endregion
+
+        #region Alarm1Stuff
         //get user input for alarm 1 - Hours.
         private void AlarmSetHoursTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -313,6 +323,55 @@ namespace OOPLab1
                 _alarmSetMins = 0;
             }
         }
+
+        //set the alarm 1 and control the user input
+        private void SetAlarmButton_Click(object sender, EventArgs e)
+        {
+            if (_alarmSetHours >= 24)
+            {
+                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
+                //AlarmButtonIsOn = AlarmButtonIsOn;
+            }
+            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
+            {
+                MessageBox.Show("Entered non-numeric, please enter numbers only");
+                AlarmButtonIsOn = AlarmButtonIsOn;
+            }
+            else if (_alarmSetMins >= 60)
+            {
+                MessageBox.Show("It's a clock dummy! Enter 1 - 59");
+                AlarmButtonIsOn = AlarmButtonIsOn;
+            }
+            else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox.Text))
+            {
+                MessageBox.Show("Entered non-numeric, please enter numbers only");
+                AlarmButtonIsOn = AlarmButtonIsOn;
+            }
+            else
+            {
+                AlarmSetHoursTextBox.Enabled = _alarmButtonIsOn = false;
+                AlarmSetHoursTextBox.BackColor = _IsOn ? Color.White : Color.Yellow;
+                AlarmSetMinTextBox.Enabled = _alarmButtonIsOn = false;
+                AlarmSetMinTextBox.BackColor = _IsOn ? Color.White : Color.Yellow;
+                AlarmSetButton.Enabled = _alarmButtonIsOn = false;
+                AlarmButtonIsOn = !AlarmButtonIsOn;
+                a1.AlarmMins = _alarmSetMins;
+                a1.AlarmHours = _alarmSetHours;
+            }
+        }
+
+        private void AlarmSetHoursTextBox_Click(object sender, EventArgs e)
+        {
+            AlarmSetHoursTextBox.Text = "";
+        }
+
+        private void AlarmSetMinTextBox_Click(object sender, EventArgs e)
+        {
+            AlarmSetMinTextBox.Text = "";
+        }
+        #endregion
+
+        #region Alarm2Stuff
         //get user input for alarm 2 - Hours
         private void AlarmSetHoursTextBox2_TextChanged(object sender, EventArgs e)
         {
@@ -337,86 +396,6 @@ namespace OOPLab1
             catch (Exception)
             {
                 _alarmSetMins2 = 0;
-            }
-        }
-        //set the alarm 1 and control the user input
-        private void SetAlarmButton_Click(object sender, EventArgs e)
-        {
-            AlarmButtonIsOn = !AlarmButtonIsOn;
-            if (_alarmSetHours >= 24)
-            {
-                MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
-                AlarmButtonIsOn = AlarmButtonIsOn;
-            }
-            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
-            {
-                MessageBox.Show("Entered non-numeric, please enter numbers only");
-                AlarmButtonIsOn = AlarmButtonIsOn;
-            }
-            else if (_alarmSetMins >= 60)
-            {
-                MessageBox.Show("It's a clock dummy! Enter 1 - 59");
-                AlarmButtonIsOn = AlarmButtonIsOn;
-            }
-            else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox.Text))
-            {
-                MessageBox.Show("Entered non-numeric, please enter numbers only");
-                AlarmButtonIsOn = AlarmButtonIsOn;
-            }
-            else
-            {
-                a1.AlarmMins = _alarmSetMins;
-                a1.AlarmHours = _alarmSetHours;
-            }
-        }
-        //check the state of the alarm 1 with the method in alarm class - if active set off the alarm
-        public void AlarmChecker()
-        {
-            a1.tempHrs1 = setHour;
-            a1.tempMin1 = setMinute;
-
-            while (a1.Alarm1Count() == true)
-            {
-                alarmSound.Play();
-                Alarm1GroupBox.Enabled = true;
-                for (int c = 0; c < 253 && Visible; c++)
-                {
-                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    timer1.Start();
-                    Thread.Sleep(3);
-                }
-                for (int c = 254; c >= 0 && Visible; c--)
-                {
-                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    Thread.Sleep(3);
-                }
-            }
-
-        }
-        //check the state of the alarm 2 with the method in alarm class - if active set off the alarm
-        private void AlarmChecker2()
-        {
-            a1.tempHrs2 = setHour;
-            a1.tempMin2 = setMinute;
-            while (a1.Alarm2Count() == true)
-            {
-                alarmSound2.Play();
-                Alarm2GroupBox.Enabled = true;
-                for (int c = 0; c < 253 && Visible; c++)
-                {
-                    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    timer2.Start();
-                    Thread.Sleep(3);
-                }
-                for (int c = 254; c >= 0 && Visible; c--)
-                {
-                    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    Thread.Sleep(3);
-                }
             }
         }
         //set the alarm 2 and control the user input
@@ -445,43 +424,14 @@ namespace OOPLab1
             }
             else
             {
+                AlarmSetHoursTextBox2.Enabled = _alarmButton2IsOn = false;
+                AlarmSetHoursTextBox2.BackColor = _IsOn ? Color.White : Color.Yellow;
+                AlarmSetMinTextBox2.Enabled = _alarmButton2IsOn = false;
+                AlarmSetMinTextBox2.BackColor = _IsOn ? Color.White : Color.Yellow;
+                AlarmSetButton2.Enabled = _alarmButton2IsOn = false;
                 a1.Alarm2Mins = _alarmSetMins2;
                 a1.Alarm2Hours = _alarmSetHours2;
             }
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            this.Alarm1GroupBox.BackColor = Color.Black;
-            timer1.Stop();
-            alarmSound.Stop();
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            this.Alarm2GroupBox.BackColor = Color.Black;
-            timer2.Stop();
-            alarmSound.Stop();
-        }
-
-        private void SetMinTextBox_Click(object sender, EventArgs e)
-        {
-            SetMinTextBox.Text = "";
-        }
-
-        private void SetHourTextBox_Click(object sender, EventArgs e)
-        {
-            SetHourTextBox.Text = "";
-        }
-
-        private void AlarmSetHoursTextBox_Click(object sender, EventArgs e)
-        {
-            AlarmSetHoursTextBox.Text = "";
-        }
-
-        private void AlarmSetMinTextBox_Click(object sender, EventArgs e)
-        {
-            AlarmSetMinTextBox.Text = "";
         }
 
         private void AlarmSetHoursTextBox2_Click(object sender, EventArgs e)
@@ -493,6 +443,73 @@ namespace OOPLab1
         {
             AlarmSetMinTextBox2.Text = "";
         }
+        #endregion
 
+        #region AlarmCheckLogic
+        //check the state of the alarm 1 with the method in alarm class - if active set off the alarm
+        public void AlarmChecker()
+        {
+            a1.tempHrs1 = setHour;
+            a1.tempMin1 = setMinute;
+
+            while (a1.Alarm1Count() == true)
+            {
+                alarm1Sound.Play();
+                Alarm1GroupBox.Enabled = true;
+                for (int c = 0; c < 253 && Visible; c++)
+                {
+                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    timer1.Start();
+                    Thread.Sleep(3);
+                }
+                for (int c = 254; c >= 0 && Visible; c--)
+                {
+                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    Thread.Sleep(3);
+                }
+            }
+
+        }
+        //check the state of the alarm 2 with the method in alarm class - if active set off the alarm
+        private void AlarmChecker2()
+        {
+            a1.tempHrs2 = setHour;
+            a1.tempMin2 = setMinute;
+            while (a1.Alarm2Count() == true)
+            {
+                alarm2Sound.Play();
+                Alarm2GroupBox.Enabled = true;
+                for (int c = 0; c < 253 && Visible; c++)
+                {
+                    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    timer2.Start();
+                    Thread.Sleep(3);
+                }
+                for (int c = 254; c >= 0 && Visible; c--)
+                {
+                    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    Thread.Sleep(3);
+                }
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.Alarm1GroupBox.BackColor = Color.Black;
+            timer1.Stop();
+            alarm1Sound.Stop();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            this.Alarm2GroupBox.BackColor = Color.Black;
+            timer2.Stop();
+            alarm2Sound.Stop();
+        }
+        #endregion
     }
 }
