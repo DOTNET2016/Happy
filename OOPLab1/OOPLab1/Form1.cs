@@ -134,15 +134,21 @@ namespace OOPLab1
         }
         private void ResetAlarms()
         {
+            //alarm 1
             this.Alarm1GroupBox.BackColor = Color.Black;
             AlarmSetButton.Enabled = _alarmButtonIsOn = true;
-            AlarmSetButton2.Enabled = _alarmButton2IsOn = true;
             AlarmSetHoursTextBox.Text = "00";
             AlarmSetMinTextBox.Text = "00";
             a1.AlarmMins = _alarmSetMins;
             a1.AlarmHours = _alarmSetHours;
+            //alarm 2
+            this.Alarm2GroupBox.BackColor = Color.Black;
+            AlarmSetButton2.Enabled = _alarmButton2IsOn = true;
+            AlarmSetHoursTextBox2.Text = "00";
+            AlarmSetMinTextBox2.Text = "00";
             a1.AlarmMins = _alarmSetMins2;
             a1.AlarmHours = _alarmSetHours2;
+            //set the temp min/hrs for alarm class
             a1.tempHrs = getHours;
             a1.tempMin = getMinutes;
         }
@@ -307,8 +313,8 @@ namespace OOPLab1
         {
             try
             {
-                _alarmSetHours2 = Convert.ToInt32(AlarmSetHoursTextBox.Text);
-                _alarmSetHours2 = int.Parse(AlarmSetHoursTextBox.Text);
+                _alarmSetHours2 = Convert.ToInt32(AlarmSetHoursTextBox2.Text);
+                _alarmSetHours2 = int.Parse(AlarmSetHoursTextBox2.Text);
             }
             catch (Exception)
             {
@@ -320,8 +326,8 @@ namespace OOPLab1
         {
             try
             {
-                _alarmSetMins2 = int.Parse(AlarmSetMinTextBox.Text);
-                _alarmSetMins2 = Convert.ToInt32(AlarmSetMinTextBox.Text);
+                _alarmSetMins2 = int.Parse(AlarmSetMinTextBox2.Text);
+                _alarmSetMins2 = Convert.ToInt32(AlarmSetMinTextBox2.Text);
             }
             catch (Exception)
             {
@@ -397,6 +403,13 @@ namespace OOPLab1
                     this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
                     Application.DoEvents();
                     timer2.Start();
+                    Thread.Sleep(3);
+                }
+                for (int c = 254; c >= 0 && Visible; c--)
+                {
+                    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    Thread.Sleep(3);
                 }
             }
         }
@@ -409,7 +422,7 @@ namespace OOPLab1
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
                 AlarmButton2IsOn = AlarmButton2IsOn;
             }
-            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
+            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox2.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
                 AlarmButton2IsOn = AlarmButton2IsOn;
@@ -419,7 +432,7 @@ namespace OOPLab1
                 MessageBox.Show("It's a clock dummy! Enter 1 - 59");
                 AlarmButton2IsOn = AlarmButton2IsOn;
             }
-            else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox.Text))
+            else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox2.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
                 AlarmButton2IsOn = AlarmButton2IsOn;

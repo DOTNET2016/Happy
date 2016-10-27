@@ -68,11 +68,8 @@ namespace OOPLab1
             }
         }
 
-        public bool Alarm1Count(/*int setArlMin, int setArlHrs*/)
+        public bool Alarm1Count()
         {
-            //_alarmHours = setArlHrs;//take set alarm from form1 
-            //_alarmMins = setArlMin;
-
             if ((_alarmMins == tempMin) && (_alarmHours == tempHrs))//compare
             {
                 return true;
@@ -80,11 +77,8 @@ namespace OOPLab1
             
                 return false;          
         }
-        public bool Alarm2Count(/*int setArlMin, int setArlHrs*/)
+        public bool Alarm2Count()
         {
-            //_alarmHours = setArlHrs;//take set alarm from form1 
-            //_alarmMins = setArlMin;
-
             if ((_alarm2Mins == tempMin) && (_alarm2Hours == tempHrs))//compare
             {
                 return true;
