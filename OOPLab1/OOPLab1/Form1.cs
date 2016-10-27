@@ -65,10 +65,10 @@ namespace OOPLab1
 
         int getMinutes;
         int getHours;
-        int _AlarmSetHours;
-        int _AlarmSetHours2;
-        int _AlarmSetMins;
-        int _AlarmSetMins2;
+        int _alarmSetHours;
+        int _alarmSetHours2;
+        int _alarmSetMins;
+        int _alarmSetMins2;
         int setHour;
         int setMinute;
 
@@ -132,16 +132,14 @@ namespace OOPLab1
         private void ResetAlarms()
         {
             this.Alarm1GroupBox.BackColor = Color.Black;
-            AlarmSetButton.Text = "Set Alarm";
-            AlarmSetButton2.Text = "Set Alarm";
             AlarmSetButton.Enabled = _alarmButtonIsOn = true;
             AlarmSetButton2.Enabled = _alarmButton2IsOn = true;
             AlarmSetHoursTextBox.Text = "00";
             AlarmSetMinTextBox.Text = "00";
-            a1.AlarmMins = _AlarmSetMins;
-            a1.AlarmHours = _AlarmSetHours;
-            a1.AlarmMins = _AlarmSetMins2;
-            a1.AlarmHours = _AlarmSetHours2;
+            a1.AlarmMins = _alarmSetMins;
+            a1.AlarmHours = _alarmSetHours;
+            a1.AlarmMins = _alarmSetMins2;
+            a1.AlarmHours = _alarmSetHours2;
             a1.tempHrs = getHours;
             a1.tempMin = getMinutes;
         }
@@ -280,12 +278,12 @@ namespace OOPLab1
         {
             try
             {
-                _AlarmSetHours = Convert.ToInt32(AlarmSetHoursTextBox.Text);
-                _AlarmSetHours = int.Parse(AlarmSetHoursTextBox.Text);
+                _alarmSetHours = Convert.ToInt32(AlarmSetHoursTextBox.Text);
+                _alarmSetHours = int.Parse(AlarmSetHoursTextBox.Text);
             }
             catch (Exception)
             {
-                _AlarmSetHours = 0;
+                _alarmSetHours = 0;
             }
         }
 
@@ -293,12 +291,12 @@ namespace OOPLab1
         {
             try
             {
-                _AlarmSetMins = int.Parse(AlarmSetMinTextBox.Text);
-                _AlarmSetMins = Convert.ToInt32(AlarmSetMinTextBox.Text);
+                _alarmSetMins = int.Parse(AlarmSetMinTextBox.Text);
+                _alarmSetMins = Convert.ToInt32(AlarmSetMinTextBox.Text);
             }
             catch (Exception)
             {
-                _AlarmSetMins = 0;
+                _alarmSetMins = 0;
             }
         }
 
@@ -306,12 +304,12 @@ namespace OOPLab1
         {
             try
             {
-                _AlarmSetHours2 = Convert.ToInt32(AlarmSetHoursTextBox.Text);
-                _AlarmSetHours2 = int.Parse(AlarmSetHoursTextBox.Text);
+                _alarmSetHours2 = Convert.ToInt32(AlarmSetHoursTextBox.Text);
+                _alarmSetHours2 = int.Parse(AlarmSetHoursTextBox.Text);
             }
             catch (Exception)
             {
-                _AlarmSetHours2 = 0;
+                _alarmSetHours2 = 0;
             }
         }
 
@@ -319,18 +317,18 @@ namespace OOPLab1
         {
             try
             {
-                _AlarmSetMins2 = int.Parse(AlarmSetMinTextBox.Text);
-                _AlarmSetMins2 = Convert.ToInt32(AlarmSetMinTextBox.Text);
+                _alarmSetMins2 = int.Parse(AlarmSetMinTextBox.Text);
+                _alarmSetMins2 = Convert.ToInt32(AlarmSetMinTextBox.Text);
             }
             catch (Exception)
             {
-                _AlarmSetMins2 = 0;
+                _alarmSetMins2 = 0;
             }
         }
 
         private void SetAlarmButton_Click(object sender, EventArgs e)
         {
-            if (_AlarmSetHours >= 24)
+            if (_alarmSetHours >= 24)
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
             }
@@ -338,7 +336,7 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-            else if (_AlarmSetMins >= 60)
+            else if (_alarmSetMins >= 60)
             {
                 MessageBox.Show("It's a clock dummy! Enter 1 - 59");
             }
@@ -348,8 +346,8 @@ namespace OOPLab1
             }
             else
             {
-                a1.AlarmMins = _AlarmSetMins;
-                a1.AlarmHours = _AlarmSetHours;
+                a1.AlarmMins = _alarmSetMins;
+                a1.AlarmHours = _alarmSetHours;
             }
             AlarmButtonIsOn = !AlarmButtonIsOn;
             if (AlarmButtonIsOn)
@@ -364,8 +362,8 @@ namespace OOPLab1
             }
             else
             {
-                a1.AlarmMins = _AlarmSetMins;
-                a1.AlarmHours = _AlarmSetHours;
+                a1.AlarmMins = _alarmSetMins;
+                a1.AlarmHours = _alarmSetHours;
             }
         }
 
@@ -389,7 +387,7 @@ namespace OOPLab1
         private void AlarmSetButton2_Click(object sender, EventArgs e)
         {
 
-            if (_AlarmSetHours2 >= 24)
+            if (_alarmSetHours2 >= 24)
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
             }
@@ -397,7 +395,7 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
             }
-            else if (_AlarmSetMins2 >= 60)
+            else if (_alarmSetMins2 >= 60)
             {
                 MessageBox.Show("It's a clock dummy! Enter 1 - 59");
             }
@@ -417,8 +415,8 @@ namespace OOPLab1
             }
             else
             {
-                a1.Alarm2Mins = _AlarmSetMins2;
-                a1.Alarm2Hours = _AlarmSetHours2;
+                a1.Alarm2Mins = _alarmSetMins2;
+                a1.Alarm2Hours = _alarmSetHours2;
             }
         }
 
