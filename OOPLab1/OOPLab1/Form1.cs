@@ -329,9 +329,11 @@ namespace OOPLab1
 
         private void AlarmChecker()
         {
-            a1.AlarmCount(_AlarmSetMins, _AlarmSetHours);
-            //if (_AlarmSetHours == setHour && _AlarmSetMins == setMinute)
-            //{
+            a1.tempHrs = setHour;
+            a1.tempMin = setMinute;
+
+            while(a1.AlarmCount() == true)
+            {
                 Alarm1GroupBox.Enabled = true;
                 for (int c = 0; c < 253 && Visible; c++)
                 {
@@ -339,7 +341,7 @@ namespace OOPLab1
                     Application.DoEvents();
                     timer1.Start();
                 }
-            //}
+            }
         }
 
         private void AlarmSetButton2_Click(object sender, EventArgs e)
