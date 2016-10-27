@@ -119,7 +119,7 @@ namespace OOPLab1
             setMinute = c1.CheckMin();
             setHour = c1.CheckHour();
             ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
-            Alarm1Checker();
+            //Alarm1Checker();
         }
         
         private void T1_Tick(object sender, EventArgs e)
