@@ -373,7 +373,17 @@ namespace OOPLab1
             a1.tempHrs = setHour;
             a1.tempMin = setMinute;
 
-            while (a1.AlarmCount() == true)
+            while (a1.Alarm1Count() == true)
+            {
+                Alarm1GroupBox.Enabled = true;
+                for (int c = 0; c < 253 && Visible; c++)
+                {
+                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    timer1.Start();
+                }
+            }
+            while (a1.Alarm2Count() == true)
             {
                 Alarm1GroupBox.Enabled = true;
                 for (int c = 0; c < 253 && Visible; c++)
