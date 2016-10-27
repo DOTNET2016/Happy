@@ -9,7 +9,6 @@ namespace OOPLab1
 {
     class Alarm : IAlarm
     {
-        Clock c2 = new Clock();
         private int _alarmMins;
         private int _alarmHours;
         private int _alarm2Mins;
@@ -69,7 +68,6 @@ namespace OOPLab1
             }
         }
 
-
         public bool Alarm1Count(/*int setArlMin, int setArlHrs*/)
         {
             //_alarmHours = setArlHrs;//take set alarm from form1 
@@ -93,41 +91,6 @@ namespace OOPLab1
             }
 
             return false;
-        }
-
-        //public static bool operator ==(Clock mainClock, Alarm alarmTime)
-        //{
-        //    if ((mainClock.SetMins == alarmTime.AlarmMins) && (mainClock.SetHour == alarmTime.AlarmHours))
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-
-        //public static bool operator !=(Clock mainClock, Alarm alarmTime)
-        //{
-        //    if ((mainClock.SetMins == alarmTime.AlarmMins) && (mainClock.SetHour == alarmTime.AlarmHours))
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
-        //public bool CheckTime()
-        //{
-
-        //    if ((c2.SetMins == _alarmMins) && (c2.SetHour == _alarmHours))
-        //        return true;
-        //    else
-        //        return false;
-        //        //If the Alarm time matches the clock time do something......
-
-
-
-        //}
-
-        public void SetAlarm()
-        {
-            
         }
     }
 }

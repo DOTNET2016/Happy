@@ -381,6 +381,13 @@ namespace OOPLab1
                     this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
                     Application.DoEvents();
                     timer1.Start();
+                    Thread.Sleep(3);
+                }
+                for (int c = 254; c >= 0 && Visible; c--)
+                {
+                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    Application.DoEvents();
+                    Thread.Sleep(3);
                 }
             }
             while (a1.Alarm2Count() == true)
