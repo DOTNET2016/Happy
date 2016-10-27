@@ -14,8 +14,10 @@ namespace OOPLab1
         private int _alarm2Mins;
         private int _alarm2Hours;
 
-        public int tempMin;
-        public int tempHrs;
+        public int tempMin1;
+        public int tempHrs1;
+        public int tempMin2;
+        public int tempHrs2;
   
         public int AlarmMins
         {
@@ -70,7 +72,7 @@ namespace OOPLab1
 
         public bool Alarm1Count()
         {
-            if ((_alarmMins == tempMin) && (_alarmHours == tempHrs))//compare
+            if ((_alarmMins == tempMin1) && (_alarmHours == tempHrs1))//compare
             {
                 return true;
             }
@@ -79,7 +81,7 @@ namespace OOPLab1
         }
         public bool Alarm2Count()
         {
-            if ((_alarm2Mins == tempMin) && (_alarm2Hours == tempHrs))//compare
+            if ((_alarm2Mins == tempMin2) && (_alarm2Hours == tempHrs2))//compare
             {
                 return true;
             }

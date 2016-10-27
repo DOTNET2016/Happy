@@ -149,8 +149,10 @@ namespace OOPLab1
             a1.AlarmMins = _alarmSetMins2;
             a1.AlarmHours = _alarmSetHours2;
             //set the temp min/hrs for alarm class
-            a1.tempHrs = getHours;
-            a1.tempMin = getMinutes;
+            a1.tempHrs1 = getHours;
+            a1.tempMin1 = getMinutes;
+            a1.tempHrs2 = getHours;
+            a1.tempMin2 = getMinutes;
         }
 
         //here is where the magic from the stop button is performed (it works so we dont question it)
@@ -278,11 +280,14 @@ namespace OOPLab1
                 ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
                 c1.SetMins = getMinutes;
                 c1.SetHour = getHours;
-                a1.tempHrs = getHours;
-                a1.tempMin = getMinutes;
+                //set the alarm class temp min/hrs to the clock min/hrs
+                a1.tempHrs1 = getHours;
+                a1.tempMin1 = getMinutes;
+                a1.tempHrs2 = getHours;
+                a1.tempMin2 = getMinutes;
             }
         }
-
+        //get user input for alarm 1 - Hours.
         private void AlarmSetHoursTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -295,7 +300,7 @@ namespace OOPLab1
                 _alarmSetHours = 0;
             }
         }
-
+        //get user input for alarm 1 - Minutes
         private void AlarmSetMinTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -308,7 +313,7 @@ namespace OOPLab1
                 _alarmSetMins = 0;
             }
         }
-
+        //get user input for alarm 2 - Hours
         private void AlarmSetHoursTextBox2_TextChanged(object sender, EventArgs e)
         {
             try
@@ -321,7 +326,7 @@ namespace OOPLab1
                 _alarmSetHours2 = 0;
             }
         }
-
+        //get user input for alarm 2 - Minutes
         private void AlarmSetMinTextBox2_TextChanged(object sender, EventArgs e)
         {
             try
@@ -334,7 +339,7 @@ namespace OOPLab1
                 _alarmSetMins2 = 0;
             }
         }
-
+        //set the alarm 1 and control the user input
         private void SetAlarmButton_Click(object sender, EventArgs e)
         {
             AlarmButtonIsOn = !AlarmButtonIsOn;
@@ -364,11 +369,11 @@ namespace OOPLab1
                 a1.AlarmHours = _alarmSetHours;
             }
         }
-
-        private void AlarmChecker()
+        //check the state of the alarm 1 with the method in alarm class - if active set off the alarm
+        public void AlarmChecker()
         {
-            a1.tempHrs = setHour;
-            a1.tempMin = setMinute;
+            a1.tempHrs1 = setHour;
+            a1.tempMin1 = setMinute;
 
             while (a1.Alarm1Count() == true)
             {
@@ -390,10 +395,11 @@ namespace OOPLab1
             }
 
         }
+        //check the state of the alarm 2 with the method in alarm class - if active set off the alarm
         private void AlarmChecker2()
         {
-            a1.tempHrs = setHour;
-            a1.tempMin = setMinute;
+            a1.tempHrs2 = setHour;
+            a1.tempMin2 = setMinute;
             while (a1.Alarm2Count() == true)
             {
                 alarmSound2.Play();
@@ -413,7 +419,7 @@ namespace OOPLab1
                 }
             }
         }
-
+        //set the alarm 2 and control the user input
         private void AlarmSetButton2_Click(object sender, EventArgs e)
         {
             AlarmButton2IsOn = !AlarmButton2IsOn;
@@ -436,14 +442,6 @@ namespace OOPLab1
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
                 AlarmButton2IsOn = AlarmButton2IsOn;
-            }
-            if (AlarmButton2IsOn)
-            {
-                //simpleSound.PlayLooping();
-            }
-            if (!AlarmButton2IsOn)
-            {
-                //simpleSound.Stop();
             }
             else
             {
