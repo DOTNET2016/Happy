@@ -167,6 +167,8 @@
             this.AlarmSetHoursTextBox.Name = "AlarmSetHoursTextBox";
             this.AlarmSetHoursTextBox.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetHoursTextBox.TabIndex = 9;
+            this.AlarmSetHoursTextBox.Text = "00";
+            this.AlarmSetHoursTextBox.Click += new System.EventHandler(this.AlarmSetHoursTextBox_Click);
             this.AlarmSetHoursTextBox.TextChanged += new System.EventHandler(this.AlarmSetHoursTextBox_TextChanged);
             // 
             // AlarmSetMinTextBox
@@ -176,6 +178,8 @@
             this.AlarmSetMinTextBox.Name = "AlarmSetMinTextBox";
             this.AlarmSetMinTextBox.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetMinTextBox.TabIndex = 10;
+            this.AlarmSetMinTextBox.Text = "00";
+            this.AlarmSetMinTextBox.Click += new System.EventHandler(this.AlarmSetMinTextBox_Click);
             this.AlarmSetMinTextBox.TextChanged += new System.EventHandler(this.AlarmSetMinTextBox_TextChanged);
             // 
             // AlarmSetHoursLabel
@@ -292,6 +296,8 @@
             this.AlarmSetMinTextBox2.Name = "AlarmSetMinTextBox2";
             this.AlarmSetMinTextBox2.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetMinTextBox2.TabIndex = 10;
+            this.AlarmSetMinTextBox2.Text = "00";
+            this.AlarmSetMinTextBox2.Click += new System.EventHandler(this.AlarmSetMinTextBox2_Click);
             // 
             // AlarmSetHoursTextBox2
             // 
@@ -300,6 +306,8 @@
             this.AlarmSetHoursTextBox2.Name = "AlarmSetHoursTextBox2";
             this.AlarmSetHoursTextBox2.Size = new System.Drawing.Size(100, 28);
             this.AlarmSetHoursTextBox2.TabIndex = 9;
+            this.AlarmSetHoursTextBox2.Text = "00";
+            this.AlarmSetHoursTextBox2.Click += new System.EventHandler(this.AlarmSetHoursTextBox2_Click);
             // 
             // ClockLabel
             // 

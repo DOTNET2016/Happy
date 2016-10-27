@@ -398,5 +398,25 @@ namespace OOPLab1
         {
             SetHourTextBox.Text = "";
         }
+
+        private void AlarmSetHoursTextBox_Click(object sender, EventArgs e)
+        {
+            AlarmSetHoursTextBox.Text = "";
+        }
+
+        private void AlarmSetMinTextBox_Click(object sender, EventArgs e)
+        {
+            AlarmSetMinTextBox.Text = "";
+        }
+
+        private void AlarmSetHoursTextBox2_Click(object sender, EventArgs e)
+        {
+            AlarmSetHoursTextBox2.Text = "";
+        }
+
+        private void AlarmSetMinTextBox2_Click(object sender, EventArgs e)
+        {
+            AlarmSetMinTextBox2.Text = "";
+        }
     }
 }
