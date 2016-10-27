@@ -17,6 +17,7 @@ namespace OOPLab1
     public partial class Form1 : Form
     {
         SoundPlayer alarmSound = new SoundPlayer(Properties.Resources.sound);
+        SoundPlayer alarmSound2 = new SoundPlayer(Properties.Resources.sound);
         //Import of a dll and adding the font to the memory for the program to use
         #region
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
@@ -115,6 +116,7 @@ namespace OOPLab1
             setHour = c1.CheckHour();
             ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
             AlarmChecker();
+            AlarmChecker2();
         }
         
         private void T1_Tick(object sender, EventArgs e)
@@ -305,8 +307,8 @@ namespace OOPLab1
         {
             try
             {
-                _alarmSetHours2 = Convert.ToInt32(AlarmSetHoursTextBox2.Text);
-                _alarmSetHours2 = int.Parse(AlarmSetHoursTextBox2.Text);
+                _alarmSetHours2 = Convert.ToInt32(AlarmSetHoursTextBox.Text);
+                _alarmSetHours2 = int.Parse(AlarmSetHoursTextBox.Text);
             }
             catch (Exception)
             {
@@ -318,8 +320,8 @@ namespace OOPLab1
         {
             try
             {
-                _alarmSetMins2 = int.Parse(AlarmSetMinTextBox2.Text);
-                _alarmSetMins2 = Convert.ToInt32(AlarmSetMinTextBox2.Text);
+                _alarmSetMins2 = int.Parse(AlarmSetMinTextBox.Text);
+                _alarmSetMins2 = Convert.ToInt32(AlarmSetMinTextBox.Text);
             }
             catch (Exception)
             {
@@ -329,37 +331,26 @@ namespace OOPLab1
 
         private void SetAlarmButton_Click(object sender, EventArgs e)
         {
+            AlarmButtonIsOn = !AlarmButtonIsOn;
             if (_alarmSetHours >= 24)
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
+                AlarmButtonIsOn = AlarmButtonIsOn;
             }
             else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
+                AlarmButtonIsOn = AlarmButtonIsOn;
             }
             else if (_alarmSetMins >= 60)
             {
                 MessageBox.Show("It's a clock dummy! Enter 1 - 59");
+                AlarmButtonIsOn = AlarmButtonIsOn;
             }
             else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
-            }
-            else
-            {
-                a1.AlarmMins = _alarmSetMins;
-                a1.AlarmHours = _alarmSetHours;
-            }
-            AlarmButtonIsOn = !AlarmButtonIsOn;
-            if (AlarmButtonIsOn)
-            {
-                alarmSound.Play();
-                //simpleSound.PlayLooping();
-            }
-            if (!AlarmButtonIsOn)
-            {
-                alarmSound.Stop();
-                //simpleSound.Stop();
+                AlarmButtonIsOn = AlarmButtonIsOn;
             }
             else
             {
@@ -375,6 +366,7 @@ namespace OOPLab1
 
             while (a1.Alarm1Count() == true)
             {
+                alarmSound.Play();
                 Alarm1GroupBox.Enabled = true;
                 for (int c = 0; c < 253 && Visible; c++)
                 {
@@ -390,46 +382,48 @@ namespace OOPLab1
                     Thread.Sleep(3);
                 }
             }
+
+        }
+        private void AlarmChecker2()
+        {
+            a1.tempHrs = setHour;
+            a1.tempMin = setMinute;
             while (a1.Alarm2Count() == true)
             {
+                alarmSound2.Play();
                 Alarm2GroupBox.Enabled = true;
                 for (int c = 0; c < 253 && Visible; c++)
                 {
                     this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
                     Application.DoEvents();
-                    timer1.Start();
-                    Thread.Sleep(3);
-                }
-                for (int c = 254; c >= 0 && Visible; c--)
-                {
-                    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    Thread.Sleep(3);
+                    timer2.Start();
                 }
             }
         }
 
         private void AlarmSetButton2_Click(object sender, EventArgs e)
         {
-
+            AlarmButton2IsOn = !AlarmButton2IsOn;
             if (_alarmSetHours2 >= 24)
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
+                AlarmButton2IsOn = AlarmButton2IsOn;
             }
-            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox2.Text))
+            else if (nonNumericRegex.IsMatch(AlarmSetHoursTextBox.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
+                AlarmButton2IsOn = AlarmButton2IsOn;
             }
             else if (_alarmSetMins2 >= 60)
             {
                 MessageBox.Show("It's a clock dummy! Enter 1 - 59");
+                AlarmButton2IsOn = AlarmButton2IsOn;
             }
-            else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox2.Text))
+            else if (nonNumericRegex.IsMatch(AlarmSetMinTextBox.Text))
             {
                 MessageBox.Show("Entered non-numeric, please enter numbers only");
+                AlarmButton2IsOn = AlarmButton2IsOn;
             }
-
-            AlarmButton2IsOn = !AlarmButton2IsOn;
             if (AlarmButton2IsOn)
             {
                 //simpleSound.PlayLooping();
@@ -448,8 +442,14 @@ namespace OOPLab1
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.Alarm1GroupBox.BackColor = Color.Black;
-            this.Alarm2GroupBox.BackColor = Color.Black;
             timer1.Stop();
+            alarmSound.Stop();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            this.Alarm2GroupBox.BackColor = Color.Black;
+            timer2.Stop();
             alarmSound.Stop();
         }
 
@@ -482,5 +482,6 @@ namespace OOPLab1
         {
             AlarmSetMinTextBox2.Text = "";
         }
+
     }
 }

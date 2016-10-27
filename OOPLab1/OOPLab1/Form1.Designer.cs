@@ -51,6 +51,7 @@
             this.AlarmSetHoursTextBox2 = new System.Windows.Forms.TextBox();
             this.ClockLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.ClockGroupBox.SuspendLayout();
             this.ButtonGroupBoxSetStop.SuspendLayout();
             this.Alarm1GroupBox.SuspendLayout();
@@ -252,6 +253,7 @@
             this.Alarm2GroupBox.Size = new System.Drawing.Size(291, 226);
             this.Alarm2GroupBox.TabIndex = 14;
             this.Alarm2GroupBox.TabStop = false;
+            this.Alarm2GroupBox.Tag = "timer2thing";
             this.Alarm2GroupBox.Text = "Alarm 2";
             // 
             // AlarmSetButton2
@@ -329,6 +331,12 @@
             this.timer1.Tag = "timerthing";
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 10000;
+            this.timer2.Tag = "timer2thing";
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -385,6 +393,7 @@
         private System.Windows.Forms.TextBox AlarmSetHoursTextBox2;
         private System.Windows.Forms.Label ClockLabel;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 
