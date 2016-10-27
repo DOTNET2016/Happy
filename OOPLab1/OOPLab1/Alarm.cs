@@ -52,7 +52,7 @@ namespace OOPLab1
             {
                 return true;
             }
-            else
+            
                 return false;          
         }
 
