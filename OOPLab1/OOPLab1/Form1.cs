@@ -258,6 +258,8 @@ namespace OOPLab1
                 ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
                 c1.SetMins = getMinutes;
                 c1.SetHour = getHours;
+                a1.tempHrs = getHours;
+                a1.tempMin = getMinutes;
             }
         }
 
@@ -321,17 +323,18 @@ namespace OOPLab1
                 alarmSound.Stop();
                 //simpleSound.Stop();
             }
-            //else
-            //{
-            //    a1.AlarmMins = _AlarmSetMins;
-            //    a1.AlarmHours = _AlarmSetHours;
-            //}
+            else
+            {
+                a1.AlarmMins = _AlarmSetMins;
+                a1.AlarmHours = _AlarmSetHours;
+            }
         }
 
         private void AlarmChecker()
         {
-            if (_AlarmSetHours == setHour && _AlarmSetMins == setMinute)
-            {
+            a1.AlarmCount(_AlarmSetMins, _AlarmSetHours);
+            //if (_AlarmSetHours == setHour && _AlarmSetMins == setMinute)
+            //{
                 Alarm1GroupBox.Enabled = true;
                 for (int c = 0; c < 253 && Visible; c++)
                 {
@@ -339,7 +342,7 @@ namespace OOPLab1
                     Application.DoEvents();
                     timer1.Start();
                 }
-            }
+            //}
         }
 
         private void AlarmSetButton2_Click(object sender, EventArgs e)
