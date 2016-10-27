@@ -85,7 +85,7 @@ namespace OOPLab1
             //_alarmHours = setArlHrs;//take set alarm from form1 
             //_alarmMins = setArlMin;
 
-            if ((_alarmMins == tempMin) && (_alarmHours == tempHrs))//compare
+            if ((_alarm2Mins == tempMin) && (_alarm2Hours == tempHrs))//compare
             {
                 return true;
             }
