@@ -95,22 +95,21 @@ namespace OOPLab1
 
         private void StopButton_Click(object sender, EventArgs e)
         {
-            ResetLabel();
             IsOn = !IsOn;
             if (IsOn)
             {
-                //c1.TimeValue();
                 this.Alarm1GroupBox.BackColor = Color.Black;
-                //simpleSound.PlayLooping();
             }
             if (!IsOn)
             {
+                ResetLabel();
                 this.Alarm1GroupBox.BackColor = Color.Black;
                 AlarmSetButton.Text = "Set Alarm";
                 AlarmSetButton2.Text = "Set Alarm";
                 AlarmSetButton.Enabled = _alarmButton2IsOn = true;
                 AlarmSetButton2.Enabled = _alarmButton2IsOn = true;
-                //simpleSound.Stop();
+                AlarmSetHoursTextBox.Text = "00";
+                AlarmSetMinTextBox.Text = "00";
             }
         }
 
@@ -119,7 +118,6 @@ namespace OOPLab1
             setMinute = c1.CheckMin();
             setHour = c1.CheckHour();
             ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
-            AlarmChecker();
         }
         
         private void T1_Tick(object sender, EventArgs e)
@@ -134,7 +132,6 @@ namespace OOPLab1
             c1.SetHour = getHours;
             ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
             c1.TimeReset();
-            //Alarm1GroupBox.Enabled = false;
         }
 
         //here is where the magic from the stop button is performed (it works so we dont question it)
