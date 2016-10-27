@@ -12,6 +12,9 @@ namespace OOPLab1
         Clock c2 = new Clock();
         private int _alarmMins;
         private int _alarmHours;
+
+        public int tempMin;
+        public int tempHrs;
   
         public int AlarmMins
         {
@@ -40,10 +43,17 @@ namespace OOPLab1
         }
 
 
-        public void AlarmCount()
+        public bool AlarmCount(int setArlMin, int setArlHrs)
         {
-           
+            _alarmHours = setArlHrs;
+            _alarmMins = setArlMin;
 
+            if ((_alarmMins == tempMin) && (_alarmHours == tempHrs))
+            {
+                return true;
+            }
+            else
+                return false;          
         }
 
         //public static bool operator ==(Clock mainClock, Alarm alarmTime)
