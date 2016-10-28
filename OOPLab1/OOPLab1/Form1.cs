@@ -17,7 +17,7 @@ namespace OOPLab1
     public partial class Form1 : Form
     {
         SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.AlarmSound1);
-        SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
+        //SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
 
         //Sorry but i wont be able to attend today, got a time for haircut at 13:45
         //that leaves me no time to get to the city, to only return back how again.
@@ -166,7 +166,7 @@ namespace OOPLab1
             timer1.Stop();
             alarm1Sound.Stop();
             timer2.Stop();
-            alarm2Sound.Stop();
+            //alarm2Sound.Stop();
         }
 
         #region ButtonBoolChecks
@@ -466,7 +466,7 @@ namespace OOPLab1
             {
                 alarm1Sound.PlayLooping();
                 Alarm1GroupBox.Enabled = true;
-                this.Alarm1GroupBox.BackColor = Color.Red;
+                this.Alarm1GroupBox.BackColor = Color.Lime;
                 Application.DoEvents();
                 timer1.Start();
                 //for (int c = 0; c < 253 && Visible; c++)
@@ -493,7 +493,7 @@ namespace OOPLab1
 
             if (a1.Alarm2Count() == true)
             {
-                alarm2Sound.PlayLooping();
+                //alarm2Sound.PlayLooping();
                 Alarm2GroupBox.Enabled = true;
                 this.Alarm2GroupBox.BackColor = Color.Red;
                 Application.DoEvents();
@@ -526,7 +526,7 @@ namespace OOPLab1
         {
             this.Alarm2GroupBox.BackColor = Color.Black;
             timer2.Stop();
-            alarm2Sound.Stop();
+            //alarm2Sound.Stop();
         }
         #endregion
     }
