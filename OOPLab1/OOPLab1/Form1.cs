@@ -19,12 +19,7 @@ namespace OOPLab1
 
         SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
         SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
-
-        //Sorry but i wont be able to attend today, got a time for haircut at 13:45
-        //that leaves me no time to get to the city, to only return back how again.
-        //hope i didnt break to much code, all stuff except the things i wrote in prev commit
-        //maybe we should only have sound on 1 alarm, that makes it just so much easier.
-
+        
         //Import of a dll and adding the font to the memory for the program to use
         #region FontLoadingStuff
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
@@ -56,8 +51,8 @@ namespace OOPLab1
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.MyFont1.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
-            myFont = new Font(fonts.Families[0], 12.0F);
-            myFontClock = new Font(fonts.Families[0], 95.0F);
+            myFont = new Font(fonts.Families[0], 17.0F);
+            myFontClock = new Font(fonts.Families[0], 120.0F);
             #endregion
 
             t1.Interval = 1000;
