@@ -34,12 +34,12 @@ namespace OOPLab1
 
         public Form1()
         {
-            //Splash Screen timer starts
-            //Thread splash = new Thread(new ThreadStart(SplashScreen));
-            //splash.Start();
-            //Thread.Sleep(5000);
+            //Splash Screen that runs on a seperate thread
+            Thread splash = new Thread(new ThreadStart(SplashScreen));
+            splash.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
-            //splash.Abort();
+            splash.Abort();
 
             //"small" implementation of our custom font
             #region FontLoadingStuff
@@ -58,7 +58,7 @@ namespace OOPLab1
             t1.Interval = 1000;
             t1.Tick += T1_Tick;
         }
-
+        //method that runs the splash screen on program start up
         public void SplashScreen()
         {
             Application.Run(new ProgressBarIntroScreen());
@@ -68,7 +68,7 @@ namespace OOPLab1
         System.Windows.Forms.Timer t1 = new System.Windows.Forms.Timer();
         Clock c1 = new Clock();
         Alarm a1 = new Alarm();
-
+        //variables
         int getMinutes;
         int getHours;
         int _alarmSetHours;
@@ -77,13 +77,14 @@ namespace OOPLab1
         int _alarmSetMins2;
         int setHour;
         int setMinute;
-
+        //button control variables
         private bool _IsOn;
         private bool _alarmButtonIsOn;
         private bool _alarmButton2IsOn;
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Set the custom font for the clock
             ClockLabel.Font = myFontClock;
             ClockGroupBox.Font = myFont;
             SetHoursLabel.Font = myFont;
@@ -100,7 +101,7 @@ namespace OOPLab1
             AlarmSetHoursLabel2.Font = myFont;
             AlarmSetMinLabel2.Font = myFont;
         }
-
+        //stop button that calls the reset label method to reset all the labels
         private void StopButton_Click(object sender, EventArgs e)
         {
             IsOn = !IsOn;
@@ -113,7 +114,7 @@ namespace OOPLab1
                 ResetAlarms();
             }
         }
-
+        //method that updates the labels every tick. It also checks the state of the alarm time by calling the alarm checker methods.
         public void UpdateLabel()
         {
             setMinute = c1.CheckMin();
@@ -122,13 +123,13 @@ namespace OOPLab1
             AlarmChecker();
             AlarmChecker2();
         }
-        
+        //the clocks tick that calls the update label method
         private void T1_Tick(object sender, EventArgs e)
         {
             UpdateLabel();
         }
 
-        //when stop button is presset the time will reset and clock will start at set time
+        //when stop button is pressed the time will reset and clock will start at set time
         private void ResetLabel()
         {
             c1.SetMins = getMinutes;
@@ -136,6 +137,7 @@ namespace OOPLab1
             ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
             c1.TimeReset();
         }
+        //method to reset the label text of the alarms
         private void ResetAlarms()
         {
             //alarm 1
@@ -166,7 +168,7 @@ namespace OOPLab1
         }
 
         #region ButtonBoolChecks
-        //here is where the magic from the stop button is performed (it works so we dont question it)
+        //Stop/start button control
         public bool IsOn
         {
             get
@@ -202,7 +204,7 @@ namespace OOPLab1
                 AlarmSetMinTextBox2.BackColor = _IsOn ? Color.SkyBlue : Color.White;
             }
         }
-
+        //alarm 1 button control
         public bool AlarmButtonIsOn
         {
             get
@@ -215,7 +217,7 @@ namespace OOPLab1
                 AlarmSetButton.Text = _alarmButtonIsOn ? "Alarm set" : "Set Alarm";
             }
         }
-
+        //alarm 2 button control
         public bool AlarmButton2IsOn
         {
             get
@@ -290,7 +292,7 @@ namespace OOPLab1
                 a1.tempMin2 = getMinutes;
             }
         }
-
+        
         private void SetMinTextBox_Click(object sender, EventArgs e)
         {
             SetMinTextBox.Text = "";
@@ -484,14 +486,14 @@ namespace OOPLab1
                 timer2.Start();
             }
         }
-
+        //the timer tick for alarm 1. Holds the control to stop the timer and sound and resets the colour to black
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.Alarm1GroupBox.BackColor = Color.Black;
             timer1.Stop();
             alarm1Sound.Stop();
         }
-
+        //the timer tick for alarm 2. Holds the control to stop the timer and sound and resets the colour to black
         private void timer2_Tick(object sender, EventArgs e)
         {
             this.Alarm2GroupBox.BackColor = Color.Black;
