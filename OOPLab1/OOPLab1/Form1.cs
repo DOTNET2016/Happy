@@ -36,6 +36,10 @@ namespace OOPLab1
             //splash.Start();
             //Thread.Sleep(5000);
             InitializeComponent();
+            backgroundWorker1.DoWork += backgroundWorker1_DoWork;
+            backgroundWorker1.WorkerSupportsCancellation = true;
+            backgroundWorker2.DoWork += BackgroundWorker2_DoWork;
+            backgroundWorker2.WorkerSupportsCancellation = true;
             //splash.Abort();
 
             //"small" implementation of our custom font
@@ -56,6 +60,11 @@ namespace OOPLab1
             t1.Tick += T1_Tick;
         }
 
+        private void BackgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SplashScreen()
         {
             Application.Run(new ProgressBarIntroScreen());
@@ -74,6 +83,8 @@ namespace OOPLab1
         int _alarmSetMins2;
         int setHour;
         int setMinute;
+        int c;
+        int d;
 
         private bool _IsOn;
         private bool _alarmButtonIsOn;
@@ -104,7 +115,6 @@ namespace OOPLab1
             if (IsOn)
             {
                 ResetLabel();
-                this.Alarm1GroupBox.BackColor = Color.Black;
             }
             if (!IsOn)
             {
@@ -117,8 +127,29 @@ namespace OOPLab1
             setMinute = c1.CheckMin();
             setHour = c1.CheckHour();
             ClockLabel.Text = setHour.ToString("00") + ":" + setMinute.ToString("00");
-            AlarmChecker();
-            AlarmChecker2();
+            if (backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.CancelAsync();
+            }
+            else
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+
+            //if (backgroundWorker2.IsBusy)
+            //{
+            //    backgroundWorker2.CancelAsync();
+            //}
+            //else
+            //{
+            //    backgroundWorker2.RunWorkerAsync();
+            //}
+
+            if ((a1.Alarm1Count() == true))
+            {
+                timer1.Start();
+            }
+
         }
         
         private void T1_Tick(object sender, EventArgs e)
@@ -136,20 +167,26 @@ namespace OOPLab1
         }
         private void ResetAlarms()
         {
+            c = 0;
+            d = 0;
             //alarm 1
             this.Alarm1GroupBox.BackColor = Color.Black;
             AlarmSetButton.Enabled = _alarmButtonIsOn = true;
-            AlarmSetHoursTextBox.Text = "00";
-            AlarmSetMinTextBox.Text = "00";
             a1.AlarmMins = _alarmSetMins;
             a1.AlarmHours = _alarmSetHours;
+            AlarmSetHoursTextBox.Text = "00";
+            AlarmSetMinTextBox.Text = "00";
+            AlarmSetButton.Text = "Set Alarm";
             //alarm 2
             this.Alarm2GroupBox.BackColor = Color.Black;
             AlarmSetButton2.Enabled = _alarmButton2IsOn = true;
+            //a1.AlarmMins = _alarmSetMins2;
+            //a1.AlarmHours = _alarmSetHours2;
+            // ^should it be a2. instead of a1. (?)
             AlarmSetHoursTextBox2.Text = "00";
             AlarmSetMinTextBox2.Text = "00";
-            a1.AlarmMins = _alarmSetMins2;
-            a1.AlarmHours = _alarmSetHours2;
+            AlarmSetButton2.Text = "Set Alarm";
+
             //set the temp min/hrs for alarm class
             a1.tempHrs1 = getHours;
             a1.tempMin1 = getMinutes;
@@ -460,7 +497,7 @@ namespace OOPLab1
                 {
                     this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
                     Application.DoEvents();
-                    timer1.Start();
+                   //timer1.Start();
                     Thread.Sleep(3);
                 }
                 for (int c = 254; c >= 0 && Visible; c--)
@@ -481,9 +518,9 @@ namespace OOPLab1
             {
                 alarm2Sound.Play();
                 Alarm2GroupBox.Enabled = true;
-                for (int c = 0; c < 253 && Visible; c++)
+                for (d = 0; d < 253 && Visible; d++)
                 {
-                    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                    this.Alarm2GroupBox.BackColor = Color.FromArgb(d, 255 - d, d);
                     Application.DoEvents();
                     timer2.Start();
                     Thread.Sleep(3);
@@ -500,6 +537,11 @@ namespace OOPLab1
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.Alarm1GroupBox.BackColor = Color.Black;
+            a1.tempHrs1 = 0;
+            a1.tempMin1 = 0;
+            //a1.AlarmMins = _alarmSetMins;
+            //a1.AlarmHours = _alarmSetHours;
+            c = 0;
             timer1.Stop();
             alarm1Sound.Stop();
         }
@@ -511,5 +553,37 @@ namespace OOPLab1
             alarm2Sound.Stop();
         }
         #endregion
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            a1.tempHrs1 = setHour;
+            a1.tempMin1 = setMinute;
+
+            while (a1.Alarm1Count() == true)
+            {
+                alarm1Sound.Play();
+                Alarm1GroupBox.Enabled = true;
+                this.Alarm1GroupBox.BackColor = Color.Red;
+                timer1.Start();
+                //for (int c = 0; c < 253 && Visible; c++)
+                //{
+                //    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                //    Application.DoEvents();
+                //    //timer1.Start();
+                //    Thread.Sleep(3);
+                //}
+                //for (int c = 254; c >= 0 && Visible; c--)
+                //{
+                //    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                //    Application.DoEvents();
+                //    Thread.Sleep(3);
+                //}
+            }
+        }
+
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
     }
 }
