@@ -121,6 +121,7 @@
             // SetTimeButton
             // 
             this.SetTimeButton.BackColor = System.Drawing.Color.White;
+            this.SetTimeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SetTimeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetTimeButton.ForeColor = System.Drawing.Color.Black;
             this.SetTimeButton.Location = new System.Drawing.Point(73, 39);
@@ -135,6 +136,7 @@
             // StopButton
             // 
             this.StopButton.BackColor = System.Drawing.Color.White;
+            this.StopButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopButton.ForeColor = System.Drawing.Color.Black;
             this.StopButton.Location = new System.Drawing.Point(73, 95);
@@ -227,6 +229,7 @@
             // AlarmSetButton
             // 
             this.AlarmSetButton.BackColor = System.Drawing.Color.White;
+            this.AlarmSetButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AlarmSetButton.ForeColor = System.Drawing.Color.Black;
             this.AlarmSetButton.Location = new System.Drawing.Point(73, 161);
             this.AlarmSetButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -259,6 +262,7 @@
             // AlarmSetButton2
             // 
             this.AlarmSetButton2.BackColor = System.Drawing.Color.White;
+            this.AlarmSetButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AlarmSetButton2.ForeColor = System.Drawing.Color.Black;
             this.AlarmSetButton2.Location = new System.Drawing.Point(73, 161);
             this.AlarmSetButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -318,7 +322,7 @@
             this.ClockLabel.AutoSize = true;
             this.ClockLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 94.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClockLabel.ForeColor = System.Drawing.Color.White;
-            this.ClockLabel.Location = new System.Drawing.Point(268, 219);
+            this.ClockLabel.Location = new System.Drawing.Point(281, 228);
             this.ClockLabel.Name = "ClockLabel";
             this.ClockLabel.Size = new System.Drawing.Size(476, 180);
             this.ClockLabel.TabIndex = 15;
@@ -339,17 +343,16 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1027, 667);
+            this.ClientSize = new System.Drawing.Size(979, 644);
             this.Controls.Add(this.ClockLabel);
             this.Controls.Add(this.Alarm2GroupBox);
             this.Controls.Add(this.Alarm1GroupBox);
             this.Controls.Add(this.ButtonGroupBoxSetStop);
             this.Controls.Add(this.ClockGroupBox);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;

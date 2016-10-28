@@ -19,7 +19,7 @@ namespace OOPLab1
 
         SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
         SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
-
+        
         //Import of a dll and adding the font to the memory for the program to use
         #region FontLoadingStuff
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
@@ -34,12 +34,12 @@ namespace OOPLab1
 
         public Form1()
         {
-            //Splash Screen timer starts on a seperate thread
-            Thread splash = new Thread(new ThreadStart(SplashScreen));
-            splash.Start();
-            Thread.Sleep(5000);
+            //Splash Screen timer starts
+            //Thread splash = new Thread(new ThreadStart(SplashScreen));
+            //splash.Start();
+            //Thread.Sleep(5000);
             InitializeComponent();
-            splash.Abort();
+            //splash.Abort();
 
             //"small" implementation of our custom font
             #region FontLoadingStuff
@@ -51,21 +51,20 @@ namespace OOPLab1
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.MyFont1.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
-            myFont = new Font(fonts.Families[0], 12.0F);
-            myFontClock = new Font(fonts.Families[0], 95.0F);
+            myFont = new Font(fonts.Families[0], 17.0F);
+            myFontClock = new Font(fonts.Families[0], 120.0F);
             #endregion
 
             t1.Interval = 1000;
             t1.Tick += T1_Tick;
         }
-        //SplashScreen method that runs the splash screen on start up of program
+
         public void SplashScreen()
         {
             Application.Run(new ProgressBarIntroScreen());
         }
 
         Regex nonNumericRegex = new Regex(@"\D");
-        //Main timer for the clock
         System.Windows.Forms.Timer t1 = new System.Windows.Forms.Timer();
         Clock c1 = new Clock();
         Alarm a1 = new Alarm();
