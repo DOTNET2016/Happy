@@ -51,8 +51,8 @@ namespace OOPLab1
             AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.MyFont1.Length, IntPtr.Zero, ref dummy);
             System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
 
-            myFont = new Font(fonts.Families[0], 17.0F);
-            myFontClock = new Font(fonts.Families[0], 120.0F);
+            myFont = new Font(fonts.Families[0], 13.0F);
+            myFontClock = new Font(fonts.Families[0], 95.0F);
             #endregion
 
             t1.Interval = 1000;
@@ -136,6 +136,7 @@ namespace OOPLab1
             c1.SetHour = getHours;
             ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
             c1.TimeReset();
+            SetTimeButton.Text = "Set Time";
         }
         //method to reset the label text of the alarms
         private void ResetAlarms()
@@ -165,6 +166,7 @@ namespace OOPLab1
             alarm1Sound.Stop();
             timer2.Stop();
             alarm2Sound.Stop();
+            SetTimeButton.Text = "Reset";
         }
 
         #region ButtonBoolChecks
@@ -285,6 +287,7 @@ namespace OOPLab1
                 ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
                 c1.SetMins = getMinutes;
                 c1.SetHour = getHours;
+                SetTimeButton.Text = "Set Time";
                 //set the alarm class temp min/hrs to the clock min/hrs
                 a1.tempHrs1 = getHours;
                 a1.tempMin1 = getMinutes;
