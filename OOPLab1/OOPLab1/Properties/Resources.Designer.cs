@@ -61,21 +61,30 @@ namespace OOPLab1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] MyFont1 {
+        internal static System.IO.UnmanagedMemoryStream AlarmSound1 {
             get {
-                object obj = ResourceManager.GetObject("MyFont1", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("AlarmSound1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream sound {
+        internal static System.IO.UnmanagedMemoryStream AlarmSound2 {
             get {
-                return ResourceManager.GetStream("sound", resourceCulture);
+                return ResourceManager.GetStream("AlarmSound2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] MyFont1 {
+            get {
+                object obj = ResourceManager.GetObject("MyFont1", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

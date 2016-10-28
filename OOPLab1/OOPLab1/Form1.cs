@@ -16,8 +16,9 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
-        SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.sound);
-        SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.sound);
+        SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.AlarmSound1);
+        SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
+
         //Import of a dll and adding the font to the memory for the program to use
         #region FontLoadingStuff
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
@@ -29,6 +30,7 @@ namespace OOPLab1
         Font myFont;
         Font myFontClock;
         #endregion
+
         public Form1()
         {
             //Splash Screen timer starts
@@ -104,7 +106,6 @@ namespace OOPLab1
             if (IsOn)
             {
                 ResetLabel();
-                this.Alarm1GroupBox.BackColor = Color.Black;
             }
             if (!IsOn)
             {
@@ -143,6 +144,8 @@ namespace OOPLab1
             AlarmSetMinTextBox.Text = "00";
             a1.AlarmMins = _alarmSetMins;
             a1.AlarmHours = _alarmSetHours;
+            timer1.Stop();
+            alarm1Sound.Stop();
             //alarm 2
             this.Alarm2GroupBox.BackColor = Color.Black;
             AlarmSetButton2.Enabled = _alarmButton2IsOn = true;
@@ -150,6 +153,8 @@ namespace OOPLab1
             AlarmSetMinTextBox2.Text = "00";
             a1.AlarmMins = _alarmSetMins2;
             a1.AlarmHours = _alarmSetHours2;
+            timer2.Stop();
+            alarm2Sound.Stop();
             //set the temp min/hrs for alarm class
             a1.tempHrs1 = getHours;
             a1.tempMin1 = getMinutes;
@@ -272,8 +277,6 @@ namespace OOPLab1
             }
             else
             {
-                SetHourTextBox.BackColor = Color.Yellow;
-                SetMinTextBox.BackColor = Color.Yellow;
                 ClockLabel.Text = getHours.ToString("00") + ":" + getMinutes.ToString("00");
                 c1.SetMins = getMinutes;
                 c1.SetHour = getHours;
@@ -454,7 +457,7 @@ namespace OOPLab1
 
             while (a1.Alarm1Count() == true)
             {
-                alarm1Sound.Play();
+                alarm1Sound.PlayLooping();
                 Alarm1GroupBox.Enabled = true;
                 for (int c = 0; c < 253 && Visible; c++)
                 {
@@ -479,7 +482,7 @@ namespace OOPLab1
             a1.tempMin2 = setMinute;
             while (a1.Alarm2Count() == true)
             {
-                alarm2Sound.Play();
+                alarm2Sound.PlayLooping();
                 Alarm2GroupBox.Enabled = true;
                 for (int c = 0; c < 253 && Visible; c++)
                 {
