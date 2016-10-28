@@ -20,11 +20,6 @@ namespace OOPLab1
         SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
         SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
 
-        //Sorry but i wont be able to attend today, got a time for haircut at 13:45
-        //that leaves me no time to get to the city, to only return back how again.
-        //hope i didnt break to much code, all stuff except the things i wrote in prev commit
-        //maybe we should only have sound on 1 alarm, that makes it just so much easier.
-
         //Import of a dll and adding the font to the memory for the program to use
         #region FontLoadingStuff
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]
@@ -39,12 +34,12 @@ namespace OOPLab1
 
         public Form1()
         {
-            //Splash Screen timer starts
-            //Thread splash = new Thread(new ThreadStart(SplashScreen));
-            //splash.Start();
-            //Thread.Sleep(5000);
+            //Splash Screen timer starts on a seperate thread
+            Thread splash = new Thread(new ThreadStart(SplashScreen));
+            splash.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
-            //splash.Abort();
+            splash.Abort();
 
             //"small" implementation of our custom font
             #region FontLoadingStuff
@@ -63,13 +58,14 @@ namespace OOPLab1
             t1.Interval = 1000;
             t1.Tick += T1_Tick;
         }
-
+        //SplashScreen method that runs the splash screen on start up of program
         public void SplashScreen()
         {
             Application.Run(new ProgressBarIntroScreen());
         }
 
         Regex nonNumericRegex = new Regex(@"\D");
+        //Main timer for the clock
         System.Windows.Forms.Timer t1 = new System.Windows.Forms.Timer();
         Clock c1 = new Clock();
         Alarm a1 = new Alarm();

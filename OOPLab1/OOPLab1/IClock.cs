@@ -8,10 +8,12 @@ namespace OOPLab1
 {
     interface IClock
     {
-        //void GetHours(int userHours);
-        //void GetMinutes();
-        //void SetClock();
-        //void StopClock();
+        int SetMins { get; set; }
+        int SetHour { get; set; }
+
+        int CheckMin();
+        int CheckHour();
+        void TimeReset();
 
     }
 }

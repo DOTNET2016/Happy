@@ -10,7 +10,7 @@ namespace OOPLab1
     interface IMinutes
     {
         int MinutesValue { get; set; }
-
-        //void TickMinutes();
+        int MinuteCount();
+      
     }
 }

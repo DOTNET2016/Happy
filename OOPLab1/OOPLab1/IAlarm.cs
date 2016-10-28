@@ -8,7 +8,12 @@ namespace OOPLab1
 {
     interface IAlarm
     {
-    //    void SetAlarm();
-    //    void CheckAlarm();
+        int AlarmMins { get; set; }      
+        int AlarmHours { get; set; }      
+        int Alarm2Mins { get; set; }     
+        int Alarm2Hours { get; set; }
+
+        bool Alarm1Count();
+        bool Alarm2Count();
     }
 }

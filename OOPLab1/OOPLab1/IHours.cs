@@ -10,7 +10,7 @@ namespace OOPLab1
     {
         int HoursValue { get; set; }
 
-        //void Tick();
-
+        int HourCount();
+        int HourValue();
     }
 }

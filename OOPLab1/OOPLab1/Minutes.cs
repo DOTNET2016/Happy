@@ -9,10 +9,12 @@ namespace OOPLab1
 {
     public class Minutes : IMinutes
     {
+        //instance of Hour Class
         Hour h2 = new Hour();
+        //veriables
         private int _minutesValue;
         int tempMin;
-
+        //property
         public int MinutesValue
         {
             get
@@ -27,7 +29,7 @@ namespace OOPLab1
                 }
             }
         }
-
+        //method that takes the clock value of minute and increments it by one. Then returns the new value of Minute.
         public int MinuteCount()
         {
             tempMin = _minutesValue;

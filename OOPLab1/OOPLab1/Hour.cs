@@ -11,7 +11,7 @@ namespace OOPLab1
     {
         private int _hoursValue;
         int tempHour;
-
+        //property
         public int HoursValue
         {
             get
@@ -26,7 +26,7 @@ namespace OOPLab1
                 }
             }                
           }
-
+        //method that takes the clock value of hour and increments it by one. Then returns the new value of Hour.
         public int HourCount()
         {
             tempHour = _hoursValue;
@@ -38,6 +38,7 @@ namespace OOPLab1
 
             return HoursValue;
         }
+        //method that stores the new value of hour.
         public int HourValue()
         {
             int hourValue = HoursValue;

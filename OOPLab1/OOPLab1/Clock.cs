@@ -9,12 +9,13 @@ namespace OOPLab1
 {
     class Clock : IClock
     {
+        //intances of Minute Class and Hour Class.
         Minutes m1 = new Minutes();
         Hour h1 = new Hour();
-
+        //variables 
         int _setMins;
         int _setHrs;
-
+        //properties
         public int SetMins
         {
             get
@@ -37,7 +38,7 @@ namespace OOPLab1
                 _setHrs = value;
             }
         }
-
+        //method that checks the value of the minute from the minute class and also controls when the HourCount method should be called.
         public int CheckMin()
         {
             int checkedMinute = m1.MinuteCount();
@@ -48,13 +49,13 @@ namespace OOPLab1
             }
             return checkedMinute;
         }
-
+        //method that checks the valkue of hour and stores it in a new veriable before returning that variable
         public int CheckHour()
         {
             int checkedHour = h1.HourValue();
             return checkedHour;
         }
-
+        //set the values of hrs and min to our properties so they can be used in form1.
         public void TimeReset()
         {
             m1.MinutesValue = SetMins;
