@@ -155,6 +155,10 @@ namespace OOPLab1
             a1.tempMin1 = getMinutes;
             a1.tempHrs2 = getHours;
             a1.tempMin2 = getMinutes;
+            timer1.Stop();
+            alarm1Sound.Stop();
+            timer2.Stop();
+            alarm2Sound.Stop();
         }
 
         #region ButtonBoolChecks
@@ -452,23 +456,26 @@ namespace OOPLab1
             a1.tempHrs1 = setHour;
             a1.tempMin1 = setMinute;
 
-            while (a1.Alarm1Count() == true)
+            if (a1.Alarm1Count() == true)
             {
                 alarm1Sound.Play();
                 Alarm1GroupBox.Enabled = true;
-                for (int c = 0; c < 253 && Visible; c++)
-                {
-                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    timer1.Start();
-                    Thread.Sleep(3);
-                }
-                for (int c = 254; c >= 0 && Visible; c--)
-                {
-                    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    Thread.Sleep(3);
-                }
+                this.Alarm1GroupBox.BackColor = Color.Red;
+                Application.DoEvents();
+                timer1.Start();
+                //for (int c = 0; c < 253 && Visible; c++)
+                //{
+                //    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                //    Application.DoEvents();
+                //    timer1.Start();
+                //    Thread.Sleep(3);
+                //}
+                //for (int c = 254; c >= 0 && Visible; c--)
+                //{
+                //    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                //    Application.DoEvents();
+                //    Thread.Sleep(3);
+                //}
             }
 
         }
@@ -477,23 +484,28 @@ namespace OOPLab1
         {
             a1.tempHrs2 = setHour;
             a1.tempMin2 = setMinute;
-            while (a1.Alarm2Count() == true)
+
+            if (a1.Alarm2Count() == true)
             {
                 alarm2Sound.Play();
                 Alarm2GroupBox.Enabled = true;
-                for (int c = 0; c < 253 && Visible; c++)
-                {
-                    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    timer2.Start();
-                    Thread.Sleep(3);
-                }
-                for (int c = 254; c >= 0 && Visible; c--)
-                {
-                    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                    Application.DoEvents();
-                    Thread.Sleep(3);
-                }
+                this.Alarm2GroupBox.BackColor = Color.Red;
+                Application.DoEvents();
+                timer2.Start();
+
+                //for (int c = 0; c < 253 && Visible; c++)
+                //{
+                //    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                //    Application.DoEvents();
+                //    timer2.Start();
+                //    Thread.Sleep(3);
+                //}
+                //for (int c = 254; c >= 0 && Visible; c--)
+                //{
+                //    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
+                //    Application.DoEvents();
+                //    Thread.Sleep(3);
+                //}
             }
         }
 
