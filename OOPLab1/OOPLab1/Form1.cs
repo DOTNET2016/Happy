@@ -16,7 +16,8 @@ namespace OOPLab1
 {
     public partial class Form1 : Form
     {
-        SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.AlarmSound1);
+
+        SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
         SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
 
         //Sorry but i wont be able to attend today, got a time for haircut at 13:45
@@ -166,7 +167,7 @@ namespace OOPLab1
             timer1.Stop();
             alarm1Sound.Stop();
             timer2.Stop();
-            //alarm2Sound.Stop();
+            alarm2Sound.Stop();
         }
 
         #region ButtonBoolChecks
@@ -470,21 +471,7 @@ namespace OOPLab1
                 this.Alarm1GroupBox.BackColor = Color.Lime;
                 Application.DoEvents();
                 timer1.Start();
-                //for (int c = 0; c < 253 && Visible; c++)
-                //{
-                //    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                //    Application.DoEvents();
-                //    timer1.Start();
-                //    Thread.Sleep(3);
-                //}
-                //for (int c = 254; c >= 0 && Visible; c--)
-                //{
-                //    this.Alarm1GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                //    Application.DoEvents();
-                //    Thread.Sleep(3);
-                //}
             }
-
         }
         //check the state of the alarm 2 with the method in alarm class - if active set off the alarm
         private void AlarmChecker2()
@@ -500,20 +487,6 @@ namespace OOPLab1
                 this.Alarm2GroupBox.BackColor = Color.Red;
                 Application.DoEvents();
                 timer2.Start();
-
-                //for (int c = 0; c < 253 && Visible; c++)
-                //{
-                //    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                //    Application.DoEvents();
-                //    timer2.Start();
-                //    Thread.Sleep(3);
-                //}
-                //for (int c = 254; c >= 0 && Visible; c--)
-                //{
-                //    this.Alarm2GroupBox.BackColor = Color.FromArgb(c, 255 - c, c);
-                //    Application.DoEvents();
-                //    Thread.Sleep(3);
-                //}
             }
         }
 
