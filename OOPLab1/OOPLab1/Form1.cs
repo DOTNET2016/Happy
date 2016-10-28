@@ -143,11 +143,13 @@ namespace OOPLab1
             AlarmSetMinTextBox.Text = "00";
             a1.AlarmMins = _alarmSetMins;
             a1.AlarmHours = _alarmSetHours;
+            AlarmSetButton.Text = "Set Alarm";
             //alarm 2
             this.Alarm2GroupBox.BackColor = Color.Black;
             AlarmSetButton2.Enabled = _alarmButton2IsOn = true;
             AlarmSetHoursTextBox2.Text = "00";
             AlarmSetMinTextBox2.Text = "00";
+            AlarmSetButton2.Text = "Set Alarm";
             a1.AlarmMins = _alarmSetMins2;
             a1.AlarmHours = _alarmSetHours2;
             //set the temp min/hrs for alarm class
