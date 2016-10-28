@@ -17,7 +17,7 @@ namespace OOPLab1
     public partial class Form1 : Form
     {
         SoundPlayer alarm1Sound = new SoundPlayer(Properties.Resources.AlarmSound1);
-        //SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
+        SoundPlayer alarm2Sound = new SoundPlayer(Properties.Resources.AlarmSound2);
 
         //Sorry but i wont be able to attend today, got a time for haircut at 13:45
         //that leaves me no time to get to the city, to only return back how again.
@@ -411,7 +411,6 @@ namespace OOPLab1
         //set the alarm 2 and control the user input
         private void AlarmSetButton2_Click(object sender, EventArgs e)
         {
-            AlarmButton2IsOn = !AlarmButton2IsOn;
             if (_alarmSetHours2 >= 24)
             {
                 MessageBox.Show("It's a 24 hour clock dummy! Enter 1 - 23");
@@ -439,6 +438,7 @@ namespace OOPLab1
                 AlarmSetMinTextBox2.Enabled = _alarmButton2IsOn = false;
                 AlarmSetMinTextBox2.BackColor = _IsOn ? Color.White : Color.Yellow;
                 AlarmSetButton2.Enabled = _alarmButton2IsOn = false;
+                AlarmButton2IsOn = !AlarmButton2IsOn;
                 a1.Alarm2Mins = _alarmSetMins2;
                 a1.Alarm2Hours = _alarmSetHours2;
             }
@@ -464,6 +464,7 @@ namespace OOPLab1
 
             if (a1.Alarm1Count() == true)
             {
+                alarm2Sound.Stop();
                 alarm1Sound.PlayLooping();
                 Alarm1GroupBox.Enabled = true;
                 this.Alarm1GroupBox.BackColor = Color.Lime;
@@ -493,7 +494,8 @@ namespace OOPLab1
 
             if (a1.Alarm2Count() == true)
             {
-                //alarm2Sound.PlayLooping();
+                alarm1Sound.Stop();
+                alarm2Sound.PlayLooping();
                 Alarm2GroupBox.Enabled = true;
                 this.Alarm2GroupBox.BackColor = Color.Red;
                 Application.DoEvents();
@@ -526,7 +528,7 @@ namespace OOPLab1
         {
             this.Alarm2GroupBox.BackColor = Color.Black;
             timer2.Stop();
-            //alarm2Sound.Stop();
+            alarm2Sound.Stop();
         }
         #endregion
     }
